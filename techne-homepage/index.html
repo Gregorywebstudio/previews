@@ -8,7 +8,7 @@
 <meta name="description" content="TECHNE: engineered headhunting for deep tech. Homepage concept with UK and US editions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap">
 <style>
 /* Layout: an engineering drawing at night. Blueprint grid, circuit traces taken from the N in the TECHNE logo, sector colours used only as signals. */
 :root {
@@ -26,14 +26,15 @@
   --mute: rgba(255, 255, 255, 0.72);
   --faint: rgba(255, 255, 255, 0.5);
   --s-defence: #D98A8A;
-  --s-space: #A295DD;
-  --s-mobility: #94D6D8;
-  --s-robotics: #FF9D6A;
-  --s-energy: #62B86F;
-  --s-health: #6FC3C9;
+  --s-space: #A296DD;
+  --s-aero: #94D6D8;
+  --s-vc: #8FD3BD;
+  --s-robotics: #FF9E6A;
+  --s-energy: #63B86F;
+  --s-health: #40C0E8;
   --display: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --body: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --mono: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --wrap: 1240px;
   --pad-x: max(16px, env(safe-area-inset-left, 0px));
   --pad-x-r: max(16px, env(safe-area-inset-right, 0px));
@@ -50,9 +51,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
 .wrap { width: 100%; max-width: calc(var(--wrap) + 96px); margin: 0 auto; padding-left: var(--pad-x); padding-right: var(--pad-x-r); }
 @media (min-width: 720px) { .wrap { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); } }
-.eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow { font-family: var(--mono); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 10px; }
 .eyebrow::before { content: ""; width: 7px; height: 7px; border: 1.5px solid currentColor; border-radius: 50%; }
-h1, h2, h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98; margin: 0; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98; margin: 0; text-wrap: balance; }
 h2 { font-size: clamp(2rem, 4.6vw, 3.6rem); }
 h2 em, h1 em { font-style: normal; color: var(--blue); }
 p { margin: 0; }
@@ -66,6 +67,14 @@ p { margin: 0; }
 .btn-line:hover { border-color: var(--blue); color: var(--blue); }
 .swap { animation: swap 1.4s var(--ease); }
 @keyframes swap { 0% { color: var(--blue); text-shadow: 0 0 18px rgba(148,214,216,.9); } 100% { text-shadow: 0 0 0 transparent; } }
+
+.ico { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--blue); display: grid; place-items: center; color: var(--blue); box-shadow: 0 0 18px rgba(148,214,216,.35), inset 0 0 12px rgba(148,214,216,.15); }
+.ico svg { width: 22px; height: 22px; }
+.hub .tint, .guest .ph .tint { position: absolute; inset: 0; background: var(--ocean); mix-blend-mode: color; opacity: .55; z-index: -1; pointer-events: none; transition: opacity .6s; }
+.guest .ph .tint { z-index: 1; opacity: .6; }
+.guest:hover .ph .tint { opacity: .25; }
+.hub:hover .tint { opacity: .3; }
+.series-item .num { font-weight: 700; font-size: 0.7rem; color: var(--faint); letter-spacing: .1em; width: 22px; }
 
 /* ---------- Navigation ---------- */
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(3, 9, 11, 0.72); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid transparent; transition: border-color .3s, background .3s; }
@@ -224,19 +233,20 @@ p { margin: 0; }
 .sectors .head > div { display: grid; gap: 18px; }
 .hubs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .hub { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 340px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); isolation: isolate; transition: border-color .4s var(--ease), transform .5s var(--ease); }
-.hub img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .45; filter: grayscale(.6) contrast(1.1); transform: scale(1.04); transition: opacity .6s var(--ease), transform 1.2s var(--ease), filter .6s; }
-.hub::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(3,9,11,.1) 0%, rgba(3,9,11,.55) 45%, rgba(3,9,11,.96) 100%), radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--c) 40%, transparent), transparent 60%); transition: opacity .4s; }
+.hub img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .5; filter: saturate(.75) contrast(1.05); transform: scale(1.04); transition: opacity .6s var(--ease), transform 1.2s var(--ease), filter .6s; }
+.hub::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(3,9,11,.1) 0%, rgba(3,9,11,.55) 45%, rgba(3,9,11,.96) 100%), radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--c) 40%, transparent), transparent 60%); transition: opacity .4s; }
 .hub::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--c); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); }
 .hub:hover, .hub:focus-visible { border-color: color-mix(in srgb, var(--c) 60%, transparent); transform: translateY(-4px); }
-.hub:hover img, .hub:focus-visible img { opacity: .75; transform: scale(1.1); filter: grayscale(0) contrast(1.1); }
+.hub:hover img, .hub:focus-visible img { opacity: .8; transform: scale(1.1); filter: saturate(1) contrast(1.05); }
 .hub:hover::after, .hub:focus-visible::after { transform: scaleX(1); }
+.hub .top, .hub .bot { position: relative; z-index: 1; }
 .hub .top { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); }
 .hub .top span:last-child { color: var(--faint); }
 .hub .bot { padding: 22px; display: grid; gap: 10px; }
 .hub .series { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c); }
 .hub h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1; }
 .hub p { color: var(--mute); font-size: 0.9rem; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .6s var(--ease), opacity .4s; }
-.hub:hover p, .hub:focus-visible p { max-height: 6em; opacity: 1; }
+.hub:hover p, .hub:focus-visible p { max-height: 9em; opacity: 1; }
 .hub .enter { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 4px; }
 .hub .enter svg { width: 12px; height: 12px; transition: transform .3s var(--ease); }
 .hub:hover .enter svg { transform: translateX(5px); }
@@ -254,11 +264,11 @@ p { margin: 0; }
 .stats b { font-size: clamp(1.8rem, 3.4vw, 2.7rem); font-weight: 800; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
 .stats span { font-size: 0.78rem; color: var(--mute); }
 .series-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
-.series-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 18px 4px; border-bottom: 1px solid var(--line); transition: background .3s, padding .3s var(--ease); }
+.series-item { display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 13px 4px; border-bottom: 1px solid var(--line); transition: background .3s, padding .3s var(--ease); }
 .series-item:hover { background: rgba(148,214,216,.05); padding-left: 12px; }
 .series-item .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px var(--c); }
 .series-item b { display: block; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; }
-.series-item small { display: block; color: var(--mute); font-size: 0.84rem; margin-top: 2px; }
+.series-item small { display: block; color: var(--c); font-size: 0.66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-top: 3px; }
 .series-item em { font-style: normal; font-family: var(--mono); font-size: 0.66rem; color: var(--faint); letter-spacing: 0.1em; }
 .guests { margin-top: clamp(48px, 6vw, 72px); }
 .guests .rail { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
@@ -376,7 +386,6 @@ footer.site .legal a:hover { color: var(--blue); }
   <div class="wrap">
     <a class="logo" href="#top" aria-label="TECHNE home">
       <img src="logo-techne-wordmark.png" alt="TECHNE" width="480" height="172">
-      <small>SPECIALIST TALENT SOURCING</small>
     </a>
     <ul class="menu" id="menu">
       <li>
@@ -384,12 +393,12 @@ footer.site .legal a:hover { color: var(--blue); }
           <svg class="chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg>
         </button>
         <div class="drop" id="hubs-drop" hidden>
-          <a href="#sectors" style="--c:var(--s-defence)"><span class="dot"></span><span data-t="defenceTech">Defence Tech</span><em>Hub 01</em></a>
+          <a href="#sectors" style="--c:var(--s-defence)"><span class="dot"></span><span data-t="defenceTech">Defence</span><em>Hub 01</em></a>
           <a href="#sectors" style="--c:var(--s-space)"><span class="dot"></span>Space<em>Hub 02</em></a>
-          <a href="#sectors" style="--c:var(--s-mobility)"><span class="dot"></span>Future Mobility<em>Hub 03</em></a>
-          <a href="#sectors" style="--c:var(--s-robotics)"><span class="dot"></span>Robotics<em>Hub 04</em></a>
-          <a href="#sectors" style="--c:var(--s-energy)"><span class="dot"></span>Energy<em>Hub 05</em></a>
-          <a href="#sectors" style="--c:var(--s-health)"><span class="dot"></span>Healthcare Tech<em>Hub 06</em></a>
+          <a href="#sectors" style="--c:var(--s-aero)"><span class="dot"></span>Aerospace<em>Hub 03</em></a>
+          <a href="#sectors" style="--c:var(--s-robotics)"><span class="dot"></span>Robotics &amp; AI<em>Hub 04</em></a>
+          <a href="#sectors" style="--c:var(--s-energy)"><span class="dot"></span>Clean Energy<em>Hub 05</em></a>
+          <a href="#sectors" style="--c:var(--s-health)"><span class="dot"></span>Health Tech<em>Hub 06</em></a>
         </div>
       </li>
       <li><a href="#connect">TECHNE Connect</a></li>
@@ -423,18 +432,18 @@ footer.site .legal a:hover { color: var(--blue); }
         <span class="l"><span>extraordinary</span></span>
         <span class="l"><span>headhunting.</span></span>
       </h1>
-      <p class="sub"><strong>That's what TECHNE is built for.</strong> We headhunt for the companies building <span data-t="defenceLower">defence</span>, space, mobility, robotics, energy and healthcare technology, reaching the engineers and leaders who never see a job ad.</p>
+      <p class="sub sp"><strong>That's what TECHNE is built for.</strong> Engineered headhunting that elevates your brand. Precision-led recruitment combining insight, content and process design for organisations driving innovation across defence, space, aerospace, robotics and AI, clean energy and health tech.</p>
       <div class="ctas">
         <a class="btn btn-solid" href="#contact">Start a search <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
         <a class="btn btn-line" href="#challenge">Our solutions</a>
       </div>
       <div class="chips" aria-label="Industry hubs">
-        <a class="chip" href="#sectors" style="--c:var(--s-defence)"><span class="dot"></span><span data-t="defenceTech">Defence Tech</span></a>
+        <a class="chip" href="#sectors" style="--c:var(--s-defence)"><span class="dot"></span><span data-t="defenceTech">Defence</span></a>
         <a class="chip" href="#sectors" style="--c:var(--s-space)"><span class="dot"></span>Space</a>
-        <a class="chip" href="#sectors" style="--c:var(--s-mobility)"><span class="dot"></span>Future Mobility</a>
-        <a class="chip" href="#sectors" style="--c:var(--s-robotics)"><span class="dot"></span>Robotics</a>
-        <a class="chip" href="#sectors" style="--c:var(--s-energy)"><span class="dot"></span>Energy</a>
-        <a class="chip" href="#sectors" style="--c:var(--s-health)"><span class="dot"></span>Healthcare Tech</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-aero)"><span class="dot"></span>Aerospace</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-robotics)"><span class="dot"></span>Robotics &amp; AI</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-energy)"><span class="dot"></span>Clean Energy</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-health)"><span class="dot"></span>Health Tech</a>
       </div>
     </div>
     <aside class="readout" aria-label="Example of a live search">
@@ -485,16 +494,19 @@ footer.site .legal a:hover { color: var(--blue); }
 <div class="wrap">
   <div class="pillars">
     <article>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></span>
       <span class="tag">What we do</span>
       <h3>Specialist headhunting for deep tech</h3>
-      <p>We map the whole market for your role, including adjacent industries, then approach the right people directly with your story.</p>
+      <p class="sp">We map the whole market for your role, including adjacent industries, then approach the right people directly with your story.</p>
     </article>
     <article>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="4.5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 6.5V11L6.3 16.4M12 11l5.7 5.4M7 18h10"/></svg></span>
       <span class="tag">Why it's different</span>
       <h3>The next generation of headhunting</h3>
       <p>Data, content and process design in one search. Passive candidates hear about your mission and culture before they hear about the job.</p>
     </article>
     <article>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18"/><path d="M6 16v-4M11 16V9M16 16v-6"/><path d="M4 9l6-4 4 3 6-5"/><path d="M16 3h4v4"/></svg></span>
       <span class="tag">The value</span>
       <h3>More engagement, a stronger brand</h3>
       <p>Much higher engagement on your roles, and your employer brand built across the market as we headhunt.</p>
@@ -523,7 +535,7 @@ footer.site .legal a:hover { color: var(--blue); }
         <span class="eyebrow">TECHNE trailer</span>
         <h2 id="tr-h">Engineered to <em>engage.</em></h2>
       </div>
-      <p class="lede">A short look at how TECHNE works, who we work with, and why the best people in deep tech take our calls.</p>
+      <p class="lede">A short look at how TECHNE works and the sectors we support, from the people who run our searches.</p>
     </div>
     <div class="screen" id="screen">
       <video id="trailer-v" src="trailer.mp4" poster="trailer.jpg" muted loop playsinline preload="metadata" aria-label="TECHNE brand trailer"></video>
@@ -557,22 +569,25 @@ footer.site .legal a:hover { color: var(--blue); }
   <div class="wrap">
     <div class="grid">
       <div class="intro">
-                <span class="eyebrow">TECHNE Connect podcast</span>
+                <span class="eyebrow">TECHNE Connect</span>
         <h2 id="cn-h">Inspire. Elevate. <em>Connect.</em></h2>
-        <p class="lede">The podcast where the founders, engineers and investors shaping deep tech talk openly about what they're building. Every conversation grows the network your next hire comes from.</p>
+        <p class="lede sp">TECHNE Connect is our podcast, featuring the founders, engineers and investors driving innovation across our sectors. Episodes are organised by industry, and every conversation grows the network your next hire comes from.</p>
         <div class="stats">
           <div><b data-count="500" data-suffix="k+">500k+</b><span>Downloads</span></div>
           <div><b data-count="200" data-suffix="+">200+</b><span>Expert guests</span></div>
           <div><b data-count="70" data-suffix="+">70+</b><span>University partnerships</span></div>
         </div>
       </div>
-      <div class="series-list" aria-label="Podcast series">
-        <a class="series-item" href="#connect" style="--c:var(--s-defence)"><span class="dot"></span><span><b data-t="seriesDefence">Connect to Defence</b><small>Founders and operators rebuilding <span data-t="defenceLower">defence</span> technology.</small></span><em>SERIES</em></a>
-        <a class="series-item" href="#connect" style="--c:var(--s-space)"><span class="dot"></span><span><b>Connect to Orbit</b><small>The people taking commercial space from launch to orbit.</small></span><em>SERIES</em></a>
-        <a class="series-item" href="#connect" style="--c:var(--s-mobility)"><span class="dot"></span><span><b>Connect to Flight</b><small>Electric aviation, eVTOL and the future of how we move.</small></span><em>SERIES</em></a>
-        <a class="series-item" href="#connect" style="--c:var(--s-robotics)"><span class="dot"></span><span><b>Connect to Robotics</b><small>Humanoids, autonomy and the teams building them.</small></span><em>SERIES</em></a>
-        <a class="series-item" href="#connect" style="--c:var(--s-energy)"><span class="dot"></span><span><b>Connect to Power</b><small>Clean energy, storage and the grid of the future.</small></span><em>SERIES</em></a>
-        <a class="series-item" href="#connect" style="--c:var(--s-health)"><span class="dot"></span><span><b>Connect to Health Tech</b><small>Clinical leaders and builders changing how care works.</small></span><em>SERIES</em></a>
+      <div class="series-list" aria-label="TECHNE Connect content pillars">
+        <a class="series-item" href="#connect" style="--c:var(--s-space)"><span class="num">01</span><span class="dot"></span><span><b>Connect To Orbit</b><small>Space</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-aero)"><span class="num">02</span><span class="dot"></span><span><b>Connect To Visionaries</b><small>Founders &amp; CEOs</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-energy)"><span class="num">03</span><span class="dot"></span><span><b>Connect To Energy</b><small>Energy</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-aero)"><span class="num">04</span><span class="dot"></span><span><b>Connect Live</b><small>On site</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-robotics)"><span class="num">05</span><span class="dot"></span><span><b>Connect To Robotics</b><small>Robotics</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-health)"><span class="num">06</span><span class="dot"></span><span><b>Connect To Health Tech</b><small>Health Tech</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-vc)"><span class="num">07</span><span class="dot"></span><span><b>Connect To Venture Capital</b><small>VCs</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-defence)"><span class="num">08</span><span class="dot"></span><span><b>Connect To Defence Innovation</b><small class="sp">Defence</small></span><em>Listen</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-aero)"><span class="num">09</span><span class="dot"></span><span><b>Connect To Flight</b><small>Aerospace</small></span><em>Listen</em></a>
       </div>
     </div>
   </div>
@@ -652,7 +667,7 @@ footer.site .legal a:hover { color: var(--blue); }
 <footer class="site">
   <div class="wrap">
     <div class="top">
-      <a class="logo" href="#top" aria-label="Back to the TECHNE homepage"><img src="logo-techne-wordmark.png" alt="TECHNE" width="480" height="172" style="width:150px"><small>SPECIALIST TALENT SOURCING</small></a>
+      <a class="logo" href="#top" aria-label="Back to the TECHNE homepage"><img src="logo-techne-logo.png" alt="TECHNE Specialist Talent Sourcing" width="469" height="200" style="width:200px"></a>
       <nav aria-label="Footer"><ul><li><a href="#contact">Contact Us</a></li><li><a href="#trailer">About Us</a></li><li><a href="#sectors">Industry Hubs</a></li><li><a href="#reach">Candidates</a></li></ul></nav>
       <div class="social">
         <a href="https://www.linkedin.com/company/techne-talent/" target="_blank" rel="noopener" aria-label="TECHNE on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-1.75 3.4-1.75 3.6 0 4.25 2.2 4.25 5.1v6.15h-4v-5.45c0-1.3-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.86v5.54h-4z"/></svg></a>
@@ -675,39 +690,39 @@ let globeGoHome = null;
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const SEC = { defence: "#D98A8A", space: "#A295DD", mobility: "#94D6D8", robotics: "#FF9D6A", energy: "#62B86F", health: "#6FC3C9" };
+const SEC = { defence: "#D98A8A", space: "#A296DD", aero: "#94D6D8", robotics: "#FF9E6A", energy: "#63B86F", health: "#40C0E8" };
 const SEC_LIST = Object.values(SEC);
 
 /* ---------------- Region content ---------------- */
 const T = {
   uk: {
-    defenceTech: "Defence Tech", defenceLower: "defence", seriesDefence: "Connect to Defence",
+    defenceTech: "Defence",
     phone: "+44 (0)1925 346331", callLabel: "Call our UK team", edition: "UK edition",
     toast: "Viewing the UK site. Spelling, contacts and live searches updated.",
     lede: "From our teams in the UK and US we headhunt for deep tech companies across Europe and North America. Choose a country to see where we work.",
     home: 0,
     searches: [
       ["Head of GNC", "space", "Space", "Harwell, Oxfordshire", 412, 5],
-      ["VP Engineering", "defence", "Defence Tech", "Bristol", 286, 4],
-      ["Principal Robotics Engineer", "robotics", "Robotics", "Cambridge", 341, 6],
-      ["Battery Systems Lead", "energy", "Energy", "Manchester", 198, 5],
-      ["Head of Clinical AI", "health", "Healthcare Tech", "London", 254, 4],
-      ["Propulsion Lead", "mobility", "Future Mobility", "Derby", 173, 5]
+      ["VP Engineering", "defence", "Defence", "Bristol", 286, 4],
+      ["Principal Robotics Engineer", "robotics", "Robotics & AI", "Cambridge", 341, 6],
+      ["Battery Systems Lead", "energy", "Clean Energy", "Manchester", 198, 5],
+      ["Head of Clinical AI", "health", "Health Tech", "London", 254, 4],
+      ["Propulsion Lead", "aero", "Aerospace", "Derby", 173, 5]
     ]
   },
   us: {
-    defenceTech: "Defense Tech", defenceLower: "defense", seriesDefence: "Connect to Defense",
+    defenceTech: "Defense",
     phone: "+1 323 471 6946", callLabel: "Call our US team", edition: "US edition",
     toast: "Viewing the US site. Spelling, contacts and live searches updated.",
     lede: "From our teams in the US and UK we headhunt for deep tech companies across North America and Europe. Choose a country to see where we work.",
     home: 1,
     searches: [
       ["Head of GNC", "space", "Space", "Los Angeles, CA", 538, 5],
-      ["VP Engineering", "defence", "Defense Tech", "Arlington, VA", 402, 4],
-      ["Principal Robotics Engineer", "robotics", "Robotics", "Boston, MA", 467, 6],
-      ["Battery Systems Lead", "energy", "Energy", "Austin, TX", 311, 5],
-      ["Head of Clinical AI", "health", "Healthcare Tech", "San Francisco, CA", 389, 4],
-      ["eVTOL Propulsion Lead", "mobility", "Future Mobility", "Seattle, WA", 226, 5]
+      ["VP Engineering", "defence", "Defense", "Arlington, VA", 402, 4],
+      ["Principal Robotics Engineer", "robotics", "Robotics & AI", "Boston, MA", 467, 6],
+      ["Battery Systems Lead", "energy", "Clean Energy", "Austin, TX", 311, 5],
+      ["Head of Clinical AI", "health", "Health Tech", "San Francisco, CA", 389, 4],
+      ["eVTOL Propulsion Lead", "aero", "Aerospace", "Seattle, WA", 226, 5]
     ]
   }
 };
@@ -717,31 +732,32 @@ try { const h = location.hash.replace("#", ""); if (h === "us" || h === "uk") re
 /* ---------------- Build repeated content ---------------- */
 const arrow = '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg>';
 const HUBS = [
-  ["defence", "defence.jpg", "Hub 01", "seriesDefence", "Connect to Defence", "defenceTech", "Defence Tech", "Autonomy, counter-UAS, sensing and the software that ties them together."],
-  ["space", "space.jpg", "Hub 02", "", "Connect to Orbit", "", "Space", "Launch, satellites, in-space propulsion and Earth observation."],
-  ["mobility", "mobility.jpg", "Hub 03", "", "Connect to Flight", "", "Future Mobility", "Electric aviation, eVTOL, autonomous vehicles and new propulsion."],
-  ["robotics", "robotics.jpg", "Hub 04", "", "Connect to Robotics", "", "Robotics", "Humanoids, industrial automation, perception and control."],
-  ["energy", "energy.jpg", "Hub 05", "", "Connect to Power", "", "Energy", "Clean energy, storage, grid technology and fusion."],
-  ["health", "health.jpg", "Hub 06", "", "Connect to Health Tech", "", "Healthcare Tech", "Medical devices, clinical AI and digital health platforms."]
+  ["defence", "defence.jpg", "Hub 01", "Connect To Defence Innovation", "defenceTech", "Defence", "As defence technology enters a new era of innovation, AI, autonomous systems and cyber capabilities are redefining the sector. We help build the teams shaping the future of defence."],
+  ["space", "space.jpg", "Hub 02", "Connect To Orbit", "", "Space", "As NASA's return to the Moon and the growth of commercial space redefine what's possible, we connect organisations with the talent behind the next generation of space innovation."],
+  ["aero", "mobility.jpg", "Hub 03", "Connect To Flight", "", "Aerospace", "As investment in advanced aircraft technologies and sustainable aviation gathers pace, we help organisations secure the talent shaping the future of aerospace."],
+  ["robotics", "robotics.jpg", "Hub 04", "Connect To Robotics", "", "Robotics &amp; AI", "As AI and robotics redefine what's possible across engineering and manufacturing, we give organisations access to the talent driving innovation forward."],
+  ["energy", "energy.jpg", "Hub 05", "Connect To Energy", "", "Clean Energy &amp; Battery Technology", "As clean energy projects scale and battery technology evolves, we help organisations build the teams delivering the next generation of sustainable energy."],
+  ["health", "health.jpg", "Hub 06", "Connect To Health Tech", "", "Health Tech", "As innovation accelerates across symptom tracking, digital health and medical devices, we help organisations build the teams driving the future of healthcare."]
 ];
 $("#hubs").innerHTML = HUBS.map(h => `
   <a class="hub" href="#sectors" style="--c:${SEC[h[0]]}">
     <img src="${h[1]}" alt="" loading="lazy">
+    <span class="tint" aria-hidden="true"></span>
     <div class="top"><span>${h[2]}</span><span class="dot" aria-hidden="true"></span></div>
     <div class="bot">
-      <span class="series" ${h[3] ? `data-t="${h[3]}"` : ""}>${h[4]}</span>
-      <h3 ${h[5] ? `data-t="${h[5]}"` : ""}>${h[6]}</h3>
-      <p>${h[7]}</p>
+      <span class="series">${h[3]}</span>
+      <h3 ${h[4] ? `data-t="${h[4]}"` : ""}>${h[5]}</h3>
+      <p class="sp">${h[6]}</p>
       <span class="enter">Enter the hub ${arrow.replace('stroke-width="1.8"', 'stroke-width="2"')}</span>
     </div>
   </a>`).join("");
 
 const LOGOS = [
-  ["img", "cambridge-aerospace.png", "Cambridge Aerospace", true], ["pod", "IENAI Space", "Connect to Orbit"], ["img", "forterra.png", "Forterra"],
+  ["img", "cambridge-aerospace.png", "Cambridge Aerospace", true], ["pod", "IENAI Space", "Connect To Orbit"], ["img", "forterra.png", "Forterra"],
   ["img", "iceye.png", "ICEYE", true], ["pod", "Max Space", "Connect Live"], ["img", "twentyfour-industries.png", "Twentyfour Industries"],
-  ["img", "orbion.png", "Orbion", true], ["pod", "Powerus", "Connect to Visionaries"], ["img", "overview-energy.png", "Overview Energy", true],
-  ["img", "starcatcher.png", "Star Catcher"], ["pod", "Happy Health", "Connect to Health Tech"], ["img", "ampaire.png", "Ampaire", true],
-  ["img", "starpath.png", "Starpath"], ["pod", "TerraSpark", "Connect to Visionaries"]
+  ["img", "orbion.png", "Orbion", true], ["pod", "Powerus", "Connect To Visionaries"], ["img", "overview-energy.png", "Overview Energy", true],
+  ["img", "starcatcher.png", "Star Catcher"], ["pod", "Happy Health", "Connect To Health Tech"], ["img", "ampaire.png", "Ampaire", true],
+  ["img", "starpath.png", "Starpath"], ["pod", "TerraSpark", "Connect To Visionaries"]
 ];
 const logoRun = (hidden) => LOGOS.map((l, i) => {
   const c1 = SEC_LIST[i % 6], c2 = SEC_LIST[(i + 1) % 6];
@@ -751,28 +767,31 @@ const logoRun = (hidden) => LOGOS.map((l, i) => {
 $("#logo-track").innerHTML = logoRun(false) + logoRun(true);
 
 const GUESTS = [
-  ["Laura Avonius", "CEO and Co-Founder", "Audicin", "ep-01", "Connect to Visionaries"],
+  ["Laura Avonius", "CEO and Co-Founder", "Audicin", "ep-01", "Connect To Visionaries"],
   ["Saleem Miyan", "Co-Founder & CEO", "Max Space", "ep-02", "Connect Live"],
-  ["Philip Veber", "Principal", "Gaingles", "ep-03", "Connect to Venture Capital"],
-  ["Sara Correyero Plaza", "CEO and Co-Founder", "IENAI Space", "ep-04", "Connect to Visionaries"],
-  ["Sanjay Vijendran", "Co-Founder and CTO", "TerraSpark", "ep-05", "Connect to Visionaries"],
-  ["Marina Hutter", "Head of People", "VÆRIDION", "ep-06", "Connect to Flight"],
-  ["James Murphy", "Founder & CEO", "Setanta Space", "ep-07", "Connect to Visionaries"],
-  ["Matt Gjertsen", "Founder", "BUILT", "ep-08", "Connect to Visionaries"],
-  ["Jeffrey Durmer", "Chief Medical Officer", "Happy Health", "ep-09", "Connect to Health Tech"],
-  ["Abhijeet Shenoi", "VP of Engineering", "Bunker Hill Health", "ep-10", "Connect to Health Tech"],
-  ["Sophia Hummelman", "Co-Founder and CCO", "Remedium Energy", "ep-11", "Connect to Visionaries"],
-  ["Brett Velicovich", "Co-Founder and President", "Powerus", "ep-12", "Connect to Visionaries"]
+  ["Philip Veber", "Principal", "Gaingles", "ep-03", "Connect To Venture Capital"],
+  ["Sara Correyero Plaza", "CEO and Co-Founder", "IENAI Space", "ep-04", "Connect To Visionaries"],
+  ["Sanjay Vijendran", "Co-Founder and CTO", "TerraSpark", "ep-05", "Connect To Visionaries"],
+  ["Marina Hutter", "Head of People", "VÆRIDION", "ep-06", "Connect To Flight"],
+  ["James Murphy", "Founder & CEO", "Setanta Space", "ep-07", "Connect To Visionaries"],
+  ["Matt Gjertsen", "Founder", "BUILT", "ep-08", "Connect To Visionaries"],
+  ["Jeffrey Durmer", "Chief Medical Officer", "Happy Health", "ep-09", "Connect To Health Tech"],
+  ["Abhijeet Shenoi", "VP of Engineering", "Bunker Hill Health", "ep-10", "Connect To Health Tech"],
+  ["Sophia Hummelman", "Co-Founder and CCO", "Remedium Energy", "ep-11", "Connect To Visionaries"],
+  ["Brett Velicovich", "Co-Founder and President", "Powerus", "ep-12", "Connect To Visionaries"]
 ];
 const wave = Array.from({ length: 14 }, (_, n) => `<i style="--n:${n}"></i>`).join("");
 const guestRun = (hidden) => GUESTS.map(g => `
   <a class="guest" href="#connect" ${hidden ? 'aria-hidden="true" tabindex="-1"' : ""}>
-    <div class="ph"><img src="guest-${g[3]}.jpg" alt="${hidden ? "" : g[0]}" loading="lazy"><span class="wave" aria-hidden="true">${wave}</span></div>
+    <div class="ph"><img src="guest-${g[3]}.jpg" alt="${hidden ? "" : g[0]}" loading="lazy"><span class="tint" aria-hidden="true"></span><span class="wave" aria-hidden="true">${wave}</span></div>
     <div class="meta"><em>${g[4]}</em><b>${g[0]}</b><small>${g[1]}, ${g[2]}</small></div>
   </a>`).join("");
 $("#guest-track").innerHTML = guestRun(false) + guestRun(true);
 
 /* ---------------- Region switch ---------------- */
+const US_WORDS = [[/\bdefence\b/g, "defense"], [/\bDefence\b/g, "Defense"], [/organis/g, "organiz"], [/Organis/g, "Organiz"], [/programmes/g, "programs"], [/recognis/g, "recogniz"], [/speciali[s]e/g, "specialize"]];
+/* Swaps each UK spelling for its US form (or back) and wraps the changed word so it glows briefly */
+const spell = (s, us, glow) => US_WORDS.reduce((acc, [re, w]) => acc.replace(re, m => { const out = us ? w : m; return glow ? `<span class="swap">${out}</span>` : out; }), s);
 const regionEl = $("#region");
 const toast = $("#toast");
 let toastTimer = 0;
@@ -789,6 +808,12 @@ function applyRegion(r, announce) {
     if (announce) { el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); }
   });
   $("#reach-lede").textContent = d.lede;
+  $$(".sp").forEach(el => {
+    if (el.dataset.uk == null) el.dataset.uk = el.innerHTML;
+    const plain = spell(el.dataset.uk, r === "us", false);
+    if (el.textContent === new DOMParser().parseFromString(plain, "text/html").body.textContent) return;
+    el.innerHTML = spell(el.dataset.uk, r === "us", !!announce);
+  });
   try { localStorage.setItem("techne-region", r); } catch (e) {}
   try { history.replaceState(null, "", "#" + r); } catch (e) {}
   searchIdx = 0; showSearch(true); cycleSearch();
@@ -952,7 +977,7 @@ counters.forEach(c => io.observe(c));
 const QUOTES = [
   ["[Client testimonial on moving away from the job description]", "[Name]", "[Role, Company]", "Robotics", SEC.robotics],
   ["[Client testimonial on the quality of the shortlist and speed to hire]", "[Name]", "[Role, Company]", "Space", SEC.space],
-  ["[Client testimonial on how TECHNE built their employer brand during the search]", "[Name]", "[Role, Company]", "Energy", SEC.energy]
+  ["[Client testimonial on how TECHNE built their employer brand during the search]", "[Name]", "[Role, Company]", "Clean Energy", SEC.energy]
 ];
 let qi = 0, qTimer = 0;
 const qText = $("#q-text"), qCite = $("#q-cite"), qDots = $$("#q-dots i");
