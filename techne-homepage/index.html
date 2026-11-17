@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TECHNE Homepage Concept</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="TECHNE: engineered headhunting for deep tech. Homepage concept with UK and US editions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineering drawing at night. Blueprint grid, circuit traces taken from the N in the TECHNE logo, sector colours used only as signals. */
+:root {
+  color-scheme: dark;
+  --ink: #000000;
+  --abyss: #03090b;
+  --panel: #061014;
+  --panel-2: #0a1a1f;
+  --line: rgba(148, 214, 216, 0.14);
+  --line-2: rgba(148, 214, 216, 0.32);
+  --blue: #94D6D8;
+  --teal: #199DAE;
+  --ocean: #287FA0;
+  --white: #FFFFFF;
+  --mute: rgba(255, 255, 255, 0.72);
+  --faint: rgba(255, 255, 255, 0.5);
+  --s-defence: #D98A8A;
+  --s-space: #A295DD;
+  --s-mobility: #94D6D8;
+  --s-robotics: #FF9D6A;
+  --s-energy: #62B86F;
+  --s-health: #6FC3C9;
+  --display: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --wrap: 1240px;
+  --pad-x: max(16px, env(safe-area-inset-left, 0px));
+  --pad-x-r: max(16px, env(safe-area-inset-right, 0px));
+  --section: clamp(80px, 10vw, 148px);
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--abyss); color: var(--white); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: rgba(3, 9, 11, 0.92); }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+.wrap { width: 100%; max-width: calc(var(--wrap) + 96px); margin: 0 auto; padding-left: var(--pad-x); padding-right: var(--pad-x-r); }
+@media (min-width: 720px) { .wrap { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); } }
+.eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 7px; height: 7px; border: 1.5px solid currentColor; border-radius: 50%; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(2rem, 4.6vw, 3.6rem); }
+h2 em, h1 em { font-style: normal; color: var(--blue); }
+p { margin: 0; }
+.lede { color: var(--mute); font-size: 1.06rem; max-width: 58ch; }
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 22px; border-radius: 999px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease); }
+.btn svg { width: 14px; height: 14px; transition: transform .3s var(--ease); }
+.btn:hover svg { transform: translateX(4px); }
+.btn-solid { background: var(--blue); color: var(--ink); }
+.btn-solid:hover { background: var(--white); }
+.btn-line { border: 1px solid var(--line-2); color: var(--white); }
+.btn-line:hover { border-color: var(--blue); color: var(--blue); }
+.swap { animation: swap 1.4s var(--ease); }
+@keyframes swap { 0% { color: var(--blue); text-shadow: 0 0 18px rgba(148,214,216,.9); } 100% { text-shadow: 0 0 0 transparent; } }
+
+/* ---------- Navigation ---------- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(3, 9, 11, 0.72); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid transparent; transition: border-color .3s, background .3s; }
+.nav.scrolled { border-bottom-color: var(--line); background: rgba(3, 9, 11, 0.9); }
+.nav .wrap { display: flex; align-items: center; gap: 20px; min-height: 74px; }
+.logo { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+.logo img { width: 118px; height: auto; }
+.logo small { font-size: 0.5rem; letter-spacing: 0.22em; color: var(--blue); font-weight: 600; }
+.menu { display: flex; align-items: center; gap: 2px; margin-left: auto; list-style: none; padding: 0; margin-block: 0; }
+.menu > li { position: relative; }
+.menu > li > a, .menu > li > button { display: inline-flex; align-items: center; gap: 6px; padding: 10px 12px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); transition: color .2s; }
+.menu > li > a:hover, .menu > li > button:hover, .menu > li > button[aria-expanded="true"] { color: var(--white); }
+.menu svg.chev { width: 10px; height: 10px; transition: transform .25s; }
+.menu button[aria-expanded="true"] svg.chev { transform: rotate(180deg); }
+.drop { position: absolute; top: calc(100% + 10px); left: -12px; width: 300px; padding: 10px; background: var(--panel); border: 1px solid var(--line-2); border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+.drop a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 3px; font-size: 0.86rem; font-weight: 600; transition: background .2s; }
+.drop a:hover { background: var(--panel-2); }
+.drop a span.dot, .chip .dot, .hub .dot, .readout .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); flex-shrink: 0; }
+.drop a em { margin-left: auto; font-style: normal; font-family: var(--mono); font-size: 0.66rem; color: var(--faint); }
+.nav-end { display: flex; align-items: center; gap: 12px; }
+.region { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; padding: 3px; border: 1px solid var(--line-2); border-radius: 999px; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; }
+.region button { position: relative; z-index: 1; padding: 7px 12px; border-radius: 999px; color: var(--mute); transition: color .3s; display: inline-flex; align-items: center; gap: 6px; }
+.region button[aria-pressed="true"] { color: var(--ink); }
+.region .pill { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 999px; background: var(--blue); transition: transform .45s var(--ease); }
+.region[data-r="us"] .pill { transform: translateX(100%); }
+.burger { display: none; width: 44px; height: 44px; border: 1px solid var(--line-2); border-radius: 50%; align-items: center; justify-content: center; }
+.burger span { width: 16px; height: 1.5px; background: var(--white); position: relative; }
+.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: var(--white); transition: transform .3s; }
+.burger span::before { top: -5px; } .burger span::after { top: 5px; }
+@media (max-width: 1080px) {
+  .menu { display: none; }
+  .burger { display: inline-flex; }
+  .nav-end { margin-left: auto; }
+  .nav-end .btn { display: none; }
+  .nav.open .menu { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 100%; left: 0; right: 0; padding: 12px var(--pad-x-r) 24px var(--pad-x); background: var(--abyss); border-bottom: 1px solid var(--line); max-height: calc(100vh - 74px); overflow: auto; }
+  .nav.open .menu > li > a, .nav.open .menu > li > button { width: 100%; padding: 14px 4px; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
+  .nav.open .drop { position: static; width: auto; box-shadow: none; border: 0; background: transparent; padding: 4px 0 8px 8px; }
+  .nav.open .burger span { background: transparent; }
+  .nav.open .burger span::before { transform: translateY(5px) rotate(45deg); }
+  .nav.open .burger span::after { transform: translateY(-5px) rotate(-45deg); }
+}
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 80% 70% at 65% 45%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 65% 45%, #000 20%, transparent 75%); opacity: .55; }
+.hero::after { content: ""; position: absolute; inset: auto 0 0; height: 220px; background: linear-gradient(transparent, var(--abyss)); pointer-events: none; }
+#field { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); align-items: center; gap: 40px; padding-block: clamp(64px, 9vw, 120px) clamp(72px, 9vw, 112px); pointer-events: none; }
+.hero .copy { display: grid; gap: 26px; pointer-events: auto; }
+.hero h1 { font-size: clamp(2.3rem, 5.2vw, 4.7rem); line-height: 0.95; }
+.hero h1 .l { display: block; overflow: hidden; }
+.hero h1 .l span { display: block; animation: rise 1.1s var(--ease) both; }
+.hero h1 .l:nth-child(2) span { animation-delay: .08s; } .hero h1 .l:nth-child(3) span { animation-delay: .16s; } .hero h1 .l:nth-child(4) span { animation-delay: .24s; }
+@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+.hero .sub { font-size: clamp(1rem, 1.4vw, 1.14rem); color: var(--mute); max-width: 52ch; }
+.hero .sub strong { color: var(--white); font-weight: 700; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; background: rgba(6, 16, 20, 0.6); transition: border-color .25s, background .25s; pointer-events: auto; }
+.chip:hover { border-color: var(--c); background: rgba(6,16,20,.9); }
+.readout { justify-self: end; align-self: end; width: min(100%, 330px); border: 1px solid var(--line-2); background: rgba(3, 9, 11, 0.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 4px; font-family: var(--mono); font-size: 0.72rem; pointer-events: auto; }
+.readout header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--blue); letter-spacing: 0.12em; text-transform: uppercase; }
+.readout header i { width: 7px; height: 7px; border-radius: 50%; background: var(--s-energy); box-shadow: 0 0 10px var(--s-energy); animation: blink 1.6s infinite; }
+@keyframes blink { 50% { opacity: .3; } }
+.readout dl { margin: 0; padding: 12px 14px 14px; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; }
+.readout dt { color: var(--faint); }
+.readout dd { margin: 0; color: var(--white); text-align: right; transition: opacity .3s; }
+.readout dd.hubv { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.readout .bar { grid-column: 1 / -1; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; margin-top: 6px; }
+.readout .bar span { display: block; height: 100%; width: 0; background: var(--blue); }
+.readout .note { padding: 0 14px 12px; color: var(--faint); font-size: 0.64rem; }
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .readout { justify-self: start; }
+}
+
+/* ---------- Challenge ---------- */
+.challenge { background: var(--blue); color: var(--ink); position: relative; overflow: hidden; }
+.challenge .wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 88px); align-items: center; padding-block: clamp(64px, 8vw, 112px); }
+.challenge h2 { font-size: clamp(2rem, 4.8vw, 4rem); }
+.challenge .eyebrow { color: var(--ink); }
+.challenge .stack { display: grid; gap: 22px; }
+.challenge p.big { font-size: 1.1rem; max-width: 50ch; font-weight: 500; }
+.jd { position: relative; height: 360px; max-width: 100%; }
+.jd .paper, .jd .map { position: absolute; width: 250px; border-radius: 4px; padding: 20px; }
+.jd .paper { left: 0; top: 20px; background: #E9F6F6; transform: rotate(-6deg); box-shadow: 0 30px 60px rgba(0, 40, 50, .25); font-family: var(--mono); font-size: 0.6rem; color: #3b5a5d; letter-spacing: .1em; }
+.jd .paper b { display: block; margin-bottom: 14px; color: #183236; }
+.jd .paper i { position: relative; display: block; height: 7px; margin: 9px 0; background: #b7d5d6; border-radius: 2px; }
+.jd .paper i::after { content: ""; position: absolute; left: -4px; top: 2px; height: 2.5px; width: 0; background: var(--ink); animation: strike 7s infinite; animation-delay: calc(var(--n) * .25s); }
+@keyframes strike { 0%, 8% { width: 0; } 22%, 86% { width: calc(100% + 8px); } 96%, 100% { width: 0; } }
+.jd .map { right: 0; bottom: 0; width: 290px; background: var(--ink); color: var(--white); transform: rotate(3deg); box-shadow: 0 40px 80px rgba(0, 30, 40, .4); }
+.jd .map header { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--blue); text-transform: uppercase; margin-bottom: 12px; }
+.jd .map svg { width: 100%; height: auto; display: block; }
+.jd .map footer { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--mono); font-size: 0.62rem; color: var(--mute); }
+.jd .map footer b { color: var(--blue); font-weight: 500; }
+.jd .stamp { position: absolute; left: 30px; top: 150px; padding: 6px 12px; border: 2px solid var(--ink); color: var(--ink); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.14em; transform: rotate(-14deg); background: rgba(148,214,216,.6); }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.pillars article { padding: clamp(32px, 4vw, 52px) clamp(20px, 3vw, 40px) clamp(40px, 5vw, 64px) 0; display: grid; gap: 14px; align-content: start; }
+.pillars article + article { padding-left: clamp(20px, 3vw, 40px); border-left: 1px solid var(--line); }
+.pillars .tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+.pillars h3 { font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.1; }
+.pillars p { color: var(--mute); font-size: 0.95rem; }
+@media (max-width: 860px) {
+  .challenge .wrap { grid-template-columns: minmax(0, 1fr); }
+  .jd { height: 330px; max-width: 420px; }
+  .pillars { grid-template-columns: minmax(0, 1fr); }
+  .pillars article + article { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* ---------- Logos ---------- */
+.logos { padding-block: clamp(48px, 6vw, 80px); border-bottom: 1px solid var(--line); }
+.logos .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 40px; margin-bottom: 36px; }
+.logos h2 { font-size: clamp(1.3rem, 2.4vw, 1.9rem); max-width: 26ch; line-height: 1.08; }
+.logos .legend { display: flex; gap: 18px; font-family: var(--mono); font-size: 0.68rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.12em; }
+.logos .legend span { display: inline-flex; gap: 8px; align-items: center; }
+.logos .legend span::before { content: ""; width: 14px; height: 2px; background: var(--blue); }
+.logos .legend span.pod::before { background: linear-gradient(90deg, var(--s-defence), var(--s-space), var(--s-robotics), var(--s-energy)); }
+.marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.track { display: flex; width: max-content; animation: slide 46s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.logo-item { display: flex; align-items: center; justify-content: center; height: 76px; padding: 0 clamp(26px, 3.4vw, 46px); position: relative; }
+.logo-item::after { content: ""; position: absolute; right: 0; top: 14px; bottom: 14px; width: 2px; border-radius: 2px; background: linear-gradient(var(--c1), var(--c2)); opacity: .9; }
+.logo-item img { height: 30px; width: auto; max-width: 170px; object-fit: contain; opacity: .82; transition: opacity .3s; }
+.logo-item img.tall { height: 40px; }
+.logo-item:hover img { opacity: 1; }
+.logo-item .word { display: grid; gap: 2px; text-align: left; white-space: nowrap; }
+.logo-item .word b { font-weight: 800; font-size: 1rem; letter-spacing: 0.04em; }
+.logo-item .word small { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--blue); text-transform: uppercase; }
+
+/* ---------- Trailer ---------- */
+.trailer { padding-block: var(--section) 0; }
+.trailer .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px 48px; margin-bottom: 40px; }
+.trailer .head > div { display: grid; gap: 18px; }
+.screen { position: relative; aspect-ratio: 16 / 8; max-width: 100%; border-radius: 6px; overflow: hidden; border: 1px solid var(--line-2); background: var(--panel); }
+.screen video { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.8) contrast(1.05); }
+.screen::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.6)), linear-gradient(transparent 60%, rgba(0,0,0,.7)); pointer-events: none; }
+.screen .corner { position: absolute; z-index: 2; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+.screen .tl { top: 18px; left: 20px; } .screen .tr { top: 18px; right: 20px; color: var(--mute); }
+.screen .bl { bottom: 20px; left: 20px; right: 20px; display: flex; align-items: center; gap: 14px; color: var(--mute); }
+.screen .bl .prog { flex: 1; height: 2px; background: rgba(255,255,255,.2); border-radius: 2px; overflow: hidden; }
+.screen .bl .prog span { display: block; height: 100%; width: 0; background: var(--blue); }
+.play { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; gap: 14px; }
+.play .ring { width: 96px; height: 96px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; position: relative; transition: transform .4s var(--ease); }
+.play .ring::before { content: ""; position: absolute; inset: -14px; border-radius: 50%; border: 1px solid rgba(148,214,216,.5); animation: pulse 2.4s var(--ease) infinite; }
+@keyframes pulse { from { transform: scale(.85); opacity: 1; } to { transform: scale(1.35); opacity: 0; } }
+.play:hover .ring { transform: scale(1.06); }
+.play svg { width: 26px; height: 26px; margin-left: 4px; }
+.play b { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; }
+.screen.on .play { opacity: 0; pointer-events: none; }
+@media (max-width: 640px) { .screen { aspect-ratio: 4 / 3; } .play .ring { width: 72px; height: 72px; } }
+
+/* ---------- Sectors ---------- */
+.sectors { padding-block: var(--section); }
+.sectors .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 48px; align-items: end; margin-bottom: 48px; }
+.sectors .head > div { display: grid; gap: 18px; }
+.hubs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.hub { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 340px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); isolation: isolate; transition: border-color .4s var(--ease), transform .5s var(--ease); }
+.hub img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .45; filter: grayscale(.6) contrast(1.1); transform: scale(1.04); transition: opacity .6s var(--ease), transform 1.2s var(--ease), filter .6s; }
+.hub::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(3,9,11,.1) 0%, rgba(3,9,11,.55) 45%, rgba(3,9,11,.96) 100%), radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--c) 40%, transparent), transparent 60%); transition: opacity .4s; }
+.hub::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--c); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); }
+.hub:hover, .hub:focus-visible { border-color: color-mix(in srgb, var(--c) 60%, transparent); transform: translateY(-4px); }
+.hub:hover img, .hub:focus-visible img { opacity: .75; transform: scale(1.1); filter: grayscale(0) contrast(1.1); }
+.hub:hover::after, .hub:focus-visible::after { transform: scaleX(1); }
+.hub .top { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); }
+.hub .top span:last-child { color: var(--faint); }
+.hub .bot { padding: 22px; display: grid; gap: 10px; }
+.hub .series { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c); }
+.hub h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1; }
+.hub p { color: var(--mute); font-size: 0.9rem; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .6s var(--ease), opacity .4s; }
+.hub:hover p, .hub:focus-visible p { max-height: 6em; opacity: 1; }
+.hub .enter { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 4px; }
+.hub .enter svg { width: 12px; height: 12px; transition: transform .3s var(--ease); }
+.hub:hover .enter svg { transform: translateX(5px); }
+@media (hover: none) { .hub p { max-height: none; opacity: 1; } }
+@media (max-width: 980px) { .hubs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sectors .head { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .hubs { grid-template-columns: minmax(0, 1fr); } .hub { min-height: 280px; } }
+
+/* ---------- Connect ---------- */
+.connect { position: relative; padding-block: var(--section); background: radial-gradient(ellipse 70% 60% at 85% 30%, rgba(25,157,174,.18), transparent 70%), var(--panel); border-block: 1px solid var(--line); overflow: hidden; }
+.connect .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.connect .intro { display: grid; gap: 24px; }
+.connect .intro img { width: 220px; height: auto; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line-2); margin-top: 8px; }
+.stats div { padding: 18px 12px 0 0; display: grid; gap: 4px; }
+.stats b { font-size: clamp(1.8rem, 3.4vw, 2.7rem); font-weight: 800; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
+.stats span { font-size: 0.78rem; color: var(--mute); }
+.series-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.series-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 18px 4px; border-bottom: 1px solid var(--line); transition: background .3s, padding .3s var(--ease); }
+.series-item:hover { background: rgba(148,214,216,.05); padding-left: 12px; }
+.series-item .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px var(--c); }
+.series-item b { display: block; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.series-item small { display: block; color: var(--mute); font-size: 0.84rem; margin-top: 2px; }
+.series-item em { font-style: normal; font-family: var(--mono); font-size: 0.66rem; color: var(--faint); letter-spacing: 0.1em; }
+.guests { margin-top: clamp(48px, 6vw, 72px); }
+.guests .rail { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.guests .track { gap: 14px; animation-duration: 70s; }
+.guests .rail:hover .track { animation-play-state: paused; }
+.guest { width: 210px; flex-shrink: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--abyss); transition: border-color .3s, transform .4s var(--ease); }
+.guest:hover { border-color: var(--line-2); transform: translateY(-4px); }
+.guest .ph { aspect-ratio: 4 / 4.2; overflow: hidden; position: relative; }
+.guest .ph img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .5s; }
+.guest:hover .ph img { filter: grayscale(0); }
+.guest .ph .wave { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; align-items: end; gap: 2px; height: 18px; }
+.guest .ph .wave i { flex: 1; background: var(--blue); opacity: .85; border-radius: 1px; height: 30%; }
+.guest:hover .ph .wave i { animation: eq .9s ease-in-out infinite alternate; animation-delay: calc(var(--n) * -0.11s); }
+@keyframes eq { from { height: 15%; } to { height: 100%; } }
+.guest .meta { padding: 12px 14px 14px; display: grid; gap: 2px; }
+.guest .meta b { font-size: 0.86rem; }
+.guest .meta small { color: var(--mute); font-size: 0.74rem; line-height: 1.35; }
+.guest .meta em { font-style: normal; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+.connect .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+@media (max-width: 900px) { .connect .grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Testimonials ---------- */
+.quotes { padding-block: var(--section); }
+.quote-band { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); padding: clamp(32px, 5vw, 64px); border: 1px solid var(--line-2); border-radius: 6px; background: linear-gradient(120deg, rgba(25,157,174,.12), transparent 60%); overflow: hidden; }
+.quote-band .mark { font-size: clamp(5rem, 10vw, 8rem); line-height: .7; font-weight: 800; color: var(--blue); font-family: Georgia, serif; }
+.quote-band blockquote { margin: 0; display: grid; gap: 26px; min-height: 210px; align-content: space-between; }
+.quote-band blockquote p { font-size: clamp(1.3rem, 2.6vw, 2.1rem); font-weight: 600; line-height: 1.2; max-width: 34ch; transition: opacity .5s, transform .5s var(--ease); }
+.quote-band footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.quote-band cite { font-style: normal; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 0.86rem; transition: opacity .5s; }
+.quote-band cite b { font-weight: 700; }
+.quote-band cite span { color: var(--mute); }
+.quote-band cite i { font-style: normal; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--c); color: var(--c); }
+.qnav { display: flex; align-items: center; gap: 10px; }
+.qnav button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; transition: border-color .2s, color .2s; }
+.qnav button:hover { border-color: var(--blue); color: var(--blue); }
+.qnav button svg { width: 14px; height: 14px; }
+.qdots { display: flex; gap: 6px; margin-inline: 6px; }
+.qdots i { width: 18px; height: 2px; background: var(--line-2); transition: background .3s, width .3s; }
+.qdots i.on { width: 34px; background: var(--blue); }
+.fade-out { opacity: 0 !important; transform: translateY(8px); }
+.placeholder-note { font-family: var(--mono); font-size: 0.64rem; color: var(--faint); letter-spacing: .08em; margin-top: 14px; }
+@media (max-width: 640px) { .quote-band { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Reach ---------- */
+.reach { padding-block: 0 var(--section); }
+.reach .grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.reach .copy { display: grid; gap: 24px; }
+.countries { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.countries button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 0.78rem; font-weight: 600; transition: background .25s, color .25s, border-color .25s; }
+.countries button::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+.countries button:hover { border-color: var(--blue); }
+.countries button[aria-pressed="true"] { background: var(--blue); color: var(--ink); border-color: var(--blue); }
+.countries button[aria-pressed="true"]::before { background: var(--ink); }
+.countries button.hq::after { content: "Office"; font-family: var(--mono); font-size: 0.56rem; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+.globe { margin: 0; position: relative; justify-self: center; width: 100%; max-width: 580px; }
+.globe canvas { width: 100%; aspect-ratio: 1; display: block; cursor: grab; touch-action: pan-y; }
+.globe canvas:active { cursor: grabbing; }
+.globe figcaption { position: absolute; left: 0; right: 0; bottom: 4%; text-align: center; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
+.globe .tag { position: absolute; top: 6%; right: 2%; padding: 10px 14px; border: 1px solid var(--line-2); border-radius: 4px; background: rgba(3,9,11,.8); font-family: var(--mono); font-size: 0.68rem; display: grid; gap: 2px; min-width: 160px; }
+.globe .tag b { color: var(--blue); font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.globe .tag span { color: var(--mute); }
+@media (max-width: 900px) { .reach .grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Final CTA ---------- */
+.final { position: relative; overflow: hidden; border-top: 1px solid var(--line); background: var(--ink); }
+.final canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .9; }
+.final .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(80px, 10vw, 140px); }
+.final h2 { font-size: clamp(2.2rem, 5.4vw, 4.6rem); }
+.final .copy { display: grid; gap: 24px; }
+.contacts { display: grid; gap: 10px; }
+.contact { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid var(--line-2); border-radius: 4px; background: rgba(6,16,20,.7); backdrop-filter: blur(4px); }
+.contact div { display: grid; gap: 2px; min-width: 0; }
+.contact small { font-family: var(--mono); font-size: 0.62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.contact b { font-size: 1.02rem; font-weight: 600; user-select: all; overflow-wrap: anywhere; }
+.copy-btn { font-family: var(--mono); font-size: 0.64rem; letter-spacing: .12em; text-transform: uppercase; padding: 8px 10px; border: 1px solid var(--line-2); border-radius: 3px; color: var(--blue); flex-shrink: 0; transition: background .2s, color .2s; }
+.copy-btn:hover { background: var(--blue); color: var(--ink); }
+@media (max-width: 860px) { .final .wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Footer ---------- */
+footer.site { background: var(--abyss); border-top: 1px solid var(--line); }
+footer.site .top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding-block: 56px; align-items: start; }
+footer.site .top > nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; justify-items: center; }
+footer.site .top > nav a { font-size: 0.82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); transition: color .2s; }
+footer.site .top > nav a:hover { color: var(--blue); }
+footer.site .social { display: flex; gap: 10px; justify-content: flex-end; }
+footer.site .social a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; transition: border-color .2s, background .2s, color .2s; }
+footer.site .social a:hover { background: var(--blue); color: var(--ink); border-color: var(--blue); }
+footer.site .social svg { width: 18px; height: 18px; }
+footer.site .legal { border-top: 1px solid var(--line); padding-block: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 0.74rem; color: var(--faint); }
+footer.site .legal nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+footer.site .legal a:hover { color: var(--blue); }
+@media (max-width: 760px) { footer.site .top { grid-template-columns: minmax(0, 1fr); } footer.site .top > nav ul { justify-items: start; } footer.site .social { justify-content: flex-start; } }
+
+/* ---------- Toast ---------- */
+.toast { position: fixed; z-index: 70; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 140%); display: flex; align-items: center; gap: 12px; padding: 12px 18px; max-width: calc(100% - 32px); border-radius: 999px; background: var(--blue); color: var(--ink); font-size: 0.82rem; font-weight: 600; box-shadow: 0 20px 50px rgba(0,0,0,.5); transition: transform .5s var(--ease); }
+.toast.show { transform: translate(-50%, 0); }
+.toast b { font-family: var(--mono); font-size: 0.7rem; padding: 3px 8px; border-radius: 999px; background: var(--ink); color: var(--blue); }
+
+.concept-tag { position: fixed; z-index: 40; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); font-family: var(--mono); font-size: 0.6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; background: rgba(3,9,11,.8); }
+@media (max-width: 640px) { .concept-tag { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+  .track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .track [aria-hidden="true"] { display: none; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="TECHNE home">
+      <img src="logo-techne-wordmark.png" alt="TECHNE" width="480" height="172">
+      <small>SPECIALIST TALENT SOURCING</small>
+    </a>
+    <ul class="menu" id="menu">
+      <li>
+        <button type="button" id="hubs-btn" aria-expanded="false" aria-controls="hubs-drop">Industry Hubs
+          <svg class="chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg>
+        </button>
+        <div class="drop" id="hubs-drop" hidden>
+          <a href="#sectors" style="--c:var(--s-defence)"><span class="dot"></span><span data-t="defenceTech">Defence Tech</span><em>Hub 01</em></a>
+          <a href="#sectors" style="--c:var(--s-space)"><span class="dot"></span>Space<em>Hub 02</em></a>
+          <a href="#sectors" style="--c:var(--s-mobility)"><span class="dot"></span>Future Mobility<em>Hub 03</em></a>
+          <a href="#sectors" style="--c:var(--s-robotics)"><span class="dot"></span>Robotics<em>Hub 04</em></a>
+          <a href="#sectors" style="--c:var(--s-energy)"><span class="dot"></span>Energy<em>Hub 05</em></a>
+          <a href="#sectors" style="--c:var(--s-health)"><span class="dot"></span>Healthcare Tech<em>Hub 06</em></a>
+        </div>
+      </li>
+      <li><a href="#connect">TECHNE Connect</a></li>
+      <li><a href="#challenge">Our Solutions</a></li>
+      <li><a href="#trailer">About Us</a></li>
+      <li><a href="#reach">Candidates</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="region" id="region" data-r="uk" role="group" aria-label="Choose your region">
+        <span class="pill" aria-hidden="true"></span>
+        <button type="button" data-region="uk" aria-pressed="true">UK</button>
+        <button type="button" data-region="us" aria-pressed="false">US</button>
+      </div>
+      <a class="btn btn-solid" href="#contact">Book a call</a>
+      <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-h">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Deep tech headhunting specialists</span>
+      <h1 id="hero-h">
+        <span class="l"><span><em>Extraordinary</em></span></span>
+        <span class="l"><span><em>talent deserves</em></span></span>
+        <span class="l"><span>extraordinary</span></span>
+        <span class="l"><span>headhunting.</span></span>
+      </h1>
+      <p class="sub"><strong>That's what TECHNE is built for.</strong> We headhunt for the companies building <span data-t="defenceLower">defence</span>, space, mobility, robotics, energy and healthcare technology, reaching the engineers and leaders who never see a job ad.</p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="#contact">Start a search <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+        <a class="btn btn-line" href="#challenge">Our solutions</a>
+      </div>
+      <div class="chips" aria-label="Industry hubs">
+        <a class="chip" href="#sectors" style="--c:var(--s-defence)"><span class="dot"></span><span data-t="defenceTech">Defence Tech</span></a>
+        <a class="chip" href="#sectors" style="--c:var(--s-space)"><span class="dot"></span>Space</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-mobility)"><span class="dot"></span>Future Mobility</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-robotics)"><span class="dot"></span>Robotics</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-energy)"><span class="dot"></span>Energy</a>
+        <a class="chip" href="#sectors" style="--c:var(--s-health)"><span class="dot"></span>Healthcare Tech</a>
+      </div>
+    </div>
+    <aside class="readout" aria-label="Example of a live search">
+      <header><span>Live search</span><i aria-hidden="true"></i></header>
+      <dl id="readout">
+        <dt>Role</dt><dd data-k="role">Head of GNC</dd>
+        <dt>Hub</dt><dd class="hubv" data-k="hub"><span class="dot" style="--c:var(--s-space)"></span>Space</dd>
+        <dt>Location</dt><dd data-k="loc">Harwell, Oxfordshire</dd>
+        <dt>Market mapped</dt><dd data-k="mapped">412 people</dd>
+        <dt>Shortlist</dt><dd data-k="short">5 engaged</dd>
+        <div class="bar" aria-hidden="true"><span id="readout-bar"></span></div>
+      </dl>
+      <p class="note">Illustrative searches. Most of the people we place were not looking.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= CHALLENGE ================= -->
+<section class="challenge" id="challenge" aria-labelledby="ch-h">
+  <div class="wrap">
+    <div class="jd" aria-hidden="true">
+      <div class="paper">
+        <b>JOB_DESCRIPTION_FINAL_v7.DOCX</b>
+        <i style="--n:0"></i><i style="--n:1;width:82%"></i><i style="--n:2"></i><i style="--n:3;width:64%"></i><i style="--n:4"></i><i style="--n:5;width:74%"></i><i style="--n:6;width:90%"></i><i style="--n:7;width:56%"></i><i style="--n:8"></i><i style="--n:9;width:70%"></i>
+      </div>
+      <div class="map">
+        <header><span>Talent map</span><span>v1</span></header>
+        <svg viewBox="0 0 250 150" fill="none">
+          <g stroke="rgba(148,214,216,.35)" stroke-width="1">
+            <path d="M125 75 H170 L190 40"/><path d="M125 75 H80 L60 35"/><path d="M125 75 V110 L150 130"/><path d="M125 75 L95 110 H50"/><path d="M190 40 H225"/><path d="M125 75 L160 95 H215"/>
+          </g>
+          <circle cx="125" cy="75" r="9" stroke="#94D6D8" stroke-width="1.5"/><circle cx="125" cy="75" r="4" fill="#94D6D8"/>
+          <g fill="#94D6D8"><circle cx="190" cy="40" r="3"/><circle cx="60" cy="35" r="3"/><circle cx="150" cy="130" r="3"/><circle cx="50" cy="110" r="3"/><circle cx="225" cy="40" r="3"/></g>
+          <circle cx="215" cy="95" r="5" fill="#FF9D6A"/><circle cx="215" cy="95" r="10" stroke="#FF9D6A" opacity=".5"/>
+        </svg>
+        <footer><span>412 mapped</span><b>5 engaged</b></footer>
+      </div>
+      <span class="stamp">NOT ENOUGH</span>
+    </div>
+    <div class="stack">
+      <span class="eyebrow">The hiring challenge in deep tech</span>
+      <h2 id="ch-h">If you're still using a job description, you're already behind.</h2>
+      <p class="big">The engineers you need aren't applying. They're being chased by you and every competitor you have. Posting a role and waiting doesn't reach them.</p>
+      <div><a class="btn" style="background:var(--ink);color:var(--blue)" href="#contact">See how we'd run your search <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a></div>
+    </div>
+  </div>
+</section>
+<div class="wrap">
+  <div class="pillars">
+    <article>
+      <span class="tag">What we do</span>
+      <h3>Specialist headhunting for deep tech</h3>
+      <p>We map the whole market for your role, including adjacent industries, then approach the right people directly with your story.</p>
+    </article>
+    <article>
+      <span class="tag">Why it's different</span>
+      <h3>The next generation of headhunting</h3>
+      <p>Data, content and process design in one search. Passive candidates hear about your mission and culture before they hear about the job.</p>
+    </article>
+    <article>
+      <span class="tag">The value</span>
+      <h3>More engagement, a stronger brand</h3>
+      <p>Much higher engagement on your roles, and your employer brand built across the market as we headhunt.</p>
+    </article>
+  </div>
+</div>
+
+<!-- ================= LOGOS ================= -->
+<section class="logos" aria-labelledby="lg-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="lg-h">The companies we hire for, and the leaders on our podcast</h2>
+      <div class="legend"><span>Clients</span><span class="pod">TECHNE Connect guests</span></div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="track" id="logo-track"></div>
+  </div>
+</section>
+
+<!-- ================= TRAILER ================= -->
+<section class="trailer" id="trailer" aria-labelledby="tr-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow">TECHNE trailer</span>
+        <h2 id="tr-h">Engineered to <em>engage.</em></h2>
+      </div>
+      <p class="lede">A short look at how TECHNE works, who we work with, and why the best people in deep tech take our calls.</p>
+    </div>
+    <div class="screen" id="screen">
+      <video id="trailer-v" src="trailer.mp4" poster="trailer.jpg" muted loop playsinline preload="metadata" aria-label="TECHNE brand trailer"></video>
+      <span class="corner tl">TECHNE / Brand trailer</span>
+      <span class="corner tr" id="tr-time">00:00</span>
+      <div class="corner bl"><span>Trailer</span><span class="prog"><span id="tr-prog"></span></span><span>TECHNE.</span></div>
+      <button class="play" type="button" id="play" aria-label="Play the trailer with sound">
+        <span class="ring"><svg viewBox="0 0 24 24" fill="#000"><path d="M6 3.5v17l14-8.5z"/></svg></span>
+        <b>Press play</b>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTORS ================= -->
+<section class="sectors" id="sectors" aria-labelledby="sc-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow">Industry hubs</span>
+        <h2 id="sc-h">Choose your <em>sector.</em></h2>
+      </div>
+      <p class="lede">Six hubs, each run by headhunters who know the technology, the companies and the people. Every hub has its own podcast series and community.</p>
+    </div>
+    <div class="hubs" id="hubs"></div>
+  </div>
+</section>
+
+<!-- ================= CONNECT ================= -->
+<section class="connect" id="connect" aria-labelledby="cn-h">
+  <div class="wrap">
+    <div class="grid">
+      <div class="intro">
+                <span class="eyebrow">TECHNE Connect podcast</span>
+        <h2 id="cn-h">Inspire. Elevate. <em>Connect.</em></h2>
+        <p class="lede">The podcast where the founders, engineers and investors shaping deep tech talk openly about what they're building. Every conversation grows the network your next hire comes from.</p>
+        <div class="stats">
+          <div><b data-count="500" data-suffix="k+">500k+</b><span>Downloads</span></div>
+          <div><b data-count="200" data-suffix="+">200+</b><span>Expert guests</span></div>
+          <div><b data-count="70" data-suffix="+">70+</b><span>University partnerships</span></div>
+        </div>
+      </div>
+      <div class="series-list" aria-label="Podcast series">
+        <a class="series-item" href="#connect" style="--c:var(--s-defence)"><span class="dot"></span><span><b data-t="seriesDefence">Connect to Defence</b><small>Founders and operators rebuilding <span data-t="defenceLower">defence</span> technology.</small></span><em>SERIES</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-space)"><span class="dot"></span><span><b>Connect to Orbit</b><small>The people taking commercial space from launch to orbit.</small></span><em>SERIES</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-mobility)"><span class="dot"></span><span><b>Connect to Flight</b><small>Electric aviation, eVTOL and the future of how we move.</small></span><em>SERIES</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-robotics)"><span class="dot"></span><span><b>Connect to Robotics</b><small>Humanoids, autonomy and the teams building them.</small></span><em>SERIES</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-energy)"><span class="dot"></span><span><b>Connect to Power</b><small>Clean energy, storage and the grid of the future.</small></span><em>SERIES</em></a>
+        <a class="series-item" href="#connect" style="--c:var(--s-health)"><span class="dot"></span><span><b>Connect to Health Tech</b><small>Clinical leaders and builders changing how care works.</small></span><em>SERIES</em></a>
+      </div>
+    </div>
+  </div>
+  <div class="guests">
+    <div class="wrap" style="margin-bottom:20px"><span class="eyebrow">Latest guests</span></div>
+    <div class="rail"><div class="track" id="guest-track"></div></div>
+  </div>
+  <div class="wrap">
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#connect">Enter TECHNE Connect <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+      <a class="btn btn-line" href="#connect">All episodes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="quotes" aria-labelledby="qt-h">
+  <div class="wrap">
+    <h2 id="qt-h" class="eyebrow" style="font-size:.72rem;font-family:var(--mono);font-weight:400;margin-bottom:24px">What our clients say</h2>
+    <div class="quote-band">
+      <span class="mark" aria-hidden="true">&ldquo;</span>
+      <blockquote>
+        <p id="q-text">[Client testimonial on moving away from the job description]</p>
+        <footer>
+          <cite id="q-cite"><b>[Name]</b><span>[Role, Company]</span><i style="--c:var(--s-robotics)">Robotics</i></cite>
+          <div class="qnav">
+            <button type="button" id="q-prev" aria-label="Previous testimonial"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 7H1M6 2 1 7l5 5"/></svg></button>
+            <span class="qdots" id="q-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
+            <button type="button" id="q-next" aria-label="Next testimonial"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg></button>
+          </div>
+        </footer>
+      </blockquote>
+    </div>
+    <p class="placeholder-note">Quotes shown as placeholders. Client testimonials to be supplied by TECHNE.</p>
+  </div>
+</section>
+
+<!-- ================= REACH ================= -->
+<section class="reach" id="reach" aria-labelledby="rc-h">
+  <div class="wrap">
+    <div class="grid">
+      <div class="copy">
+        <span class="eyebrow">Global reach</span>
+        <h2 id="rc-h">Hiring around <em>the world.</em></h2>
+        <p class="lede" id="reach-lede">From our teams in the UK and US we headhunt for deep tech companies across Europe and North America. Choose a country to see where we work.</p>
+        <ul class="countries" id="countries"></ul>
+      </div>
+      <figure class="globe">
+        <canvas id="globe" role="img" aria-label="Globe showing the countries TECHNE hires in"></canvas>
+        <div class="tag" aria-live="polite"><b id="g-name">United Kingdom</b><span id="g-note">TECHNE office</span></div>
+        <figcaption>Drag to turn the globe</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="contact" aria-labelledby="fn-h">
+  <canvas id="traces" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Contact us</span>
+      <h2 id="fn-h">Stand out and attract the talent <em>everyone else is chasing.</em></h2>
+      <p class="lede">Tell us about the hire you need to make, and we'll show you how we'd find them.</p>
+      <div><a class="btn btn-solid" href="#contact">Contact us <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a></div>
+    </div>
+    <div class="contacts">
+      <div class="contact"><div><small data-t="callLabel">Call our UK team</small><b data-t="phone">+44 (0)1925 346331</b></div><button class="copy-btn" type="button" data-copy="phone">Copy</button></div>
+      <div class="contact"><div><small>Email</small><b>hello@techne-talent.com</b></div><button class="copy-btn" type="button" data-copy="email">Copy</button></div>
+      <div class="contact"><div><small>Follow</small><b>LinkedIn · Instagram</b></div><a class="copy-btn" href="https://www.linkedin.com/company/techne-talent/" target="_blank" rel="noopener">Open</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" href="#top" aria-label="Back to the TECHNE homepage"><img src="logo-techne-wordmark.png" alt="TECHNE" width="480" height="172" style="width:150px"><small>SPECIALIST TALENT SOURCING</small></a>
+      <nav aria-label="Footer"><ul><li><a href="#contact">Contact Us</a></li><li><a href="#trailer">About Us</a></li><li><a href="#sectors">Industry Hubs</a></li><li><a href="#reach">Candidates</a></li></ul></nav>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/techne-talent/" target="_blank" rel="noopener" aria-label="TECHNE on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-1.75 3.4-1.75 3.6 0 4.25 2.2 4.25 5.1v6.15h-4v-5.45c0-1.3-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.86v5.54h-4z"/></svg></a>
+        <a href="https://www.instagram.com/techne_talent/" target="_blank" rel="noopener" aria-label="TECHNE on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 TECHNE Specialist Talent Solutions · <span data-t="edition">UK edition</span> · Homepage concept by Gregory Ardoin</span>
+      <nav aria-label="Legal"><a href="#top">Privacy Policy</a><a href="#top">Terms &amp; Conditions</a><a href="#top">Cookie Policy</a></nav>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><b id="toast-r">US</b><span id="toast-t">Viewing the US site.</span></div>
+
+<script>
+(() => {
+"use strict";
+let globeGoHome = null;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const SEC = { defence: "#D98A8A", space: "#A295DD", mobility: "#94D6D8", robotics: "#FF9D6A", energy: "#62B86F", health: "#6FC3C9" };
+const SEC_LIST = Object.values(SEC);
+
+/* ---------------- Region content ---------------- */
+const T = {
+  uk: {
+    defenceTech: "Defence Tech", defenceLower: "defence", seriesDefence: "Connect to Defence",
+    phone: "+44 (0)1925 346331", callLabel: "Call our UK team", edition: "UK edition",
+    toast: "Viewing the UK site. Spelling, contacts and live searches updated.",
+    lede: "From our teams in the UK and US we headhunt for deep tech companies across Europe and North America. Choose a country to see where we work.",
+    home: 0,
+    searches: [
+      ["Head of GNC", "space", "Space", "Harwell, Oxfordshire", 412, 5],
+      ["VP Engineering", "defence", "Defence Tech", "Bristol", 286, 4],
+      ["Principal Robotics Engineer", "robotics", "Robotics", "Cambridge", 341, 6],
+      ["Battery Systems Lead", "energy", "Energy", "Manchester", 198, 5],
+      ["Head of Clinical AI", "health", "Healthcare Tech", "London", 254, 4],
+      ["Propulsion Lead", "mobility", "Future Mobility", "Derby", 173, 5]
+    ]
+  },
+  us: {
+    defenceTech: "Defense Tech", defenceLower: "defense", seriesDefence: "Connect to Defense",
+    phone: "+1 323 471 6946", callLabel: "Call our US team", edition: "US edition",
+    toast: "Viewing the US site. Spelling, contacts and live searches updated.",
+    lede: "From our teams in the US and UK we headhunt for deep tech companies across North America and Europe. Choose a country to see where we work.",
+    home: 1,
+    searches: [
+      ["Head of GNC", "space", "Space", "Los Angeles, CA", 538, 5],
+      ["VP Engineering", "defence", "Defense Tech", "Arlington, VA", 402, 4],
+      ["Principal Robotics Engineer", "robotics", "Robotics", "Boston, MA", 467, 6],
+      ["Battery Systems Lead", "energy", "Energy", "Austin, TX", 311, 5],
+      ["Head of Clinical AI", "health", "Healthcare Tech", "San Francisco, CA", 389, 4],
+      ["eVTOL Propulsion Lead", "mobility", "Future Mobility", "Seattle, WA", 226, 5]
+    ]
+  }
+};
+let region = "uk";
+try { const h = location.hash.replace("#", ""); if (h === "us" || h === "uk") region = h; else { const s = localStorage.getItem("techne-region"); if (s === "us" || s === "uk") region = s; } } catch (e) {}
+
+/* ---------------- Build repeated content ---------------- */
+const arrow = '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 7h12M8 2l5 5-5 5"/></svg>';
+const HUBS = [
+  ["defence", "defence.jpg", "Hub 01", "seriesDefence", "Connect to Defence", "defenceTech", "Defence Tech", "Autonomy, counter-UAS, sensing and the software that ties them together."],
+  ["space", "space.jpg", "Hub 02", "", "Connect to Orbit", "", "Space", "Launch, satellites, in-space propulsion and Earth observation."],
+  ["mobility", "mobility.jpg", "Hub 03", "", "Connect to Flight", "", "Future Mobility", "Electric aviation, eVTOL, autonomous vehicles and new propulsion."],
+  ["robotics", "robotics.jpg", "Hub 04", "", "Connect to Robotics", "", "Robotics", "Humanoids, industrial automation, perception and control."],
+  ["energy", "energy.jpg", "Hub 05", "", "Connect to Power", "", "Energy", "Clean energy, storage, grid technology and fusion."],
+  ["health", "health.jpg", "Hub 06", "", "Connect to Health Tech", "", "Healthcare Tech", "Medical devices, clinical AI and digital health platforms."]
+];
+$("#hubs").innerHTML = HUBS.map(h => `
+  <a class="hub" href="#sectors" style="--c:${SEC[h[0]]}">
+    <img src="${h[1]}" alt="" loading="lazy">
+    <div class="top"><span>${h[2]}</span><span class="dot" aria-hidden="true"></span></div>
+    <div class="bot">
+      <span class="series" ${h[3] ? `data-t="${h[3]}"` : ""}>${h[4]}</span>
+      <h3 ${h[5] ? `data-t="${h[5]}"` : ""}>${h[6]}</h3>
+      <p>${h[7]}</p>
+      <span class="enter">Enter the hub ${arrow.replace('stroke-width="1.8"', 'stroke-width="2"')}</span>
+    </div>
+  </a>`).join("");
+
+const LOGOS = [
+  ["img", "cambridge-aerospace.png", "Cambridge Aerospace", true], ["pod", "IENAI Space", "Connect to Orbit"], ["img", "forterra.png", "Forterra"],
+  ["img", "iceye.png", "ICEYE", true], ["pod", "Max Space", "Connect Live"], ["img", "twentyfour-industries.png", "Twentyfour Industries"],
+  ["img", "orbion.png", "Orbion", true], ["pod", "Powerus", "Connect to Visionaries"], ["img", "overview-energy.png", "Overview Energy", true],
+  ["img", "starcatcher.png", "Star Catcher"], ["pod", "Happy Health", "Connect to Health Tech"], ["img", "ampaire.png", "Ampaire", true],
+  ["img", "starpath.png", "Starpath"], ["pod", "TerraSpark", "Connect to Visionaries"]
+];
+const logoRun = (hidden) => LOGOS.map((l, i) => {
+  const c1 = SEC_LIST[i % 6], c2 = SEC_LIST[(i + 1) % 6];
+  const inner = l[0] === "img" ? `<img src="logo-${l[1]}" alt="${hidden ? "" : l[2]}" class="${l[3] ? "tall" : ""}" loading="lazy">` : `<span class="word"><b>${l[1]}</b><small>${l[2]}</small></span>`;
+  return `<div class="logo-item" style="--c1:${c1};--c2:${c2}" ${hidden ? 'aria-hidden="true"' : ""}>${inner}</div>`;
+}).join("");
+$("#logo-track").innerHTML = logoRun(false) + logoRun(true);
+
+const GUESTS = [
+  ["Laura Avonius", "CEO and Co-Founder", "Audicin", "ep-01", "Connect to Visionaries"],
+  ["Saleem Miyan", "Co-Founder & CEO", "Max Space", "ep-02", "Connect Live"],
+  ["Philip Veber", "Principal", "Gaingles", "ep-03", "Connect to Venture Capital"],
+  ["Sara Correyero Plaza", "CEO and Co-Founder", "IENAI Space", "ep-04", "Connect to Visionaries"],
+  ["Sanjay Vijendran", "Co-Founder and CTO", "TerraSpark", "ep-05", "Connect to Visionaries"],
+  ["Marina Hutter", "Head of People", "VÆRIDION", "ep-06", "Connect to Flight"],
+  ["James Murphy", "Founder & CEO", "Setanta Space", "ep-07", "Connect to Visionaries"],
+  ["Matt Gjertsen", "Founder", "BUILT", "ep-08", "Connect to Visionaries"],
+  ["Jeffrey Durmer", "Chief Medical Officer", "Happy Health", "ep-09", "Connect to Health Tech"],
+  ["Abhijeet Shenoi", "VP of Engineering", "Bunker Hill Health", "ep-10", "Connect to Health Tech"],
+  ["Sophia Hummelman", "Co-Founder and CCO", "Remedium Energy", "ep-11", "Connect to Visionaries"],
+  ["Brett Velicovich", "Co-Founder and President", "Powerus", "ep-12", "Connect to Visionaries"]
+];
+const wave = Array.from({ length: 14 }, (_, n) => `<i style="--n:${n}"></i>`).join("");
+const guestRun = (hidden) => GUESTS.map(g => `
+  <a class="guest" href="#connect" ${hidden ? 'aria-hidden="true" tabindex="-1"' : ""}>
+    <div class="ph"><img src="guest-${g[3]}.jpg" alt="${hidden ? "" : g[0]}" loading="lazy"><span class="wave" aria-hidden="true">${wave}</span></div>
+    <div class="meta"><em>${g[4]}</em><b>${g[0]}</b><small>${g[1]}, ${g[2]}</small></div>
+  </a>`).join("");
+$("#guest-track").innerHTML = guestRun(false) + guestRun(true);
+
+/* ---------------- Region switch ---------------- */
+const regionEl = $("#region");
+const toast = $("#toast");
+let toastTimer = 0;
+function applyRegion(r, announce) {
+  region = r;
+  const d = T[r];
+  regionEl.dataset.r = r;
+  $$("button", regionEl).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.region === r)));
+  document.documentElement.lang = r === "us" ? "en-US" : "en-GB";
+  $$("[data-t]").forEach(el => {
+    const v = d[el.dataset.t];
+    if (v == null || el.textContent === v) return;
+    el.textContent = v;
+    if (announce) { el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); }
+  });
+  $("#reach-lede").textContent = d.lede;
+  try { localStorage.setItem("techne-region", r); } catch (e) {}
+  try { history.replaceState(null, "", "#" + r); } catch (e) {}
+  searchIdx = 0; showSearch(true); cycleSearch();
+  globeGoHome && globeGoHome();
+  if (announce) {
+    $("#toast-r").textContent = r.toUpperCase();
+    $("#toast-t").textContent = d.toast;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+  }
+}
+regionEl.addEventListener("click", e => { const b = e.target.closest("button"); if (b && b.dataset.region !== region) applyRegion(b.dataset.region, true); });
+addEventListener("hashchange", () => { const h = location.hash.replace("#", ""); if ((h === "us" || h === "uk") && h !== region) applyRegion(h, true); });
+
+/* ---------------- Nav ---------------- */
+const nav = $("#nav");
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 10), { passive: true });
+const hubsBtn = $("#hubs-btn"), drop = $("#hubs-drop");
+const setDrop = (open) => { hubsBtn.setAttribute("aria-expanded", String(open)); drop.hidden = !open; };
+hubsBtn.addEventListener("click", e => { e.stopPropagation(); setDrop(drop.hidden); });
+document.addEventListener("click", e => { if (!e.target.closest("#hubs-drop")) setDrop(false); });
+addEventListener("keydown", e => { if (e.key === "Escape") { setDrop(false); nav.classList.remove("open"); $("#burger").setAttribute("aria-expanded", "false"); } });
+$("#burger").addEventListener("click", () => { const o = !nav.classList.contains("open"); nav.classList.toggle("open", o); $("#burger").setAttribute("aria-expanded", String(o)); });
+$$("#menu a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); setDrop(false); $("#burger").setAttribute("aria-expanded", "false"); }));
+
+/* ---------------- Hero field: talent network with circuit traces ---------------- */
+const field = $("#field"), fx = field.getContext("2d");
+let FW = 0, FH = 0, fdpr = 1, nodes = [], target = null, origin = null, lockT = 0, mouse = { x: -999, y: -999 }, fieldOn = true;
+function trace(a, b) {
+  /* Route like the N in the logo: straight run, then a 45-degree leg */
+  const dx = b.x - a.x, dy = b.y - a.y, adx = Math.abs(dx), ady = Math.abs(dy);
+  if (adx > ady) { const mx = a.x + Math.sign(dx) * (adx - ady); return [[a.x, a.y], [mx, a.y], [b.x, b.y]]; }
+  const my = a.y + Math.sign(dy) * (ady - adx); return [[a.x, a.y], [a.x, my], [b.x, b.y]];
+}
+function seedField() {
+  const r = field.getBoundingClientRect();
+  fdpr = Math.min(devicePixelRatio || 1, 2); FW = r.width; FH = r.height;
+  field.width = FW * fdpr; field.height = FH * fdpr; fx.setTransform(fdpr, 0, 0, fdpr, 0, 0);
+  const narrow = FW < 900;
+  const count = Math.round(Math.min(110, FW * FH / 9000));
+  const x0 = narrow ? 0 : FW * 0.42;
+  nodes = Array.from({ length: count }, (_, i) => {
+    const sec = i % 7 === 0 ? SEC_LIST[i % 6] : null;
+    return { x: x0 + Math.random() * (FW - x0), y: 30 + Math.random() * (FH - 60), vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12, r: sec ? 2.6 : 1.2 + Math.random() * 1.1, c: sec, ph: Math.random() * 6.28 };
+  });
+  origin = { x: narrow ? FW * 0.8 : FW * 0.68, y: FH * 0.42, r: 6, origin: true };
+  links = [];
+  nodes.forEach((a, i) => { let best = []; nodes.forEach((b, j) => { if (i !== j) { const d = Math.hypot(a.x - b.x, a.y - b.y); if (d < 140) best.push([d, j]); } }); best.sort((p, q) => p[0] - q[0]).slice(0, 2).forEach(([, j]) => { if (j > i) links.push([i, j]); }); });
+}
+let links = [];
+function pickTarget() {
+  const d = T[region].searches[searchIdx % 6];
+  const col = SEC[d[1]];
+  const minX = FW < 900 ? 0 : FW * 0.5;
+  const cands = nodes.filter(n => n.x > minX && Math.hypot(n.x - origin.x, n.y - origin.y) > 120 && n.x < FW - 40 && n.y > 60 && n.y < FH - 80);
+  target = cands[Math.floor(Math.random() * cands.length)] || nodes[0];
+  target.lockC = col; lockT = 0;
+}
+function drawField(t) {
+  fx.clearRect(0, 0, FW, FH);
+  for (const n of nodes) {
+    if (!reduce) { n.x += n.vx; n.y += n.vy; if (n.x < 0 || n.x > FW) n.vx *= -1; if (n.y < 0 || n.y > FH) n.vy *= -1; }
+    const md = Math.hypot(n.x - mouse.x, n.y - mouse.y);
+    if (md < 120 && !reduce) { n.x += (n.x - mouse.x) / md * .6; n.y += (n.y - mouse.y) / md * .6; }
+  }
+  fx.lineWidth = 1;
+  for (const [i, j] of links) {
+    const a = nodes[i], b = nodes[j], p = trace(a, b);
+    const near = Math.min(Math.hypot(a.x - mouse.x, a.y - mouse.y), Math.hypot(b.x - mouse.x, b.y - mouse.y)) < 160;
+    fx.strokeStyle = near ? "rgba(148,214,216,.42)" : "rgba(148,214,216,.11)";
+    fx.beginPath(); fx.moveTo(p[0][0], p[0][1]); fx.lineTo(p[1][0], p[1][1]); fx.lineTo(p[2][0], p[2][1]); fx.stroke();
+  }
+  for (const n of nodes) {
+    const tw = .55 + .45 * Math.sin(t / 900 + n.ph);
+    const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < 160;
+    fx.fillStyle = n.c ? n.c : `rgba(148,214,216,${(near ? .95 : .35 * tw + .15).toFixed(2)})`;
+    fx.globalAlpha = n.c ? .55 + .45 * tw : 1;
+    fx.beginPath(); fx.arc(n.x, n.y, n.r, 0, 6.283); fx.fill();
+    fx.globalAlpha = 1;
+  }
+  /* Origin: the TECHNE terminal from the logo */
+  fx.strokeStyle = "#94D6D8"; fx.lineWidth = 1.5;
+  fx.beginPath(); fx.arc(origin.x, origin.y, 11, 0, 6.283); fx.stroke();
+  fx.beginPath(); fx.arc(origin.x, origin.y, 17 + 3 * Math.sin(t / 500), 0, 6.283); fx.globalAlpha = .35; fx.stroke(); fx.globalAlpha = 1;
+  fx.fillStyle = "#94D6D8"; fx.beginPath(); fx.arc(origin.x, origin.y, 5, 0, 6.283); fx.fill();
+  /* Search sweep */
+  const sweep = (t / 2600) % 1;
+  const g = fx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, 40 + sweep * Math.max(FW, FH) * .55);
+  g.addColorStop(.85, "rgba(148,214,216,0)"); g.addColorStop(.97, `rgba(148,214,216,${(.12 * (1 - sweep)).toFixed(3)})`); g.addColorStop(1, "rgba(148,214,216,0)");
+  fx.fillStyle = g; fx.fillRect(0, 0, FW, FH);
+  /* Lock-on trace from origin to target */
+  if (target) {
+    lockT = Math.min(1, lockT + (reduce ? 1 : 0.018));
+    const p = trace(origin, target);
+    const seg1 = Math.hypot(p[1][0] - p[0][0], p[1][1] - p[0][1]), seg2 = Math.hypot(p[2][0] - p[1][0], p[2][1] - p[1][1]), L = seg1 + seg2, d = L * lockT;
+    fx.strokeStyle = target.lockC; fx.lineWidth = 1.6; fx.shadowColor = target.lockC; fx.shadowBlur = 10;
+    fx.beginPath(); fx.moveTo(p[0][0], p[0][1]);
+    let hx, hy;
+    if (d <= seg1) { const k = d / seg1; hx = p[0][0] + (p[1][0] - p[0][0]) * k; hy = p[0][1] + (p[1][1] - p[0][1]) * k; fx.lineTo(hx, hy); }
+    else { fx.lineTo(p[1][0], p[1][1]); const k = (d - seg1) / seg2; hx = p[1][0] + (p[2][0] - p[1][0]) * k; hy = p[1][1] + (p[2][1] - p[1][1]) * k; fx.lineTo(hx, hy); }
+    fx.stroke(); fx.shadowBlur = 0;
+    fx.fillStyle = "#fff"; fx.beginPath(); fx.arc(hx, hy, 2.4, 0, 6.283); fx.fill();
+    if (lockT >= 1) {
+      const pr = (t / 700) % 1;
+      fx.strokeStyle = target.lockC; fx.lineWidth = 1.5;
+      fx.beginPath(); fx.arc(target.x, target.y, 9, 0, 6.283); fx.stroke();
+      fx.globalAlpha = 1 - pr; fx.beginPath(); fx.arc(target.x, target.y, 9 + pr * 18, 0, 6.283); fx.stroke(); fx.globalAlpha = 1;
+      fx.fillStyle = target.lockC; fx.beginPath(); fx.arc(target.x, target.y, 4, 0, 6.283); fx.fill();
+      /* Bracket corners like a viewfinder */
+      const s = 16; fx.strokeStyle = "rgba(255,255,255,.7)"; fx.lineWidth = 1;
+      [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([a, b]) => { fx.beginPath(); fx.moveTo(target.x + a * s, target.y + b * (s - 6)); fx.lineTo(target.x + a * s, target.y + b * s); fx.lineTo(target.x + a * (s - 6), target.y + b * s); fx.stroke(); });
+    }
+  }
+}
+let searchIdx = 0, searchTimer = 0;
+const readout = $("#readout"), bar = $("#readout-bar");
+function showSearch(now) {
+  const set = () => {
+    const d = T[region].searches[searchIdx % 6];
+    readout.querySelector('[data-k="role"]').textContent = d[0];
+    readout.querySelector('[data-k="hub"]').innerHTML = `<span class="dot" style="--c:${SEC[d[1]]}"></span>${d[2]}`;
+    readout.querySelector('[data-k="loc"]').textContent = d[3];
+    readout.querySelector('[data-k="mapped"]').textContent = d[4] + " people";
+    readout.querySelector('[data-k="short"]').textContent = d[5] + " engaged";
+    $$("dd", readout).forEach(x => x.style.opacity = 1);
+  };
+  if (now) set(); else { $$("dd", readout).forEach(x => x.style.opacity = 0); setTimeout(set, 280); }
+  if (nodes.length) pickTarget();
+  if (reduce && nodes.length) setTimeout(() => drawField(0), 0);
+  bar.style.transition = "none"; bar.style.width = "0";
+  requestAnimationFrame(() => { bar.style.transition = reduce ? "none" : "width 4.6s linear"; bar.style.width = "100%"; });
+}
+function cycleSearch() { clearTimeout(searchTimer); searchTimer = setTimeout(() => { searchIdx++; showSearch(false); cycleSearch(); }, 4800); }
+field.parentElement.addEventListener("pointermove", e => { const r = field.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+field.parentElement.addEventListener("pointerleave", () => { mouse.x = mouse.y = -999; });
+let resizeT = 0;
+addEventListener("resize", () => { clearTimeout(resizeT); resizeT = setTimeout(() => { seedField(); pickTarget(); sizeTraces(); }, 150); });
+seedField();
+new IntersectionObserver(es => { fieldOn = es[0].isIntersecting; }).observe(field);
+
+/* ---------------- Trailer ---------------- */
+const vid = $("#trailer-v"), screen = $("#screen");
+const fmt = s => String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+vid.addEventListener("timeupdate", () => { $("#tr-time").textContent = fmt(vid.currentTime) + " / " + fmt(vid.duration || 0); $("#tr-prog").style.width = (vid.currentTime / (vid.duration || 1) * 100) + "%"; });
+$("#play").addEventListener("click", () => { vid.muted = false; vid.currentTime = 0; vid.play().catch(() => {}); screen.classList.add("on"); vid.controls = true; });
+if (!reduce) new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) vid.play().catch(() => {}); else if (vid.muted) vid.pause(); }); }, { threshold: .35 }).observe(vid);
+
+/* ---------------- Count-up stats ---------------- */
+const counters = $$("[data-count]");
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting || reduce) return;
+  const el = e.target, to = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now();
+  io.unobserve(el);
+  const step = now => { const k = Math.min(1, (now - t0) / 1600), v = Math.round(to * (1 - Math.pow(1 - k, 3))); el.textContent = v + suf; if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}), { threshold: .6 });
+counters.forEach(c => io.observe(c));
+
+/* ---------------- Testimonials ---------------- */
+const QUOTES = [
+  ["[Client testimonial on moving away from the job description]", "[Name]", "[Role, Company]", "Robotics", SEC.robotics],
+  ["[Client testimonial on the quality of the shortlist and speed to hire]", "[Name]", "[Role, Company]", "Space", SEC.space],
+  ["[Client testimonial on how TECHNE built their employer brand during the search]", "[Name]", "[Role, Company]", "Energy", SEC.energy]
+];
+let qi = 0, qTimer = 0;
+const qText = $("#q-text"), qCite = $("#q-cite"), qDots = $$("#q-dots i");
+function showQuote(i) {
+  qi = (i + QUOTES.length) % QUOTES.length;
+  qText.classList.add("fade-out"); qCite.classList.add("fade-out");
+  setTimeout(() => {
+    const q = QUOTES[qi];
+    qText.textContent = q[0];
+    qCite.innerHTML = `<b>${q[1]}</b><span>${q[2]}</span><i style="--c:${q[4]}">${q[3]}</i>`;
+    qText.classList.remove("fade-out"); qCite.classList.remove("fade-out");
+    qDots.forEach((d, k) => d.classList.toggle("on", k === qi));
+  }, reduce ? 0 : 380);
+  clearInterval(qTimer); if (!reduce) qTimer = setInterval(() => showQuote(qi + 1), 7000);
+}
+$("#q-prev").addEventListener("click", () => showQuote(qi - 1));
+$("#q-next").addEventListener("click", () => showQuote(qi + 1));
+if (!reduce) qTimer = setInterval(() => showQuote(qi + 1), 7000);
+
+/* ---------------- Globe ---------------- */
+const PLACES = [["United Kingdom", 52.6, -1.6, "TECHNE office · Warrington"], ["United States", 37.5, -100, "TECHNE office · US team"], ["Germany", 51.1, 10.4, "Active searches"], ["Netherlands", 52.2, 5.4, "Active searches"], ["Belgium", 50.6, 4.6, "Active searches"], ["Luxembourg", 49.8, 6.1, "Active searches"], ["Switzerland", 46.8, 8.2, "Active searches"], ["Sweden", 60.1, 15.2, "Active searches"], ["Norway", 61.2, 8.9, "Active searches"]];
+$("#countries").innerHTML = PLACES.map((p, i) => `<li><button type="button" data-i="${i}" aria-pressed="false" class="${i < 2 ? "hq" : ""}">${p[0]}</button></li>`).join("");
+const cbtns = $$("#countries button");
+const gc = $("#globe"), gx = gc.getContext("2d");
+const BITS = atob("AAAAAAAAAAAAAAAAAAAAABAAQgBICAgJISEhJASMhIAAEJJCFkJICggJISkkJAUEhIAUEFICAkJICQkIIWcgZIQEhYABMjVCBkDMAZkIIQNg6AAMgIABMDAADsDUABkQAwdmZAAciLEDMSFEjszMEbgwYwfm5mw8qbkrO3NkpsTMk5k1M5Ni9knM24lnc+smlklxYWsv7eWttbSXltbS2lpaS1traS8traWttbSWltbS1lpay1traSktraWttbSUttbSUlpaW0traSltra21tLSWlnpv73+vrN3/t/L3V97O/99Zu2tv5e/vvJ23t7f3197K3195O29vZe2vvZW3t7J2/97K2195O39vZe2+vZW3t/J2/97K2l07K39vZez+vZW3s3JS/s7K2XlbK39nZeT8nZSXs7JS7s7KzLk5KX9nZeXMnZSRM3JS7s7KzLk5LTdnZOXMnJSZM3JS7k7Kzpk5LXNn5OXcnZSdM3J6bk7Iz5k7KTNn5OTcnJCfc3N6Zk7Iz7k5KTtn5PTMnJCfM3N6Zk7I7Zk5MT9n5vTMnJCfM3N6fk7M7Zk5OT/n5uTcnJHbc3N6fk7Nzbk5OTfn5vTcnJbbc3Nyfs7N7bk5Kbfn5vT8nJqbc3Nybk7N6bk5LTfn5vT8nJqbc3Nybs7N6bk5PTfn5uTcnJrbc3Nqbs7Nybk5Nafn5vTcnJuTc3N6Ts7N6Tk5NTfn5tScnJvTc3J6Tk7N6Tk5NTfn5PScnJvTc3Nqbs7NqTk5Nbfn5tScnJvTc3Jqbs/NqTk5Nbfn5tScnJtTc3Jqbs7N6Tk5Nafn5NScnJtTc3JqRsfNqTk5N6fm5NScjJtRc3NqRsfNqTk5N6fm5tSMjJtTc3JiTs3NqTkZN6Pm5NSMnpNTc3JmRs3JqRkZJ6Pn5NSMmpvTczJmRs3JqRkRJ6Pn9NyMmpMTMzpGRs7pqRk1JyPm1IyMmpMTMypGRs7pqRk1JyNmVIyMnJMTMypGRsypuTk1J6dmVIyMmNMTcypORsypOTkxJyfmVIycmFMTciJOTs2oOTE5pyfkVIycmFEzcmJOTs2pGDkxoybkRJycmFMzYnJGTMipGDExoybkxJycmlNzcnJGTcipGDExp2bE5JyckFMxYmJGTYiJGDkxp+bExJyckFMxYmJGTYnJOTkhp2LExIyakBMxYmJOzcnJGTkhp2bExIyYkJMzYmpOzYipGTkhI2fE1IyakNEzckpGzIipGTEho2fE1IyYEFEzckpGz4ipGTEhp2fklIyeEVMzYkJGz4ipGT0hombklIyeEVMzYkJGzYgpGTUhpmbEhIyeEVMzekJGzYgpGT0hpmbUhIyaEVMyekJOzYgpGTUhpmT0hIyaEVMyakJMzagpGTUhpmTUhIyaE1MyakJMyagpGTUlpmTUhJyaU1MyakJMyagpGTUnpmTUhJiSU1MyakJMyakpOTWlpuTUhJiSU1NyakpMyakpOSWlpuTUhJiSU1Nyak5MySkoMSWnpuTUlJiSU1Nyak5JySkpMSWnpOSUlJiSU1BySkpJySkpMSWnpOTUlJKSU1BiSkpJySkpMSWnpOTUnJKSU1JiSk5JySkpJSWnoMSUnJKSU1JqSk5Jyag5JSWnoMSUlJKSU1JKSk5Jiak4JSWnoNTUlJKSUVJKSk5JiSk5JSWnoJSUlJISUVFKSk5JqSkpJSWnoJSUnJISUVFKSk5BqSkpJSWioJQUnJJSU3BKCk5BKSkoJSWjpJQUnIJSU3FKCkxJKSkoJaWioJQUnJJSUlBKSk5JKSk4JaWmoJQUmJJSUlBKSkVJKSkwJaWmoJQUmJJSUlBKSkVJKSkwJaWkoJQUnJpSUkBKSgVNKSkwNaWkgJSUippSUmBKSklBKSkwJaWkgJSUCppSUmBKSkkBqSk0JKSkgJSUGgpSUmBISkkBqSkUJKWkwJSUkgpSU2BISEkBKSkUBKSkwJSQkgpSU2hISEmBKSkUFKSmyJCQkgJSUigISkmFISkVBKSmwJCUkgJSUigISE2VISElBaSm0BCUkgJCUigISE2FISElFaSkUhCQmgpCUioISE3hISA1BYSkUBCQmgJCQmoKSEmhISA1BYSkUBCQmoJCQGoKCEmhISA1BYSgVBCQksJCQGoICEmhICA1BYSg1BQQkkJCQGoKCEGhICA0hYWA1BAQmkJCQGoKCEEpICA0hYSA1BAQikJAQGgKC0EpISAUhYSA1BQQikJAQGgKCQEpISAUhYSA1BQQglJAQCgKCwEpKSAUhYSA0BQWglJCQCgKCQEpKSAEhYSAUBQSAlJCQCgKCQEpICAEpYCAUBQSAlJAQCgKCQEhKCwEpYSAUBQSAlJQQAgKCQEhKCQEpICAUBQWAkJAQAhKAQGhKSQEpKCAEBQSAkJASAhIAQWhKCwEhICCEBQSAkJCWAhIAQWhKCQEhISCENASCkJQSAhISUUhqCQUhISCEJASCkJRSAgICQUhICQUhICiEJCSgkJRSQgICQUhICUUhICSEBASCkJBSSgICQWhICUUhaCyEJASCkJBSSgIAQUhICQVhIKSUBASCkJBSSgIAWWhICUVhICSUBACikJASSgIAWWhICUUhICSUBACikJASCgIASWhIAQUhICSUBACikJBSioIASWhIAQUhICSUBACSkJBSCoIASWhKAQUhYCSUBAASkJBCCgIASWhKAAUhIKSVBAASkJRCSgIASWhIAAUhIISVBAASlJRASgIBQWhIAAUpKICVBACCkJRACgIBQWoIAAUpKICUBAACkJBACgIRQWoIAAUpIICUBAICkBBACgIRQWgIAAUpIICUBCIClBBACgIRQWgIBAUgIIAUBCKClBBAChIBQWgIBAVgIIAUBCKCkBBICpABQGgIBQVgIIAUBCKCkBBICpABQGgIBQVoIIAVAAKCkBBICpABQGoABQVgKJAVIAKCkBRKCpARYGoABQUgIJAVICKAkARKCoARYGoABQUgIJQVIAKAlABKCoABYGoABUUgCJQVIAKAlEBKCgABYGoABUEgAJQVAAKAlERKCoABaCoABUVogJQUAAKAlERKioABaCoABUUogJQUAAKAFERKigEBaCgCBUUoiJQVAAKQFEBKihEBaCgCBQAoiJQVAAKQFERKihEBaCoCBQQoiJUVACKSEERKiAERaCgCBSQoiJUUAwKSEERKCAEBaCoCBSQgiJUUAwKQFERKCAERaCoGBSQgiJUQAgKQEERKCAEBaigGBSQgiJQQAgKQEExKCAFBaiAGBSQoiJQQAgKQEExKCAHRaCAGBSQgiJQQAwKQAExKCAFRaiAGBSQgmJQQA4KQAExKCAFRaiAEBSAgmJUQAqKUAExKCAFRaiAEBSAA2JUQAqKUAEhKCAFxaiAFBSBAmJUQAqKQAEhKAAFhaiAFBSBA2JUQAqKQAEhKAAFhKCAFBWBAmJQAAqKQAEpKgBFhKCAFBSBAkJQAAoKQQEpKAAHxKAAFBSAAkJQAAoIQQEpKAAFxKAAFBWAAlJQAAoIQQEoKAAFxKAAFBSCAlJQAAoIQQEoKAAFhKAAFBCCAlBQAAoIQQEoKAAFpKAAFBCCAlBQBAoIQQEoKARFoKAAFBCCAlBQAAoIQQEoIARFoKAAFBCCAlBQAIpAQQEoIARFoKAIFBCCAlBAAIpAQQEoIARFoKAAFIGCAlBACIpCQREoIAQFoKAAFIGCAlBACIpAQREoIgUFoIAAFIWCAlBACApAQREoAgUFoIgQFIWCIlBECgpAUQEoCgUFoIgQFICCIlAECgpAEQEoCgVFoIgUFICiIlAUCgpAEQEoCgVFoIgUFIAiAlA0KipltaWtv/39v////////v/f39/aW3t6AkdGoCgUFIAiAlAEiopAUSgoAkUEoCgUFIGiAlAEiohAUSgoAkUEoAgUEYGiElAEioxAUSgoAkUEoAgUEYGiEFAEighAESgiAkUFoAgUEYGiUFAEighAESgiAkUhoAgUEYGiUEQEighAESgiAkUhoAgUEYEiUEQEigJAESgiAkWhiAgUEYEiUEQEikJQESgiAkWgiAgUBaAiUEQEjkJQESgiAkWgiAgUBaAiUEQEjkARESgqQkWgiAgUhaAiUEQEikARESgKQEWgiAgUhaIiUESEikARESgKQEWgiAgUgSIiUBSEikARESgKQUWgCAgVgSIiUBSEikARECgCRUSgCAgVgSIiUBSEikARECoCRUSgKAgVgSIgUASKikARECoCRUCgKAgVgSIgUASKiEARECoCRUCgCAgRgSIgVASKgEARECoCRUCgCBwRgSIgVASKgEARECICRUCoCBQBgSIgVASKgEARMCICRUCoCBQBgSIgRASKgEARKCICRUCoCBQBgSIgRASKgFARKAICRUCoCBQBgSJgRASKgFARKAICRUCICBQBgSJQBASKgFARKAICRcCICBQBoSJQBASKgBARKAICRcAICBQBoSJQBASKgBERKAICRYAICBQBISJQBASKgBEQKAJCRaAICBQBISJQBASKABEQKAJCRKAICBQBIyJQBASKABEQKAJCRKAICBQBIyBQBASIABEQKABGQKAICBQBIiBQAISIQBEQKABGQKAACBABIiBQAISAQAEQIABEQKAACBGBIiBQAIyAQAEQIABEQKAACAGAAiBAAIiAAAEQIgIEQIAAGAGBAiBAAAiAAAEQAgAEQIAAEAABAiAAAAiAAAEQAAAEQAAAEAABAiAAAAiAAAEgAAIEQAAAEAgBAiAAAAiAAAEgAAIEQAAAEAABAkAAAAiAAAAgAAIEQAAAEAABAkAAAAiAAAAgAAIEwAAAEAABAkAAAAiAAAAgEAIEgAAAEAABAEAAAAgAAQAgEAAAgAAAEAAAAEAgAAAAAQAgEAAAgAAAAAAAAEAgAAAAAQAgAAAAgAAAAAACAEAAAAAAAQAgAAAAgEAAAAACAEAAAAAAAQAAAAQAgAAAAAACAAAABAAAAQAAAAQAAAAIAAACAQAABAAAAQAAAAQAgAAIAAACAAAAAAAAAQAAAAQCAAAIAAACAAAACAQAAAAAAAQAAAAAAAACAAAACAQAAAAAAAQAAAAQCAAAAAAACAAAAAAQAAQAAAAQCAAAAAAACAAAACAQAAAAAAAQAAAAACAACAAAACAQAAAAAAAQAAAAQCAAAAAAACAAAAAAAAAQAAAAQAAAAAAAACAAAAAAAAAQAAAAQAAAAAAAACAAAACAAAAQAAAAQAAAAAAAACAAAACAAAAAAAAAQAAAAAABAAAAAACAAAAAAAAAwAAAAAABAAAAAACAAAAAAAIAAAAAAAABAAAAAACAAAAAAAIAAAAACAABAAAAAAAAAAAQAAIAAAAAAAABAAAABAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAIAAAAAAAABAAAABAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"), N = 36000, rad = Math.PI / 180;
+const vec = (lat, lon) => [Math.cos(lat * rad) * Math.cos(lon * rad), Math.cos(lat * rad) * Math.sin(lon * rad), Math.sin(lat * rad)];
+const dots = [];
+for (let i = 0; i < N; i++) if (BITS.charCodeAt(i >> 3) & (1 << (i & 7))) dots.push(vec(Math.asin(1 - 2 * (i + 0.5) / N) / rad, ((i * 137.50776405) % 360) - 180));
+const pts = PLACES.map(p => vec(p[1], p[2]));
+function arcPath(a, b) {
+  const ang = Math.acos(Math.min(1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2])), lift = .05 + .34 * ang / Math.PI, out = [];
+  for (let s = 0; s <= 48; s++) { const t = s / 48, wa = Math.sin((1 - t) * ang) / Math.sin(ang), wb = Math.sin(t * ang) / Math.sin(ang), h = 1 + lift * Math.sin(Math.PI * t); out.push([(wa * a[0] + wb * b[0]) * h, (wa * a[1] + wb * b[1]) * h, (wa * a[2] + wb * b[2]) * h]); }
+  return out;
+}
+let arcs = [];
+function buildArcs() { const h = T[region].home; arcs = pts.map((b, k) => k === h ? null : { path: arcPath(pts[h], b), to: k, off: k * .37 }).filter(Boolean); }
+let GW = 0, GR = 0, gdpr = 1, cl = -1.6, cp = 40, tl = cl, tp = cp, active = 0, drag = false, lastX = 0, idleAt = 0, gtime = 0, globeOn = false;
+function gResize() { gdpr = Math.min(devicePixelRatio || 1, 2); GW = Math.max(1, Math.round(gc.clientWidth * gdpr)); gc.width = gc.height = GW; GR = GW * .42; }
+const proj = v => { const c = Math.cos(cl * rad), s = Math.sin(cl * rad), cP = Math.cos(cp * rad), sP = Math.sin(cp * rad); const x1 = v[0] * c + v[1] * s, y1 = -v[0] * s + v[1] * c; return [y1, v[2] * cP - x1 * sP, x1 * cP + v[2] * sP]; };
+function focus(i, user) {
+  active = i; tl = PLACES[i][2]; tp = Math.max(-10, Math.min(55, PLACES[i][1] - 8));
+  cbtns.forEach((b, k) => b.setAttribute("aria-pressed", String(k === i)));
+  $("#g-name").textContent = PLACES[i][0]; $("#g-note").textContent = PLACES[i][3];
+  if (user) idleAt = performance.now() + 6000;
+}
+globeGoHome = () => { buildArcs(); focus(T[region].home, false); };
+cbtns.forEach(b => b.addEventListener("click", () => focus(+b.dataset.i, true)));
+gc.addEventListener("pointerdown", e => { drag = true; lastX = e.clientX; gc.setPointerCapture(e.pointerId); });
+gc.addEventListener("pointermove", e => { if (!drag) return; cl -= (e.clientX - lastX) * .35; tl = cl; lastX = e.clientX; idleAt = performance.now() + 5000; });
+gc.addEventListener("pointerup", () => { drag = false; });
+function drawGlobe(now) {
+  if (!drag) { if (now > idleAt && !reduce) tl += .05; cl += ((((tl - cl) % 360) + 540) % 360 - 180) * .06; cp += (tp - cp) * .06; }
+  gtime = now;
+  const cx = GW / 2, cy = GW / 2;
+  gx.clearRect(0, 0, GW, GW);
+  const halo = gx.createRadialGradient(cx, cy, GR * .9, cx, cy, GR * 1.25); halo.addColorStop(0, "rgba(25,157,174,.22)"); halo.addColorStop(1, "rgba(25,157,174,0)");
+  gx.fillStyle = halo; gx.fillRect(0, 0, GW, GW);
+  const body = gx.createRadialGradient(cx - GR * .35, cy - GR * .4, GR * .1, cx, cy, GR); body.addColorStop(0, "#0b2731"); body.addColorStop(1, "#03090c");
+  gx.fillStyle = body; gx.beginPath(); gx.arc(cx, cy, GR, 0, 7); gx.fill();
+  gx.strokeStyle = "rgba(148,214,216,.25)"; gx.lineWidth = gdpr; gx.stroke();
+  const ds = 1.2 * gdpr;
+  for (const v of dots) { const p = proj(v); if (p[2] <= .02) continue; gx.fillStyle = `rgba(148,214,216,${(.12 + .6 * p[2]).toFixed(2)})`; gx.fillRect(cx + p[0] * GR - ds / 2, cy - p[1] * GR - ds / 2, ds, ds); }
+  for (const a of arcs) {
+    const hot = a.to === active;
+    const t = ((now / 2400) + a.off) % 1;
+    gx.lineWidth = (hot ? 2 : 1.1) * gdpr;
+    gx.strokeStyle = hot ? "rgba(255,255,255,.9)" : "rgba(148,214,216,.55)";
+    gx.beginPath(); let started = false;
+    for (const v of a.path) { const p = proj(v); const vis = p[2] > 0 || p[0] * p[0] + p[1] * p[1] > 1; if (!vis) { started = false; continue; } const X = cx + p[0] * GR, Y = cy - p[1] * GR; if (!started) { gx.moveTo(X, Y); started = true; } else gx.lineTo(X, Y); }
+    gx.stroke();
+    const k = Math.floor(t * (a.path.length - 1)), p = proj(a.path[k]);
+    if (p[2] > 0 || p[0] * p[0] + p[1] * p[1] > 1) { gx.fillStyle = "#fff"; gx.beginPath(); gx.arc(cx + p[0] * GR, cy - p[1] * GR, 2.2 * gdpr, 0, 7); gx.fill(); }
+  }
+  pts.forEach((v, i) => {
+    const p = proj(v); if (p[2] <= 0) return;
+    const X = cx + p[0] * GR, Y = cy - p[1] * GR, hq = i === T[region].home, on = i === active;
+    gx.fillStyle = hq ? "#94D6D8" : on ? "#fff" : "rgba(148,214,216,.9)";
+    gx.beginPath(); gx.arc(X, Y, (hq ? 5 : on ? 4 : 3) * gdpr, 0, 7); gx.fill();
+    if (hq || on) { const pr = (now / 1400) % 1; gx.strokeStyle = `rgba(148,214,216,${(1 - pr).toFixed(2)})`; gx.lineWidth = 1.2 * gdpr; gx.beginPath(); gx.arc(X, Y, (6 + pr * 16) * gdpr, 0, 7); gx.stroke(); }
+  });
+}
+gResize();
+new IntersectionObserver(es => { globeOn = es[0].isIntersecting; }).observe(gc);
+
+/* ---------------- Final CTA traces ---------------- */
+const tc = $("#traces"), tx = tc.getContext("2d");
+let TW = 0, TH = 0, tdpr = 1, tracesOn = false, runs = [];
+function sizeTraces() {
+  const r = tc.getBoundingClientRect(); tdpr = Math.min(devicePixelRatio || 1, 2); TW = r.width; TH = r.height;
+  tc.width = TW * tdpr; tc.height = TH * tdpr; tx.setTransform(tdpr, 0, 0, tdpr, 0, 0);
+  runs = Array.from({ length: Math.round(TW / 46) }, (_, i) => {
+    const x = (i + .5) * TW / Math.round(TW / 46), bend = TH * (.3 + Math.random() * .4), dir = Math.random() < .5 ? -1 : 1, len = 30 + Math.random() * 60;
+    return { pts: [[x, TH + 10], [x, bend], [x + dir * len, bend - len], [x + dir * len, -10]], c: Math.random() < .2 ? SEC_LIST[i % 6] : "#94D6D8", sp: .00006 + Math.random() * .00008, off: Math.random() };
+  });
+}
+function drawTraces(now) {
+  tx.clearRect(0, 0, TW, TH);
+  for (const r of runs) {
+    tx.strokeStyle = "rgba(148,214,216,.08)"; tx.lineWidth = 1;
+    tx.beginPath(); r.pts.forEach((p, i) => i ? tx.lineTo(p[0], p[1]) : tx.moveTo(p[0], p[1])); tx.stroke();
+    const segs = []; let L = 0; for (let i = 1; i < r.pts.length; i++) { const d = Math.hypot(r.pts[i][0] - r.pts[i - 1][0], r.pts[i][1] - r.pts[i - 1][1]); segs.push(d); L += d; }
+    let d = ((now * r.sp + r.off) % 1) * L, k = 0; while (d > segs[k] && k < segs.length - 1) { d -= segs[k]; k++; }
+    const a = r.pts[k], b = r.pts[k + 1], f = d / segs[k], x = a[0] + (b[0] - a[0]) * f, y = a[1] + (b[1] - a[1]) * f;
+    const g = tx.createRadialGradient(x, y, 0, x, y, 26); g.addColorStop(0, r.c); g.addColorStop(1, "rgba(0,0,0,0)");
+    tx.globalAlpha = .55; tx.fillStyle = g; tx.fillRect(x - 26, y - 26, 52, 52); tx.globalAlpha = 1;
+    tx.fillStyle = r.c; tx.beginPath(); tx.arc(x, y, 1.8, 0, 7); tx.fill();
+  }
+  /* Terminal rings at the top of each run, like the logo's N */
+}
+sizeTraces();
+new IntersectionObserver(es => { tracesOn = es[0].isIntersecting; }).observe(tc);
+addEventListener("resize", () => gResize());
+
+/* ---------------- Copy buttons ---------------- */
+$$("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const val = b.dataset.copy === "phone" ? T[region].phone : "hello@techne-talent.com";
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1600); };
+  if (navigator.clipboard) navigator.clipboard.writeText(val).then(done).catch(() => { const s = getSelection(), rg = document.createRange(); rg.selectNodeContents(b.previousElementSibling.querySelector("b")); s.removeAllRanges(); s.addRange(rg); });
+}));
+
+/* ---------------- Loop ---------------- */
+applyRegion(region, false);
+cycleSearch();
+function loop(now) {
+  if (fieldOn) drawField(now);
+  if (globeOn) drawGlobe(now);
+  if (tracesOn) drawTraces(now);
+  if (!reduce) requestAnimationFrame(loop);
+}
+if (reduce) { drawField(0); drawGlobe(0); drawTraces(0); } else requestAnimationFrame(loop);
+})();
+</script>
+
+</body>
+</html>
