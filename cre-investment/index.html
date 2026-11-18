@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Westmere Capital · Commercial Real Estate Concept</title>
+<meta name="description" content="Design concept for a commercial real estate investment and property management firm.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314201c'/%3E%3Cpath d='M8 24V10l8-4 8 4v14' fill='none' stroke='%23b8a37a' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --ink:#14201c; --ink2:#1d2b26; --paper:#f6f5f1; --stone:#e9e6de; --line:rgba(20,32,28,.14); --muted:#5f6b66;
+  --brass:#b8a37a; --brass2:#cdbb94; --white:#fff;
+  --serif:"Instrument Serif",Georgia,serif; --sans:"Inter Tight",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16.5px;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:-.01em}
+.kicker{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);font-weight:500;display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:34px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:14px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:17px 30px;border:1px solid currentColor;transition:.35s}
+.btn .ar{transition:transform .35s}
+.btn:hover .ar{transform:translateX(5px)}
+.btn-solid{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.btn-solid:hover{background:var(--brass2)}
+.btn-ghost-light{color:#fff}
+.btn-ghost-light:hover{background:#fff;color:var(--ink)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.concept{background:var(--brass);color:var(--ink);font-size:12px;text-align:center;padding:6px 16px;letter-spacing:.04em}
+header{position:fixed;top:30px;left:0;right:0;z-index:50;color:#fff;transition:.4s}
+header.solid{top:0;background:rgba(20,32,28,.94);backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
+.logo{display:flex;align-items:center;gap:14px;font-family:var(--serif);font-size:1.6rem;letter-spacing:.02em}
+.logo svg{width:30px;height:30px}
+.logo small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.7;margin-top:2px}
+.menu{display:flex;gap:34px;font-size:13px;letter-spacing:.06em}
+.menu a{opacity:.82;position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:.35s}
+.menu a:hover{opacity:1}.menu a:hover::after{width:100%}
+@media(max-width:1000px){.menu{display:none}}
+@media(max-width:560px){.nav .btn{display:none}}
+/* hero */
+.hero{position:relative;height:100svh;min-height:640px;color:#fff;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:-6% 0;background:#1d2b26 url("https://images.unsplash.com/photo-1772877357487-ca7dc84cc04e?auto=format&fit=crop&w=2200&q=80") center/cover;will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,22,19,.88) 0%,rgba(14,22,19,.55) 50%,rgba(14,22,19,.2) 100%),linear-gradient(0deg,rgba(14,22,19,.7),transparent 45%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:11vh;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(3rem,7.2vw,6.8rem);margin:24px 0 28px;max-width:12ch}
+.hero h1 em{color:var(--brass2)}
+.hero p{max-width:34rem;color:rgba(255,255,255,.82);font-size:1.12rem;font-weight:300;margin-bottom:38px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{border-left:1px solid rgba(255,255,255,.25);padding-left:32px;display:grid;gap:26px}
+.hero-stats b{font-family:var(--serif);font-weight:400;font-size:2.8rem;display:block;line-height:1;color:#fff}
+.hero-stats span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-stats{grid-template-columns:repeat(3,1fr);border-left:0;border-top:1px solid rgba(255,255,255,.25);padding:24px 0 0}.hero-stats b{font-size:2rem}}
+section{padding-block:clamp(96px,12vw,170px)}
+/* philosophy */
+.phil{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,8vw,140px)}
+.phil h2{font-size:clamp(2.6rem,5vw,4.4rem);margin-top:22px}
+.phil h2 em{color:var(--brass)}
+.phil-body p{color:var(--muted);font-size:1.08rem;margin-bottom:22px;max-width:36rem}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);margin-top:44px;border-top:1px solid var(--line)}
+.pillars div{padding:26px 22px 0 0}
+.pillars div+div{padding-left:22px;border-left:1px solid var(--line)}
+.pillars b{font-family:var(--serif);font-weight:400;font-size:1.5rem;display:block;margin-bottom:8px}
+.pillars p{font-size:14.5px;margin:0}
+@media(max-width:900px){.phil{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}.pillars div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:22px}}
+/* portfolio */
+.dark{background:var(--ink);color:#fff}
+.dark .kicker{color:var(--brass2)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-bottom:64px}
+.head h2{font-size:clamp(2.6rem,5vw,4.4rem);margin-top:22px;max-width:16ch}
+.head p{max-width:28rem;color:rgba(255,255,255,.7)}
+.port{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.asset{position:relative;overflow:hidden;cursor:pointer;color:#fff}
+.asset .img{aspect-ratio:4/5;background:#26352f center/cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.asset:hover .img{transform:scale(1.06)}
+.asset::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,22,19,.88),transparent 55%)}
+.asset .info{position:absolute;left:28px;right:28px;bottom:26px;z-index:2}
+.asset .type{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass2)}
+.asset h3{font-size:2rem;margin:8px 0 4px}
+.asset .meta{font-size:13.5px;color:rgba(255,255,255,.72);display:flex;gap:18px;flex-wrap:wrap}
+.a1{grid-column:span 7}.a1 .img{aspect-ratio:7/6}
+.a2{grid-column:span 5}.a2 .img{aspect-ratio:5/6}
+.a3{grid-column:span 4}.a4{grid-column:span 4}.a5{grid-column:span 4}
+.a3 .img,.a4 .img,.a5 .img{aspect-ratio:4/5}
+@media(max-width:900px){.port>*{grid-column:span 12!important}.asset .img{aspect-ratio:4/3!important}}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums div{padding:44px 28px}
+.nums div+div{border-left:1px solid var(--line)}
+.nums b{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,5vw,4.4rem);display:block;line-height:1}
+.nums span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:860px){.nums{grid-template-columns:1fr 1fr}.nums div:nth-child(3){border-left:0}.nums div:nth-child(n+3){border-top:1px solid var(--line)}}
+/* management */
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,120px);align-items:center}
+.pm-img{position:relative;aspect-ratio:4/5}
+.pm-img .m1{position:absolute;inset:0 22% 18% 0;background:#cfcabd url("https://images.unsplash.com/photo-1763887427912-18fc57f4cb88?auto=format&fit=crop&w=1200&q=80") center/cover}
+.pm-img .m2{position:absolute;right:0;bottom:0;width:50%;aspect-ratio:3/4;background:#cfcabd url("https://images.unsplash.com/photo-1759455456560-4c523b3f81b6?auto=format&fit=crop&w=900&q=80") center/cover;border:10px solid var(--paper)}
+.pm h2{font-size:clamp(2.6rem,5vw,4.2rem);margin:22px 0 22px}
+.pm>div>p{color:var(--muted);font-size:1.06rem;margin-bottom:34px}
+.caps{border-top:1px solid var(--line)}
+.cap{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.cap span{font-family:var(--serif);font-size:1.3rem;color:var(--brass)}
+.cap b{font-weight:500;display:block}
+.cap p{color:var(--muted);font-size:14.5px;margin-top:2px}
+@media(max-width:900px){.pm{grid-template-columns:1fr}}
+/* press */
+.press{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.post{border-top:1px solid var(--ink);padding-top:22px;display:flex;flex-direction:column}
+.post .src{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.post h3{font-size:1.75rem;margin:18px 0 22px;transition:color .3s}
+.post:hover h3{color:var(--brass)}
+.post .more{margin-top:auto;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+@media(max-width:900px){.press{grid-template-columns:1fr}}
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,7vw,120px)}
+.contact h2{font-size:clamp(2.6rem,5vw,4.2rem);margin:22px 0 24px}
+.offices{display:grid;gap:22px;margin-top:40px}
+.offices div{border-top:1px solid rgba(255,255,255,.16);padding-top:18px;font-size:15px;color:rgba(255,255,255,.75)}
+.offices b{display:block;color:#fff;font-weight:500;margin-bottom:4px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+form .full{grid-column:1/-1}
+label{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:8px}
+input,textarea,select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.3);color:#fff;font:300 16px var(--sans);padding:10px 0}
+select option{color:var(--ink)}
+textarea{resize:vertical;min-height:110px}
+#fmsg{grid-column:1/-1;color:var(--brass2);font-size:14px;min-height:1em}
+@media(max-width:900px){.contact{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+footer{background:#0e1613;color:rgba(255,255,255,.6);padding-block:44px;font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="concept">Design concept for a commercial real estate investment firm · placeholder name, properties and figures</div>
+
+<header id="hdr"><div class="wrap nav">
+  <a class="logo" href="#top"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 27V10l10-6 10 6v17" fill="none" stroke="#b8a37a" stroke-width="1.6"/><path d="M11 27V15h8v12" fill="none" stroke="#fff" stroke-width="1.6"/></svg><span>Westmere<small>Capital Partners</small></span></a>
+  <nav class="menu" aria-label="Main"><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#management">Property Management</a><a href="#press">Press &amp; News</a></nav>
+  <a class="btn btn-ghost-light" href="#contact">Contact <span class="ar">→</span></a>
+</div></header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="hero-bg" id="hbg" role="img" aria-label="Office building facade"></div>
+  <div class="wrap">
+    <div>
+      <span class="kicker reveal">Commercial Real Estate · Investment &amp; Management</span>
+      <h1 class="reveal d1">Long-term value, <em>built</em> one asset at a time</h1>
+      <p class="reveal d2">We acquire, own and operate office and commercial properties, and manage every one of them in-house.</p>
+      <div class="ctas reveal d3"><a class="btn btn-solid" href="#portfolio">View our portfolio <span class="ar">→</span></a><a class="btn btn-ghost-light" href="#about">Our approach</a></div>
+    </div>
+    <div class="hero-stats reveal d2">
+      <div><b data-n="25">0</b><span>Years investing</span></div>
+      <div><b data-n="40">0</b><span>Assets owned</span></div>
+      <div><b data-n="3">0</b><span>Million sq ft managed</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about"><div class="wrap phil">
+  <div class="reveal"><span class="kicker">Investment Philosophy</span><h2>Disciplined capital. <em>Hands-on</em> ownership.</h2></div>
+  <div class="phil-body reveal d1">
+    <p>We invest in well-located commercial assets where careful operation creates lasting value. Because we manage our own properties, every decision, from leasing to capital improvements, is made by the people accountable for the result.</p>
+    <p>That alignment has guided us through every market cycle, and it is why tenants, lenders and partners return to work with us again.</p>
+    <div class="pillars">
+      <div><b>Acquire</b><p>Selective purchases of office and commercial assets with clear upside.</p></div>
+      <div><b>Operate</b><p>In-house management, leasing and maintenance for every property.</p></div>
+      <div><b>Hold</b><p>Long-term ownership focused on durable income and asset quality.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="portfolio" class="dark"><div class="wrap">
+  <div class="head reveal"><div><span class="kicker">Selected Portfolio</span><h2>Assets we own and operate</h2></div><p>A selection of office and commercial properties across our portfolio. Placeholder names and figures.</p></div>
+  <div class="port">
+    <article class="asset a1 reveal"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1762890515866-3b1b34e13133?auto=format&fit=crop&w=1600&q=80')"></div><div class="info"><span class="type">Class A Office</span><h3>One Harbor Plaza</h3><div class="meta"><span>Downtown</span><span>[000,000] SF</span><span>Acquired [year]</span></div></div></article>
+    <article class="asset a2 reveal d1"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1758961977548-728fa9072bf5?auto=format&fit=crop&w=1200&q=80')"></div><div class="info"><span class="type">Office</span><h3>Linden Park Center</h3><div class="meta"><span>Midtown</span><span>[000,000] SF</span></div></div></article>
+    <article class="asset a3 reveal"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1777042575928-366908c3ee3f?auto=format&fit=crop&w=1000&q=80')"></div><div class="info"><span class="type">Mixed Use</span><h3>The Meridian</h3><div class="meta"><span>Uptown</span></div></div></article>
+    <article class="asset a4 reveal d1"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1763887427912-18fc57f4cb88?auto=format&fit=crop&w=1000&q=80')"></div><div class="info"><span class="type">Office Campus</span><h3>Westgate Commons</h3><div class="meta"><span>Suburban</span></div></div></article>
+    <article class="asset a5 reveal d2"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1759455456560-4c523b3f81b6?auto=format&fit=crop&w=1000&q=80')"></div><div class="info"><span class="type">Office</span><h3>200 Ash Street</h3><div class="meta"><span>Central</span></div></div></article>
+  </div>
+</div></section>
+
+<section style="padding-bottom:0"><div class="wrap">
+  <div class="nums reveal">
+    <div><b>[$0.0B]</b><span>Assets under management</span></div>
+    <div><b>[00]</b><span>Properties owned</span></div>
+    <div><b>[00%]</b><span>Average occupancy</span></div>
+    <div><b>[000]</b><span>Tenants served</span></div>
+  </div>
+</div></section>
+
+<section id="management"><div class="wrap pm">
+  <div class="pm-img reveal"><div class="m1" role="img" aria-label="Office building exterior"></div><div class="m2" role="img" aria-label="Building facade detail"></div></div>
+  <div class="reveal d1">
+    <span class="kicker">Property Management</span>
+    <h2>Every building, managed by the owner</h2>
+    <p>Our in-house team handles the day-to-day operation of every property we own, so tenants deal directly with the people who make decisions.</p>
+    <div class="caps">
+      <div class="cap"><span>01</span><div><b>Leasing &amp; tenant relations</b><p>Direct relationships, fast decisions and long-term occupancy.</p></div></div>
+      <div class="cap"><span>02</span><div><b>Operations &amp; maintenance</b><p>Responsive building engineering and preventive maintenance programs.</p></div></div>
+      <div class="cap"><span>03</span><div><b>Capital improvements</b><p>Planned upgrades that protect value and tenant experience.</p></div></div>
+      <div class="cap"><span>04</span><div><b>Financial reporting</b><p>Transparent, timely reporting for partners and lenders.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="press" style="padding-top:0"><div class="wrap">
+  <div class="head reveal" style="color:var(--ink)"><div><span class="kicker">Press &amp; News</span><h2>In the news</h2></div><a class="btn" href="#press">All news <span class="ar">→</span></a></div>
+  <div class="press">
+    <a class="post reveal" href="#press"><div class="src"><span>Press release</span><span>[Month 2026]</span></div><h3>Westmere acquires 240,000 SF Class A office tower downtown</h3><span class="more">Read article →</span></a>
+    <a class="post reveal d1" href="#press"><div class="src"><span>[Publication]</span><span>[Month 2026]</span></div><h3>Why owner-operators are outperforming in today's office market</h3><span class="more">Read article →</span></a>
+    <a class="post reveal d2" href="#press"><div class="src"><span>Announcement</span><span>[Month 2026]</span></div><h3>Linden Park Center completes lobby and amenity renovation</h3><span class="more">Read article →</span></a>
+  </div>
+</div></section>
+
+<section id="contact" class="dark"><div class="wrap contact">
+  <div class="reveal">
+    <span class="kicker">Contact</span>
+    <h2>Let's talk about your next opportunity</h2>
+    <p style="color:rgba(255,255,255,.72)">Brokers, tenants, partners and press: reach the right person directly.</p>
+    <div class="offices"><div><b>Headquarters</b>[Street address]<br>[City, State ZIP]</div><div><b>General enquiries</b>[phone] · [email]</div></div>
+  </div>
+  <form class="reveal d1" id="cf" novalidate>
+    <div><label for="n">Name</label><input id="n" autocomplete="name" required></div>
+    <div><label for="e">Email</label><input id="e" type="email" autocomplete="email" required></div>
+    <div><label for="c">Company</label><input id="c" autocomplete="organization"></div>
+    <div><label for="t">I am a</label><select id="t"><option>Broker</option><option>Prospective tenant</option><option>Investment partner</option><option>Member of the press</option><option>Other</option></select></div>
+    <div class="full"><label for="m">Message</label><textarea id="m"></textarea></div>
+    <div class="full"><button class="btn btn-solid" type="submit">Send enquiry <span class="ar">→</span></button></div>
+    <p id="fmsg" aria-live="polite"></p>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© Westmere Capital Partners · Design concept</span><span>Placeholder content for review purposes</span></div></footer>
+
+<script>
+const hdr=document.getElementById('hdr'),hbg=document.getElementById('hbg');
+addEventListener('scroll',()=>{hdr.classList.toggle('solid',scrollY>60);if(scrollY<innerHeight)hbg.style.transform='translateY('+scrollY*0.18+'px)'},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(el=>{const end=+el.dataset.n;let n=0;const iv=setInterval(()=>{n++;el.textContent=n;if(n>=end)clearInterval(iv)},Math.max(20,900/end))});io.unobserve(e.target)}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('cf').addEventListener('submit',e=>{e.preventDefault();const ok=document.getElementById('n').value.trim()&&/^\S+@\S+\.\S+$/.test(document.getElementById('e').value);document.getElementById('fmsg').textContent=ok?'Thank you. (Concept only, nothing was sent.)':'Please add your name and a valid email.'});
+</script>
+</body>
+</html>
