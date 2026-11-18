@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House Doc · Residential Remodeling Concept</title>
+<meta name="description" content="Design concept for House Doc LLC, residential remodeling in Westerville and Greater Columbus, Ohio.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1b19'/%3E%3Cpath d='M7 25V14l9-7 9 7v11' fill='none' stroke='%23a9825a' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap">
+<style>
+:root{--bg:#f7f4ef;--bg2:#efeae2;--ink:#1c1b19;--muted:#6b665e;--line:rgba(28,27,25,.13);--walnut:#a9825a;--walnut2:#8a6644;--white:#fff;--serif:"DM Serif Display",Georgia,serif;--sans:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1300px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+.eyebrow{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--walnut)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border:1px solid currentColor;transition:.3s;cursor:pointer;background:none;font-family:var(--sans)}
+.btn-fill{background:var(--walnut);border-color:var(--walnut);color:#fff}
+.btn-fill:hover{background:var(--walnut2);border-color:var(--walnut2)}
+.btn-light{color:#fff}.btn-light:hover{background:#fff;color:var(--ink)}
+.btn-dark:hover{background:var(--ink);color:#fff}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--walnut);outline-offset:3px}
+.concept{background:var(--ink);color:#d9d3c8;font-size:12px;text-align:center;padding:6px 16px}
+.topbar{background:var(--walnut);color:#fff;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-block:8px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:40;background:rgba(247,244,239,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:82px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.7rem}
+.logo svg{width:34px}
+.logo small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.menu{display:flex;gap:30px;font-size:14px;font-weight:500}
+.menu a{color:var(--muted);transition:.3s}.menu a:hover{color:var(--ink)}
+.navr{display:flex;gap:18px;align-items:center}
+.phone{font-weight:600;font-size:15px}
+@media(max-width:1060px){.menu{display:none}}
+@media(max-width:600px){.phone{display:none}.nav .btn{padding:12px 16px}}
+/* hero */
+.hero{position:relative;color:#fff;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:#3b342c url("https://images.unsplash.com/photo-1769326541248-5e09a8ace25b?auto=format&fit=crop&w=2400&q=80") center/cover;transform:scale(1.08);animation:settle 2.4s cubic-bezier(.2,.8,.2,1) forwards}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,15,.85),rgba(20,18,15,.35) 60%,rgba(20,18,15,.15))}
+.hero .wrap{position:relative;z-index:2;padding-block:clamp(110px,16vw,190px) clamp(90px,10vw,130px)}
+.hero h1{font-size:clamp(3rem,6.6vw,6rem);max-width:13ch;margin:22px 0 24px}
+.hero h1 em{color:#d9b48a}
+.hero p{font-size:1.15rem;max-width:36rem;color:rgba(255,255,255,.85);margin-bottom:36px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;gap:28px;flex-wrap:wrap;margin-top:56px;font-size:13.5px;color:rgba(255,255,255,.8)}
+.trust span::before{content:"✓";color:#d9b48a;margin-right:8px;font-weight:700}
+section{padding-block:clamp(90px,11vw,150px)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.sh h2{font-size:clamp(2.4rem,4.6vw,4rem);margin-top:16px;max-width:17ch}
+.sh p{max-width:30rem;color:var(--muted)}
+/* intro */
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.intro h2{font-size:clamp(2.4rem,4.6vw,4rem);margin:16px 0 22px}
+.intro p{color:var(--muted);margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:32px}
+.stats div{padding:22px 0}
+.stats div+div{padding-left:22px;border-left:1px solid var(--line)}
+.stats b{font-family:var(--serif);font-weight:400;font-size:2.6rem;display:block;line-height:1}
+.stats span{font-size:12.5px;color:var(--muted)}
+.intro-img{aspect-ratio:4/5;background:#ddd5c8 url("https://images.unsplash.com/photo-1682888813795-192fca4a10d9?auto=format&fit=crop&w=1200&q=80") center/cover;position:relative}
+.intro-img .badge{position:absolute;left:-28px;bottom:40px;background:var(--ink);color:#fff;padding:22px 26px;max-width:240px}
+.intro-img .badge b{font-family:var(--serif);font-weight:400;font-size:1.5rem;display:block}
+.intro-img .badge span{font-size:13px;color:#cfc8bc}
+@media(max-width:900px){.intro{grid-template-columns:1fr}.intro-img .badge{left:16px}}
+/* services */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.svc{background:#fff;display:flex;flex-direction:column;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.svc:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(28,27,25,.12)}
+.svc .img{aspect-ratio:4/3;background:#ddd5c8 center/cover;overflow:hidden}
+.svc .body{padding:26px 24px 28px;display:flex;flex-direction:column;flex:1}
+.svc h3{font-size:1.6rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.svc .go{margin-top:auto;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--walnut)}
+@media(max-width:1000px){.services{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.services{grid-template-columns:1fr}}
+/* process */
+.dark{background:var(--ink);color:#f3efe8}
+.dark .sh p{color:#b9b2a6}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.15)}
+.step{padding:34px 28px 0 0}
+.step+.step{padding-left:28px;border-left:1px solid rgba(255,255,255,.15)}
+.step .n{font-family:var(--serif);font-size:3rem;color:var(--walnut);line-height:1}
+.step h3{font-size:1.6rem;margin:18px 0 10px}
+.step p{color:#b9b2a6;font-size:15px}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(3){border-left:0;padding-left:0}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}.step+.step{border-left:0;padding-left:0}}
+/* portfolio */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{background:none;border:1px solid var(--line);padding:9px 16px;font:500 13px var(--sans);cursor:pointer;color:var(--muted)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj{position:relative;overflow:hidden;cursor:zoom-in;border:0;padding:0;background:#ddd5c8;color:#fff;text-align:left;font:inherit}
+.proj .img{aspect-ratio:4/3;background:center/cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.proj:hover .img{transform:scale(1.06)}
+.proj .cap{position:absolute;inset:auto 0 0 0;padding:22px;background:linear-gradient(0deg,rgba(20,18,15,.85),transparent);}
+.proj .cap small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d9b48a}
+.proj .cap b{display:block;font-family:var(--serif);font-weight:400;font-size:1.45rem}
+.proj.big{grid-column:span 2}.proj.big .img{aspect-ratio:auto;height:100%;min-height:340px}
+@media(max-width:860px){.gallery{grid-template-columns:1fr}.proj.big{grid-column:auto}.proj.big .img{min-height:260px}}
+dialog{border:0;padding:0;max-width:min(1100px,94vw);background:#000}
+dialog::backdrop{background:rgba(10,9,8,.85)}
+dialog img{max-height:82vh;width:100%;object-fit:contain}
+dialog .bar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;color:#fff;background:var(--ink);font-size:14px}
+dialog button{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 14px;cursor:pointer;font:500 13px var(--sans)}
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{background:#fff;padding:34px 30px;display:flex;flex-direction:column}
+.rev .stars{color:var(--walnut);letter-spacing:.2em}
+.rev blockquote{font-family:var(--serif);font-size:1.35rem;line-height:1.35;margin:18px 0 22px}
+.rev cite{font-style:normal;font-size:14px;color:var(--muted);margin-top:auto}
+@media(max-width:900px){.reviews{grid-template-columns:1fr}}
+/* estimate */
+.est{background:var(--bg2)}
+.estgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px)}
+.estgrid h2{font-size:clamp(2.4rem,4.6vw,4rem);margin:16px 0 20px}
+.estgrid>div>p{color:var(--muted)}
+.area{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px}
+.area span{border:1px solid var(--line);padding:6px 12px;font-size:13.5px;background:#fff}
+form{background:#fff;padding:clamp(26px,4vw,44px)}
+.prog{display:flex;gap:6px;margin-bottom:26px}
+.prog i{flex:1;height:3px;background:var(--line)}
+.prog i.on{background:var(--walnut)}
+.q{font-family:var(--serif);font-size:1.7rem;margin-bottom:18px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts button{border:1px solid var(--line);background:var(--bg);padding:16px;text-align:left;font:500 15px var(--sans);cursor:pointer;color:var(--ink);transition:.2s}
+.opts button:hover{border-color:var(--walnut)}
+.opts button[aria-pressed="true"]{border-color:var(--walnut);background:#f3e9dc}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fields .full{grid-column:1/-1}
+label{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px}
+input,textarea{width:100%;border:1px solid var(--line);background:var(--bg);padding:13px 14px;font:15px var(--sans);color:var(--ink)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px;flex-wrap:wrap}
+.back{background:none;border:0;color:var(--muted);font:500 14px var(--sans);cursor:pointer;text-decoration:underline}
+.err{color:#a3402a;font-size:13px;min-height:1em;margin-top:10px}
+@media(max-width:900px){.estgrid{grid-template-columns:1fr}.opts,.fields{grid-template-columns:1fr}}
+footer{background:var(--ink);color:#b9b2a6;padding-block:64px 30px;font-size:14.5px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.fcols h4{color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.fcols a{display:block;margin-bottom:8px}.fcols a:hover{color:#fff}
+.legal{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+@media(max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@keyframes settle{to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="concept">Design concept for House Doc LLC · sample photography, reviews and figures</div>
+<div class="topbar"><div class="wrap"><span>Serving Westerville &amp; Greater Columbus, Ohio</span><span>Licensed &amp; insured · Free in-home consultations</span></div></div>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#top"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M5 30V15L17 5l12 10v15" fill="none" stroke="#a9825a" stroke-width="1.8"/><path d="M13 30v-9h8v9" fill="none" stroke="#1c1b19" stroke-width="1.8"/></svg><span>House Doc<small>Residential Remodeling</small></span></a>
+  <nav class="menu" aria-label="Main"><a href="#services">Services</a><a href="#process">Our Process</a><a href="#portfolio">Portfolio</a><a href="#reviews">Reviews</a><a href="#estimate">Contact</a></nav>
+  <div class="navr"><a class="phone" href="#estimate">(614) 000-0000</a><a class="btn btn-fill" href="#estimate">Free consultation</a></div>
+</div></header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="hero-img" role="img" aria-label="Luxury kitchen remodel"></div>
+  <div class="wrap">
+    <span class="eyebrow" style="color:#d9b48a">Kitchens · Bathrooms · Basements · Whole Homes</span>
+    <h1>Remodeling crafted like <em>custom</em> architecture</h1>
+    <p>Design-led renovations for Greater Columbus homeowners who expect thoughtful planning, fine craftsmanship and a project that runs exactly as promised.</p>
+    <div class="ctas"><a class="btn btn-fill" href="#estimate">Plan your project</a><a class="btn btn-light" href="#portfolio">View our work</a></div>
+    <div class="trust"><span>Fixed, detailed proposals</span><span>Dedicated project manager</span><span>Workmanship warranty</span></div>
+  </div>
+</section>
+
+<section><div class="wrap intro">
+  <div class="reveal">
+    <span class="eyebrow">About House Doc</span>
+    <h2>One team, from first sketch to final walkthrough</h2>
+    <p>We plan, design and build every project in-house, so the people who design your space are the same people accountable for building it.</p>
+    <p>Every home is different. Our job is to understand how you live, then deliver a space that feels like it was always meant to be there.</p>
+    <div class="stats"><div><b>[00+]</b><span>Years in Columbus</span></div><div><b>[000+]</b><span>Projects completed</span></div><div><b>[5.0]</b><span>Google rating</span></div></div>
+  </div>
+  <div class="intro-img reveal"><div class="badge"><b>Westerville based</b><span>Proudly serving Greater Columbus homeowners</span></div></div>
+</div></section>
+
+<section id="services" style="padding-top:0"><div class="wrap">
+  <div class="sh reveal"><div><span class="eyebrow">What we do</span><h2>Renovations that raise how you live</h2></div><p>Each service has its own page with project examples, process details and typical investment ranges.</p></div>
+  <div class="services">
+    <a class="svc reveal" href="#estimate"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1641823911769-c55f23c25143?auto=format&fit=crop&w=800&q=80')"></div><div class="body"><h3>Kitchen Remodeling</h3><p>Custom cabinetry, stone surfaces and layouts designed around the way you cook and gather.</p><span class="go">Explore kitchens →</span></div></a>
+    <a class="svc reveal" href="#estimate"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1613849925594-415a32298f54?auto=format&fit=crop&w=800&q=80')"></div><div class="body"><h3>Bathroom Remodeling</h3><p>Spa-quality primary suites, curbless showers and refined finishes built to last.</p><span class="go">Explore bathrooms →</span></div></a>
+    <a class="svc reveal" href="#estimate"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1682888813734-b1b0a4f79385?auto=format&fit=crop&w=800&q=80')"></div><div class="body"><h3>Basement Finishing</h3><p>Living space, guest suites, media rooms and bars, framed and finished to code.</p><span class="go">Explore basements →</span></div></a>
+    <a class="svc reveal" href="#estimate"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1682888813795-192fca4a10d9?auto=format&fit=crop&w=800&q=80')"></div><div class="body"><h3>Whole-Home Renovation</h3><p>Open layouts, structural changes and complete interior transformations.</p><span class="go">Explore renovations →</span></div></a>
+  </div>
+</div></section>
+
+<section id="process" class="dark"><div class="wrap">
+  <div class="sh reveal"><div><span class="eyebrow">Our process</span><h2>Clear steps. No surprises.</h2></div><p>You'll always know what happens next, what it costs and when it will be finished.</p></div>
+  <div class="steps reveal">
+    <div class="step"><span class="n">01</span><h3>Consultation</h3><p>We visit your home, listen to your goals and talk through budget and timing.</p></div>
+    <div class="step"><span class="n">02</span><h3>Design</h3><p>Plans, 3D renderings and material selections, refined until you love them.</p></div>
+    <div class="step"><span class="n">03</span><h3>Build</h3><p>A dedicated project manager, a clean job site and weekly progress updates.</p></div>
+    <div class="step"><span class="n">04</span><h3>Walkthrough</h3><p>Final inspection together, then our workmanship warranty begins.</p></div>
+  </div>
+</div></section>
+
+<section id="portfolio"><div class="wrap">
+  <div class="sh reveal"><div><span class="eyebrow">Portfolio</span><h2>Recent projects</h2></div>
+    <div class="filters" role="group" aria-label="Filter projects"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="Kitchen">Kitchens</button><button aria-pressed="false" data-f="Bathroom">Bathrooms</button><button aria-pressed="false" data-f="Whole home">Whole home</button></div>
+  </div>
+  <div class="gallery" id="gal"></div>
+</div></section>
+
+<section id="reviews" style="padding-top:0"><div class="wrap">
+  <div class="sh reveal"><div><span class="eyebrow">Reviews</span><h2>What homeowners say</h2></div><p>Placeholder layout. Your real Google reviews can display here automatically.</p></div>
+  <div class="reviews">
+    <article class="rev reveal"><span class="stars">★★★★★</span><blockquote>"[Your client's review about their kitchen remodel goes here.]"</blockquote><cite>[Client name] · Westerville</cite></article>
+    <article class="rev reveal"><span class="stars">★★★★★</span><blockquote>"[Your client's review about their bathroom project goes here.]"</blockquote><cite>[Client name] · Dublin</cite></article>
+    <article class="rev reveal"><span class="stars">★★★★★</span><blockquote>"[Your client's review about their basement or whole-home project goes here.]"</blockquote><cite>[Client name] · New Albany</cite></article>
+  </div>
+</div></section>
+
+<section id="estimate" class="est"><div class="wrap estgrid">
+  <div class="reveal">
+    <span class="eyebrow">Start your project</span>
+    <h2>Tell us about your home</h2>
+    <p>Answer three quick questions so we can prepare for your free in-home consultation. We reply within one business day.</p>
+    <div class="area"><span>Westerville</span><span>Columbus</span><span>Dublin</span><span>New Albany</span><span>Worthington</span><span>Powell</span><span>Lewis Center</span><span>Gahanna</span></div>
+  </div>
+  <form id="lead" class="reveal" novalidate aria-live="polite">
+    <div class="prog"><i class="on"></i><i></i><i></i><i></i></div>
+    <div data-step="1"><p class="q">What would you like to remodel?</p><div class="opts" data-key="type"><button type="button">Kitchen</button><button type="button">Bathroom</button><button type="button">Basement</button><button type="button">Whole home</button></div></div>
+    <div data-step="2" hidden><p class="q">What's your estimated investment?</p><div class="opts" data-key="budget"><button type="button">Under $50k</button><button type="button">$50k – $100k</button><button type="button">$100k – $200k</button><button type="button">$200k+</button></div></div>
+    <div data-step="3" hidden><p class="q">When would you like to start?</p><div class="opts" data-key="time"><button type="button">Within 3 months</button><button type="button">3 – 6 months</button><button type="button">6 – 12 months</button><button type="button">Just exploring</button></div></div>
+    <div data-step="4" hidden><p class="q">Where should we reach you?</p><div class="fields"><div><label for="nm">Full name</label><input id="nm" autocomplete="name"></div><div><label for="ph">Phone</label><input id="ph" type="tel" autocomplete="tel"></div><div class="full"><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div><div class="full"><label for="ad">Project address or ZIP</label><input id="ad" autocomplete="postal-code"></div></div></div>
+    <div data-step="5" hidden><p class="q">Thank you</p><p id="sum" style="color:var(--muted)"></p><p style="font-size:13px;color:var(--muted);margin-top:10px">Concept only: nothing was sent. On the live site this goes to your inbox and CRM.</p></div>
+    <p class="err" id="err"></p>
+    <div class="row" id="nav"><button class="back" type="button" id="bk" hidden>← Back</button><button class="btn btn-fill" type="button" id="nx">Continue</button></div>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fcols">
+    <div><div class="logo" style="color:#fff"><span>House Doc<small style="color:#b9b2a6">Residential Remodeling</small></span></div><p style="margin-top:16px;max-width:22rem">Design-led kitchen, bathroom, basement and whole-home remodeling in Westerville and Greater Columbus, Ohio.</p></div>
+    <div><h4>Services</h4><a href="#services">Kitchens</a><a href="#services">Bathrooms</a><a href="#services">Basements</a><a href="#services">Whole-home</a></div>
+    <div><h4>Company</h4><a href="#top">About</a><a href="#process">Process</a><a href="#portfolio">Portfolio</a><a href="#reviews">Reviews</a></div>
+    <div><h4>Contact</h4><a href="#estimate">(614) 000-0000</a><a href="#estimate">[email]</a><a href="#estimate">Westerville, OH</a></div>
+  </div>
+  <div class="legal"><span>© House Doc LLC · Design concept</span><span>Licensed &amp; insured in Ohio</span></div>
+</div></footer>
+
+<dialog id="lb"><img id="lbi" alt=""><div class="bar"><span id="lbc"></span><button id="lbx">Close</button></div></dialog>
+
+<script>
+const U=(id,w)=>'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w='+w+'&q=80';
+const P=[['photo-1769326541248-5e09a8ace25b','Kitchen','Classic island kitchen · Westerville',1],['photo-1613849925594-415a32298f54','Bathroom','Primary suite spa bath · Dublin',0],['photo-1641823911769-c55f23c25143','Kitchen','Modern white kitchen · New Albany',0],['photo-1682888813795-192fca4a10d9','Whole home','Open-plan renovation · Worthington',0],['photo-1682888813734-b1b0a4f79385','Whole home','Kitchen and living refresh · Powell',0]];
+function render(f){document.getElementById('gal').innerHTML=P.filter(p=>f==='all'||p[1]===f).map((p,i)=>'<button class="proj'+(p[3]&&f==='all'?' big':'')+'" data-id="'+p[0]+'" data-c="'+p[2]+'"><div class="img" style="background-image:url('+U(p[0],1200)+')"></div><div class="cap"><small>'+p[1]+'</small><b>'+p[2]+'</b></div></button>').join('');
+  document.querySelectorAll('.proj').forEach(b=>b.onclick=()=>{document.getElementById('lbi').src=U(b.dataset.id,1800);document.getElementById('lbi').alt=b.dataset.c;document.getElementById('lbc').textContent=b.dataset.c;document.getElementById('lb').showModal()})}
+render('all');
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.f)});
+const lb=document.getElementById('lb');document.getElementById('lbx').onclick=()=>lb.close();lb.onclick=e=>{if(e.target===lb)lb.close()};
+// lead form
+let step=1;const ans={};
+document.querySelectorAll('.opts').forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));ans[g.dataset.key]=b.textContent;setTimeout(next,220)}));
+function show(){document.querySelectorAll('[data-step]').forEach(s=>s.hidden=+s.dataset.step!==step);document.querySelectorAll('.prog i').forEach((i,k)=>i.classList.toggle('on',k<step));document.getElementById('bk').hidden=step===1||step===5;document.getElementById('nav').hidden=step===5;document.getElementById('nx').textContent=step===4?'Request consultation':'Continue';document.getElementById('err').textContent=''}
+function next(){const keys={1:'type',2:'budget',3:'time'};if(keys[step]&&!ans[keys[step]]){document.getElementById('err').textContent='Please choose an option.';return}
+  if(step===4){const n=nm.value.trim(),e=em.value.trim();if(!n||!/^\S+@\S+\.\S+$/.test(e)){document.getElementById('err').textContent='Please add your name and a valid email.';return}document.getElementById('sum').textContent='We\'ll be in touch about your '+ans.type.toLowerCase()+' project ('+ans.budget+', starting '+ans.time.toLowerCase()+').'}
+  step++;show()}
+document.getElementById('nx').onclick=next;document.getElementById('bk').onclick=()=>{step--;show()};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
