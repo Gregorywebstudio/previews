@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F&amp;D Schoonmaak – Gebäudereinigung &amp; Glasreinigung im Grenzgebiet | Schoonmaak over de grens</title>
+<meta name="description" content="Gebäudereinigung, Praxisreinigung und Glasreinigung für Unternehmen in Bad Bentheim, Gronau, Nordhorn und Umgebung. Festpreis vorab, schnelle Antwort. F&amp;D Schoonmaak aus Oldenzaal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d2a3f; --navy-2:#123a56; --teal:#0f9d8f; --teal-d:#0b7f74; --mint:#e6f6f3;
+    --sand:#f7f5f0; --ink:#17232d; --muted:#5b6b78; --line:#e3e8ec; --amber:#f2b33d; --white:#fff;
+    --r:16px; --shadow:0 10px 30px rgba(13,42,63,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  body.de [data-lang="nl"], body.nl [data-lang="de"]{display:none !important}
+
+  /* concept ribbon */
+  .concept{background:var(--navy);color:#cfe3ef;font-size:13px;text-align:center;padding:7px 12px}
+  .concept b{color:#fff}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--navy)}
+  .logo-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--navy-2));display:grid;place-items:center;color:#fff;font-size:15px;font-weight:800;letter-spacing:-.5px}
+  .logo small{display:block;font-weight:500;font-size:12px;color:var(--muted);margin-top:-3px}
+  .nav-links{display:flex;gap:26px;font-weight:600;font-size:15px;color:var(--navy)}
+  .nav-links a:hover{color:var(--teal)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .lang{display:flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;background:#fff}
+  .lang button{border:0;background:transparent;font:inherit;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;cursor:pointer;color:var(--muted)}
+  .lang button.on{background:var(--navy);color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:12px;border:0;cursor:pointer;transition:.2s;font-family:inherit}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:var(--teal-d);transform:translateY(-1px)}
+  .btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .btn-wa{background:#25D366;color:#fff}
+  .btn-wa:hover{background:#1eb757}
+  .btn-sm{padding:10px 16px;font-size:14px}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,var(--mint) 0%,#fff 100%);padding:70px 0 60px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-180px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(15,157,143,.16),transparent 70%)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--navy);font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+  .flags{font-size:15px}
+  h1{font-size:46px;line-height:1.12;color:var(--navy);font-weight:800;letter-spacing:-1.2px;margin-bottom:18px}
+  h1 em{font-style:normal;color:var(--teal)}
+  .lead{font-size:18px;color:var(--muted);max-width:560px;margin-bottom:28px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+  .usp{display:flex;flex-wrap:wrap;gap:10px 22px;font-weight:600;font-size:14.5px;color:var(--navy)}
+  .usp span{display:inline-flex;align-items:center;gap:8px}
+  .tick{width:20px;height:20px;border-radius:50%;background:var(--teal);color:#fff;display:inline-grid;place-items:center;font-size:12px;flex:none}
+
+  .hero-card{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:26px;border:1px solid var(--line)}
+  .hero-card h3{font-size:17px;color:var(--navy);margin-bottom:4px}
+  .hero-card p.sub{font-size:14px;color:var(--muted);margin-bottom:18px}
+  .map{position:relative;height:220px;border-radius:14px;background:linear-gradient(90deg,#eef6fb 0 50%,#f6f8ef 50% 100%);overflow:hidden;border:1px solid var(--line)}
+  .border-line{position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed #9fb2c0}
+  .map .country{position:absolute;top:10px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#8aa0b0;text-transform:uppercase}
+  .pin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--navy);white-space:nowrap}
+  .pin i{width:11px;height:11px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,157,143,.18);display:block}
+  .pin.home i{background:var(--navy);width:14px;height:14px;box-shadow:0 0 0 5px rgba(13,42,63,.15)}
+  .radius{position:absolute;left:37%;top:58%;width:290px;height:290px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid rgba(15,157,143,.35);background:rgba(15,157,143,.06)}
+  .card-foot{display:flex;justify-content:space-between;margin-top:16px;font-size:13.5px;color:var(--muted)}
+  .card-foot b{color:var(--navy)}
+
+  /* season banner */
+  .season{background:var(--navy);color:#fff;border-radius:20px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;margin-top:-10px;position:relative;z-index:2;box-shadow:var(--shadow)}
+  .season .ico{width:56px;height:56px;border-radius:14px;background:rgba(242,179,61,.18);display:grid;place-items:center;font-size:28px}
+  .season h3{font-size:20px;margin-bottom:4px}
+  .season p{color:#c3d4df;font-size:15px}
+
+  section{padding:80px 0}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 46px}
+  .kicker{color:var(--teal);font-weight:800;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:34px;line-height:1.2;color:var(--navy);letter-spacing:-.7px;margin-bottom:12px}
+  .sec-head p{color:var(--muted);font-size:17px}
+
+  /* services */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:.2s}
+  .svc:hover{border-color:var(--teal);box-shadow:var(--shadow);transform:translateY(-3px)}
+  .svc .i{width:48px;height:48px;border-radius:12px;background:var(--mint);display:grid;place-items:center;font-size:23px;margin-bottom:16px}
+  .svc h3{font-size:18px;color:var(--navy);margin-bottom:6px}
+  .svc p{color:var(--muted);font-size:15px}
+  .svc.feature{background:linear-gradient(160deg,var(--navy),var(--navy-2));border:0;color:#fff}
+  .svc.feature h3{color:#fff}
+  .svc.feature p{color:#c3d4df}
+  .svc.feature .i{background:rgba(255,255,255,.1)}
+  .tag{display:inline-block;background:var(--amber);color:var(--navy);font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:6px;margin-bottom:10px;letter-spacing:.3px}
+
+  /* why */
+  .why{background:var(--sand)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .why-item{background:#fff;border-radius:var(--r);padding:26px;border:1px solid var(--line)}
+  .why-item .num{font-size:30px;font-weight:800;color:var(--teal);line-height:1;margin-bottom:10px}
+  .why-item h3{font-size:16.5px;color:var(--navy);margin-bottom:6px}
+  .why-item p{font-size:14.5px;color:var(--muted)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
+  .step{position:relative;padding:28px 26px 26px;border-radius:var(--r);border:1px solid var(--line);background:#fff}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:-18px;left:26px;width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 6px #fff}
+  .step h3{font-size:17.5px;color:var(--navy);margin:8px 0 6px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* area */
+  .area{background:var(--mint)}
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .towns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .town{background:#fff;border-radius:12px;padding:14px 16px;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);font-size:15px}
+  .town small{font-weight:600;color:var(--muted);font-size:12px}
+
+  /* quote */
+  .quote-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+  .quote-side h2{text-align:left}
+  .quote-side p{color:var(--muted);margin-bottom:22px}
+  .contact-list{display:grid;gap:12px;margin-bottom:24px}
+  .contact-list a,.contact-list div{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--navy)}
+  .contact-list .ci{width:40px;height:40px;border-radius:10px;background:var(--mint);display:grid;place-items:center;font-size:18px;flex:none}
+  .contact-list small{display:block;color:var(--muted);font-weight:500;font-size:13px}
+  form{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .f{margin-bottom:14px}
+  label{display:block;font-size:13.5px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  input,select,textarea{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fbfcfd;color:var(--ink);transition:.15s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(15,157,143,.12)}
+  textarea{min-height:92px;resize:vertical}
+  .form-note{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center}
+  .ok{display:none;text-align:center;padding:30px 10px}
+  .ok .big{width:64px;height:64px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:30px;margin:0 auto 14px}
+  .ok h3{color:var(--navy);font-size:21px;margin-bottom:6px}
+  .ok p{color:var(--muted)}
+
+  /* faq */
+  .faq{max-width:820px;margin:0 auto}
+  details{border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px;background:#fff}
+  summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--teal);font-size:22px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:10px;font-size:15.5px}
+
+  /* cta band */
+  .band{background:linear-gradient(135deg,var(--teal),var(--navy-2));color:#fff;border-radius:24px;padding:46px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .band h2{color:#fff;margin-bottom:6px}
+  .band p{color:#d6efec}
+  .band .btn-ghost{border:0}
+
+  footer{background:var(--navy);color:#a9bfcd;padding:44px 0 26px;margin-top:80px;font-size:14.5px}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;margin-bottom:28px}
+  footer h4{color:#fff;font-size:15px;margin-bottom:10px}
+  footer .logo{color:#fff}
+  footer .logo small{color:#8ea7b7}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px}
+
+  .wa-float{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);z-index:60}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media (max-width:960px){
+    .hero-grid,.quote-wrap,.area-grid{grid-template-columns:1fr}
+    .services{grid-template-columns:1fr 1fr}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr;gap:34px}
+    .nav-links{display:none}
+    h1{font-size:36px}
+    .season{grid-template-columns:1fr;text-align:left}
+    .foot-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .services,.why-grid,.row,.towns{grid-template-columns:1fr}
+    h1{font-size:31px}
+    h2{font-size:27px}
+    section{padding:60px 0}
+    .band{padding:30px}
+    .nav-right .btn{display:none}
+    form{padding:22px}
+  }
+</style>
+</head>
+<body class="de">
+
+<div class="concept">
+  <span data-lang="de"><b>Konzept-Entwurf</b> für F&amp;D Schoonmaak – erstellt von Letselevatebiz</span>
+  <span data-lang="nl"><b>Conceptschets</b> voor F&amp;D Schoonmaak – gemaakt door Letselevatebiz</span>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><div class="logo-mark">F&amp;D</div><div>F&amp;D Schoonmaak<small><span data-lang="de">Reinigung &amp; Glasreinigung</span><span data-lang="nl">Schoonmaak &amp; glasbewassing</span></small></div></a>
+    <nav class="nav-links">
+      <a href="#leistungen"><span data-lang="de">Leistungen</span><span data-lang="nl">Diensten</span></a>
+      <a href="#ablauf"><span data-lang="de">Ablauf</span><span data-lang="nl">Werkwijze</span></a>
+      <a href="#gebiet"><span data-lang="de">Einsatzgebiet</span><span data-lang="nl">Werkgebied</span></a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Sprache / Taal">
+        <button type="button" data-set="de" class="on">DE</button>
+        <button type="button" data-set="nl">NL</button>
+      </div>
+      <a href="#angebot" class="btn btn-teal btn-sm"><span data-lang="de">Angebot anfragen</span><span data-lang="nl">Offerte aanvragen</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="flags">🇳🇱 🇩🇪</span>
+          <span data-lang="de">Aus Oldenzaal – direkt an der Grenze</span>
+          <span data-lang="nl">Uit Oldenzaal – vlak bij de grens</span>
+        </div>
+        <h1 data-lang="de">Ihre Reinigungsfirma <em>direkt hinter der Grenze.</em></h1>
+        <h1 data-lang="nl">Uw schoonmaakbedrijf, <em>aan beide kanten van de grens.</em></h1>
+        <p class="lead" data-lang="de">Büro-, Praxis- und Glasreinigung für Unternehmen in Bad Bentheim, Gronau, Nordhorn und Umgebung. Fester Preis vorab, schriftlich. Ein fester Ansprechpartner. Schnelle Antwort per WhatsApp.</p>
+        <p class="lead" data-lang="nl">Kantoor-, praktijk- en glasschoonmaak voor bedrijven in Twente én de Duitse grensregio. Vaste prijs vooraf, op papier. Eén vast aanspreekpunt. Snel antwoord via WhatsApp.</p>
+        <div class="hero-ctas">
+          <a href="#angebot" class="btn btn-teal"><span data-lang="de">Kostenloses Angebot anfragen</span><span data-lang="nl">Gratis offerte aanvragen</span> →</a>
+          <a class="btn btn-wa wa-link" href="https://wa.me/31641290420" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="usp">
+          <span><i class="tick">✓</i><span data-lang="de">Festpreis vorab</span><span data-lang="nl">Vaste prijs vooraf</span></span>
+          <span><i class="tick">✓</i><span data-lang="de">Fester Ansprechpartner</span><span data-lang="nl">Vast aanspreekpunt</span></span>
+          <span><i class="tick">✓</i><span data-lang="de">Täglich 08:00–17:00 erreichbar</span><span data-lang="nl">Dagelijks 08:00–17:00 bereikbaar</span></span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3 data-lang="de">Ein Team – zwei Länder</h3>
+        <h3 data-lang="nl">Eén team – twee landen</h3>
+        <p class="sub" data-lang="de">Von Oldenzaal aus sind wir schnell auf beiden Seiten der Grenze.</p>
+        <p class="sub" data-lang="nl">Vanuit Oldenzaal zijn we snel aan beide kanten van de grens.</p>
+        <div class="map" aria-hidden="true">
+          <div class="radius"></div>
+          <div class="border-line"></div>
+          <span class="country" style="left:14px">Nederland</span>
+          <span class="country" style="right:14px">Deutschland</span>
+          <div class="pin" style="left:22%;top:72%"><i></i>Enschede</div>
+          <div class="pin" style="left:18%;top:44%"><i></i>Hengelo</div>
+          <div class="pin home" style="left:36%;top:52%"><i></i>Oldenzaal</div>
+          <div class="pin" style="left:72%;top:36%"><i></i>Nordhorn</div>
+          <div class="pin" style="left:66%;top:56%"><i></i>Bad Bentheim</div>
+          <div class="pin" style="left:63%;top:84%"><i></i>Gronau</div>
+        </div>
+        <div class="card-foot">
+          <span><b>Twente</b> · Enschede · Hengelo · Almelo</span>
+          <span><b>Grafschaft</b> · Gronau</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASON -->
+  <div class="wrap">
+    <div class="season">
+      <div class="ico">🎄</div>
+      <div>
+        <h3 data-lang="de">Betriebsruhe zwischen den Feiertagen? Perfekt für eine Grundreinigung.</h3>
+        <h3 data-lang="nl">Bedrijf dicht rond de feestdagen? Hét moment voor een diepteschoonmaak.</h3>
+        <p data-lang="de">Wenn Büro, Praxis oder Produktion stillsteht, reinigen wir gründlich – ohne Ihren Betrieb zu stören. Termine für Dezember und Januar werden jetzt vergeben.</p>
+        <p data-lang="nl">Als kantoor, praktijk of productie stilligt, maken we grondig schoon – zonder dat u er last van heeft. Data voor december en januari worden nu ingepland.</p>
+      </div>
+      <a href="#angebot" class="btn btn-teal"><span data-lang="de">Termin sichern</span><span data-lang="nl">Datum vastleggen</span></a>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker"><span data-lang="de">Leistungen für Unternehmen</span><span data-lang="nl">Diensten voor bedrijven</span></div>
+        <h2 data-lang="de">Sauber arbeiten. Fest planen. Fair abrechnen.</h2>
+        <h2 data-lang="nl">Schoon werk. Vaste planning. Eerlijke prijs.</h2>
+        <p data-lang="de">Ob regelmäßige Unterhaltsreinigung oder einmalige Grundreinigung – Sie wissen vorher genau, was es kostet.</p>
+        <p data-lang="nl">Of het nu gaat om vaste schoonmaak of een eenmalige diepteschoonmaak – u weet vooraf precies wat het kost.</p>
+      </div>
+      <div class="services">
+        <div class="svc feature">
+          <div class="tag" data-lang="de">JETZT SAISON</div><div class="tag" data-lang="nl">NU SEIZOEN</div>
+          <div class="i">✨</div>
+          <h3 data-lang="de">Grundreinigung</h3><h3 data-lang="nl">Diepteschoonmaak</h3>
+          <p data-lang="de">Gründliche Reinigung von Büro, Praxis oder Betriebsräumen – ideal während der Betriebsruhe zum Jahreswechsel.</p>
+          <p data-lang="nl">Grondige reiniging van kantoor, praktijk of bedrijfsruimte – ideaal tijdens de stille dagen rond de jaarwisseling.</p>
+        </div>
+        <div class="svc">
+          <div class="i">🏢</div>
+          <h3 data-lang="de">Büroreinigung</h3><h3 data-lang="nl">Kantoorschoonmaak</h3>
+          <p data-lang="de">Für Büros von ca. 100–300 m², an einem festen Tag zu einem festen Preis.</p>
+          <p data-lang="nl">Voor kantoren van ca. 100–300 m², op een vaste dag voor een vaste prijs.</p>
+        </div>
+        <div class="svc">
+          <div class="i">🩺</div>
+          <h3 data-lang="de">Praxisreinigung</h3><h3 data-lang="nl">Praktijkschoonmaak</h3>
+          <p data-lang="de">Für Zahnarzt-, Arzt- und Physiotherapiepraxen – mit fester Checkliste und festem Reinigungsteam.</p>
+          <p data-lang="nl">Voor tandarts-, huisarts- en fysiopraktijken – met vaste checklist en vaste schoonmaker.</p>
+        </div>
+        <div class="svc">
+          <div class="i">🪟</div>
+          <h3 data-lang="de">Glasreinigung</h3><h3 data-lang="nl">Glasbewassing zakelijk</h3>
+          <p data-lang="de">Streifenfrei mit Osmosewasser, auch in oberen Etagen. Feste Runde zu festem Preis.</p>
+          <p data-lang="nl">Streeploos met osmosewater, ook op hogere verdiepingen. Vaste ronde, vaste prijs.</p>
+        </div>
+        <div class="svc">
+          <div class="i">🏬</div>
+          <h3 data-lang="de">Treppenhausreinigung</h3><h3 data-lang="nl">Trappenhuis &amp; VvE</h3>
+          <p data-lang="de">Treppenhäuser, Flure und Eingänge – regelmäßig an einem festen Tag.</p>
+          <p data-lang="nl">Trappenhuizen, hallen en entrees – vast op een vaste dag.</p>
+        </div>
+        <div class="svc">
+          <div class="i">🔑</div>
+          <h3 data-lang="de">End- &amp; Übergabereinigung</h3><h3 data-lang="nl">Eind- &amp; opleverschoonmaak</h3>
+          <p data-lang="de">Für Auszug, Mieterwechsel oder Übergabe – zum vorher vereinbarten Festpreis.</p>
+          <p data-lang="nl">Bij verhuizing, huurderswissel of oplevering – voor een vooraf afgesproken vaste prijs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker"><span data-lang="de">Warum F&amp;D</span><span data-lang="nl">Waarom F&amp;D</span></div>
+        <h2 data-lang="de">Klein genug, um Sie zu kennen.</h2>
+        <h2 data-lang="nl">Klein genoeg om u te kennen.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><div class="num">€</div>
+          <h3 data-lang="de">Festpreis, schriftlich</h3><h3 data-lang="nl">Vaste prijs, op papier</h3>
+          <p data-lang="de">Der Preis im Angebot ist der Preis, den Sie zahlen. Keine Überraschungen.</p>
+          <p data-lang="nl">De prijs in de offerte is de prijs die u betaalt. Geen verrassingen.</p></div>
+        <div class="why-item"><div class="num">1</div>
+          <h3 data-lang="de">Ein Ansprechpartner</h3><h3 data-lang="nl">Eén aanspreekpunt</h3>
+          <p data-lang="de">Sie sprechen direkt mit den Menschen, die die Arbeit machen und entscheiden.</p>
+          <p data-lang="nl">U spreekt direct met de mensen die het werk doen én beslissen.</p></div>
+        <div class="why-item"><div class="num">⚡</div>
+          <h3 data-lang="de">Schnelle Antwort</h3><h3 data-lang="nl">Snel antwoord</h3>
+          <p data-lang="de">Per WhatsApp oder Telefon – täglich von 08:00 bis 17:00 Uhr.</p>
+          <p data-lang="nl">Via WhatsApp of telefoon – dagelijks van 08:00 tot 17:00 uur.</p></div>
+        <div class="why-item"><div class="num">✓</div>
+          <h3 data-lang="de">Kontrolle danach</h3><h3 data-lang="nl">Controle achteraf</h3>
+          <p data-lang="de">Nach jedem Einsatz prüfen wir gemeinsam, ob alles passt.</p>
+          <p data-lang="nl">Na elke klus checken we samen of alles naar wens is.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section id="ablauf">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker"><span data-lang="de">So einfach geht's</span><span data-lang="nl">Zo simpel werkt het</span></div>
+        <h2 data-lang="de">In drei Schritten zum sauberen Betrieb</h2>
+        <h2 data-lang="nl">In drie stappen een schoon bedrijf</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3 data-lang="de">Anfrage senden</h3><h3 data-lang="nl">Aanvraag sturen</h3>
+          <p data-lang="de">Formular ausfüllen oder per WhatsApp schreiben – gern mit ein paar Fotos und der Fläche in m².</p>
+          <p data-lang="nl">Vul het formulier in of stuur een WhatsApp – graag met een paar foto's en de oppervlakte in m².</p>
+        </div>
+        <div class="step">
+          <h3 data-lang="de">Festpreis erhalten</h3><h3 data-lang="nl">Vaste prijs ontvangen</h3>
+          <p data-lang="de">Sie bekommen ein schriftliches Angebot mit festem Preis. Größere Objekte schauen wir uns vor Ort an.</p>
+          <p data-lang="nl">U ontvangt een schriftelijke offerte met vaste prijs. Grotere panden bekijken we ter plekke.</p>
+        </div>
+        <div class="step">
+          <h3 data-lang="de">Wir reinigen</h3><h3 data-lang="nl">Wij maken schoon</h3>
+          <p data-lang="de">Am vereinbarten Tag erledigen wir die Arbeit – und prüfen danach gemeinsam das Ergebnis.</p>
+          <p data-lang="nl">Op de afgesproken dag doen we het werk – en daarna controleren we samen het resultaat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="area" id="gebiet">
+    <div class="wrap area-grid">
+      <div>
+        <div class="kicker"><span data-lang="de">Einsatzgebiet</span><span data-lang="nl">Werkgebied</span></div>
+        <h2 data-lang="de">Twente und die deutsche Grenzregion</h2>
+        <h2 data-lang="nl">Twente en de Duitse grensregio</h2>
+        <p style="color:var(--muted);font-size:17px;margin-bottom:22px" data-lang="de">Unser Sitz in Oldenzaal liegt nur wenige Minuten von der Grenze entfernt. Für Betriebe in der Grafschaft Bentheim und im Raum Gronau sind wir oft schneller vor Ort als Reinigungsfirmen aus dem eigenen Land.</p>
+        <p style="color:var(--muted);font-size:17px;margin-bottom:22px" data-lang="nl">Vanuit Oldenzaal zijn we in een paar minuten over de grens. Voor bedrijven in de Grafschaft Bentheim en rond Gronau zijn we vaak sneller ter plaatse dan een schoonmaakbedrijf uit eigen land.</p>
+        <a href="#angebot" class="btn btn-teal"><span data-lang="de">Steht Ihr Ort nicht dabei? Fragen Sie einfach.</span><span data-lang="nl">Uw plaats er niet bij? Vraag het gewoon.</span></a>
+      </div>
+      <div class="towns">
+        <div class="town">Bad Bentheim <small>DE</small></div>
+        <div class="town">Gronau <small>DE</small></div>
+        <div class="town">Nordhorn <small>DE</small></div>
+        <div class="town">Schüttorf <small>DE</small></div>
+        <div class="town">Oldenzaal <small>NL</small></div>
+        <div class="town">Enschede <small>NL</small></div>
+        <div class="town">Hengelo <small>NL</small></div>
+        <div class="town">Losser <small>NL</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section id="angebot">
+    <div class="wrap quote-wrap">
+      <div class="quote-side">
+        <div class="kicker"><span data-lang="de">Kostenlos &amp; unverbindlich</span><span data-lang="nl">Gratis &amp; vrijblijvend</span></div>
+        <h2 data-lang="de">Angebot in unter einer Minute anfragen</h2>
+        <h2 data-lang="nl">Offerte aanvragen in minder dan een minuut</h2>
+        <p data-lang="de">Nur das Nötigste – den Rest klären wir persönlich. Sie erhalten einen festen Preis, schriftlich.</p>
+        <p data-lang="nl">Alleen het nodige – de rest bespreken we persoonlijk. U ontvangt een vaste prijs, op papier.</p>
+        <div class="contact-list">
+          <a class="wa-link" href="https://wa.me/31641290420" target="_blank" rel="noopener"><span class="ci">💬</span><span>WhatsApp<small>+31 6 41290420</small></span></a>
+          <a href="tel:+31641290420"><span class="ci">📞</span><span><span data-lang="de">Anrufen</span><span data-lang="nl">Bellen</span><small>+31 6 41290420</small></span></a>
+          <a href="mailto:info@fdschoonmaakbedrijf.nl"><span class="ci">✉️</span><span>E-Mail<small>info@fdschoonmaakbedrijf.nl</small></span></a>
+          <div><span class="ci">🕗</span><span><span data-lang="de">Täglich 08:00–17:00</span><span data-lang="nl">Dagelijks 08:00–17:00</span><small>Het Nardusboer 159, Oldenzaal (NL)</small></span></div>
+        </div>
+      </div>
+
+      <form id="qform" novalidate>
+        <div id="fields">
+          <div class="row">
+            <div class="f"><label for="firma"><span data-lang="de">Firma / Praxis</span><span data-lang="nl">Bedrijf / praktijk</span></label><input id="firma" name="firma" type="text" autocomplete="organization"></div>
+            <div class="f"><label for="name"><span data-lang="de">Ihr Name *</span><span data-lang="nl">Uw naam *</span></label><input id="name" name="name" type="text" required autocomplete="name"></div>
+          </div>
+          <div class="row">
+            <div class="f"><label for="tel"><span data-lang="de">Telefon / WhatsApp *</span><span data-lang="nl">Telefoon / WhatsApp *</span></label><input id="tel" name="tel" type="tel" required autocomplete="tel"></div>
+            <div class="f"><label for="ort"><span data-lang="de">Ort *</span><span data-lang="nl">Plaats *</span></label><input id="ort" name="ort" type="text" required></div>
+          </div>
+          <div class="row">
+            <div class="f"><label for="dienst"><span data-lang="de">Leistung *</span><span data-lang="nl">Dienst *</span></label>
+              <select id="dienst" name="dienst" required>
+                <option value="" data-de="Bitte wählen" data-nl="Maak een keuze">Bitte wählen</option>
+                <option data-de="Grundreinigung (Feiertage)" data-nl="Diepteschoonmaak (feestdagen)">Grundreinigung (Feiertage)</option>
+                <option data-de="Büroreinigung" data-nl="Kantoorschoonmaak">Büroreinigung</option>
+                <option data-de="Praxisreinigung" data-nl="Praktijkschoonmaak">Praxisreinigung</option>
+                <option data-de="Glasreinigung" data-nl="Glasbewassing">Glasreinigung</option>
+                <option data-de="Treppenhausreinigung" data-nl="Trappenhuis / VvE">Treppenhausreinigung</option>
+                <option data-de="End- / Übergabereinigung" data-nl="Eind- / opleverschoonmaak">End- / Übergabereinigung</option>
+                <option data-de="Sonstiges" data-nl="Anders">Sonstiges</option>
+              </select></div>
+            <div class="f"><label for="m2"><span data-lang="de">Fläche ca. (m²)</span><span data-lang="nl">Oppervlakte ca. (m²)</span></label><input id="m2" name="m2" type="number" min="0" inputmode="numeric"></div>
+          </div>
+          <div class="f"><label for="msg"><span data-lang="de">Wunschtermin / Hinweise</span><span data-lang="nl">Gewenste datum / opmerkingen</span></label><textarea id="msg" name="msg"></textarea></div>
+          <button type="submit" class="btn btn-teal" style="width:100%"><span data-lang="de">Kostenloses Angebot anfordern</span><span data-lang="nl">Gratis offerte aanvragen</span> →</button>
+          <p class="form-note" data-lang="de">Antwort täglich zwischen 08:00 und 17:00 Uhr. Ihre Daten nutzen wir nur für Ihr Angebot.</p>
+          <p class="form-note" data-lang="nl">Antwoord dagelijks tussen 08:00 en 17:00 uur. We gebruiken uw gegevens alleen voor uw offerte.</p>
+        </div>
+        <div class="ok" id="ok">
+          <div class="big">✓</div>
+          <h3 data-lang="de">Danke! Ihre Anfrage ist da.</h3><h3 data-lang="nl">Bedankt! Uw aanvraag is binnen.</h3>
+          <p data-lang="de">Wir melden uns schnellstmöglich mit einem festen Preis.</p>
+          <p data-lang="nl">We nemen zo snel mogelijk contact op met een vaste prijs.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">FAQ</div>
+        <h2 data-lang="de">Häufige Fragen</h2><h2 data-lang="nl">Veelgestelde vragen</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary><span data-lang="de">Arbeiten Sie als niederländische Firma auch in Deutschland?</span><span data-lang="nl">Werken jullie als Nederlands bedrijf ook in Duitsland?</span></summary>
+          <p data-lang="de">Ja. Von Oldenzaal aus betreuen wir Betriebe auf beiden Seiten der Grenze – zu denselben klaren Bedingungen: fester Preis vorab, fester Ansprechpartner.</p>
+          <p data-lang="nl">Ja. Vanuit Oldenzaal helpen we bedrijven aan beide kanten van de grens – onder dezelfde heldere voorwaarden: vaste prijs vooraf, vast aanspreekpunt.</p>
+        </details>
+        <details>
+          <summary><span data-lang="de">Geht ein Angebot auch ohne Besichtigung?</span><span data-lang="nl">Kan een offerte ook zonder bezichtiging?</span></summary>
+          <p data-lang="de">Oft ja – anhand von Fotos und der Fläche in m². Größere Objekte sehen wir uns kurz vor Ort an.</p>
+          <p data-lang="nl">Vaak wel – op basis van foto's en de oppervlakte in m². Grotere ruimtes bekijken we even ter plekke.</p>
+        </details>
+        <details>
+          <summary><span data-lang="de">Kann sich der Preis nachträglich ändern?</span><span data-lang="nl">Kan de prijs achteraf veranderen?</span></summary>
+          <p data-lang="de">Nein. Der Preis im schriftlichen Angebot ist der Preis, den Sie zahlen. Sollte die Situation vor Ort deutlich anders sein, sprechen wir das vorher mit Ihnen ab.</p>
+          <p data-lang="nl">Nee. De prijs in de schriftelijke offerte is wat u betaalt. Is de situatie ter plekke wezenlijk anders, dan overleggen we eerst met u.</p>
+        </details>
+        <details>
+          <summary><span data-lang="de">Wann sollte ich die Feiertags-Grundreinigung buchen?</span><span data-lang="nl">Wanneer boek ik de diepteschoonmaak rond de feestdagen?</span></summary>
+          <p data-lang="de">Am besten jetzt. Die Tage zwischen Weihnachten und Neujahr sind begrenzt und werden in der Reihenfolge der Anfragen vergeben.</p>
+          <p data-lang="nl">Het liefst nu. De dagen tussen kerst en oud &amp; nieuw zijn beperkt en worden ingepland op volgorde van aanvraag.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2 data-lang="de">Bereit für einen sauberen Start ins neue Jahr?</h2>
+        <h2 data-lang="nl">Klaar voor een schone start van het nieuwe jaar?</h2>
+        <p data-lang="de">Fester Preis vorab. Schnelle Antwort. Auf beiden Seiten der Grenze.</p>
+        <p data-lang="nl">Vaste prijs vooraf. Snel antwoord. Aan beide kanten van de grens.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#angebot" class="btn btn-ghost"><span data-lang="de">Angebot anfragen</span><span data-lang="nl">Offerte aanvragen</span></a>
+        <a class="btn btn-wa wa-link" href="https://wa.me/31641290420" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px"><div class="logo-mark">F&amp;D</div><div>F&amp;D Schoonmaak<small><span data-lang="de">Reinigung &amp; Glasreinigung</span><span data-lang="nl">Schoonmaak &amp; glasbewassing</span></small></div></div>
+        <p data-lang="de">Gebäude-, Praxis- und Glasreinigung in Twente und der deutschen Grenzregion.</p>
+        <p data-lang="nl">Schoonmaak, praktijkschoonmaak en glasbewassing in Twente en de Duitse grensregio.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Het Nardusboer 159<br>Oldenzaal (NL)<br>+31 6 41290420<br>info@fdschoonmaakbedrijf.nl</p>
+      </div>
+      <div>
+        <h4 data-lang="de">Erreichbarkeit</h4><h4 data-lang="nl">Bereikbaarheid</h4>
+        <p data-lang="de">Täglich 08:00–17:00 Uhr<br>WhatsApp, Telefon oder E-Mail</p>
+        <p data-lang="nl">Dagelijks 08:00–17:00 uur<br>WhatsApp, telefoon of e-mail</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 F&amp;D Schoonmaak · KvK 42140605</span>
+      <span data-lang="de">Konzept von Letselevatebiz</span><span data-lang="nl">Concept door Letselevatebiz</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" href="https://wa.me/31641290420" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.1 16 5.1S27 9.9 27 15.8 22.1 26.4 16 26.4zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.5c-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  var body=document.body;
+  var waText={
+    de:"Hallo F&D, ich interessiere mich für eine Reinigung. Können Sie mir ein Angebot machen?",
+    nl:"Hallo F&D, ik heb interesse in schoonmaak. Kunnen jullie een offerte maken?"
+  };
+  function setLang(l){
+    body.className=l;
+    document.documentElement.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.classList.toggle('on',b.dataset.set===l)});
+    document.querySelectorAll('option[data-de]').forEach(function(o){o.textContent=o.getAttribute('data-'+l)});
+    document.querySelectorAll('.wa-link').forEach(function(a){a.href='https://wa.me/31641290420?text='+encodeURIComponent(waText[l])});
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+  var p=new URLSearchParams(location.search).get('lang');
+  setLang(p==='nl'?'nl':'de');
+
+  document.getElementById('qform').addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=false;
+    this.querySelectorAll('[required]').forEach(function(f){
+      var empty=!f.value.trim();
+      f.style.borderColor=empty?'#e05656':'';
+      if(empty)bad=true;
+    });
+    if(bad)return;
+    document.getElementById('fields').style.display='none';
+    document.getElementById('ok').style.display='block';
+  });
+})();
+</script>
+</body>
+</html>
