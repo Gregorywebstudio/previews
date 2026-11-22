@@ -49,6 +49,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,238,.94);backdro
 @media(max-width:1180px){.menu,.tools .hide-m{display:none}.burger{display:block}}
 @media(max-width:900px){.nav{grid-template-columns:auto 1fr auto}.logo{font-size:1.4rem;letter-spacing:.24em}}
 .burger{display:none;background:none;border:0;cursor:pointer}
+.menu.open{display:flex!important;position:absolute;top:82px;left:0;right:0;flex-direction:column;gap:18px;background:var(--ivory);padding:26px max(22px,env(safe-area-inset-left));border-bottom:1px solid var(--line)}
 @media(max-width:1180px){.burger{display:block}.nav{grid-template-columns:auto 1fr auto}}
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100svh - 150px)}
@@ -183,7 +184,7 @@ footer{background:var(--ink);color:#b9ada0;padding-block:64px 28px;font-size:14p
 <div class="announce"><span>Complimentary shipping on orders over $150 &nbsp;·&nbsp; Handcrafted 14k gold-filled &nbsp;·&nbsp; Natural gemstones &nbsp;·&nbsp; Gift wrapping on every order</span></div>
 <header><div class="wrap nav">
   <nav class="menu" aria-label="Main"><a href="#shop">Bracelets</a><a href="#cats">Collections</a><a href="#stack">Build a Stack</a><a href="#story">Our Story</a></nav>
-  <button class="burger" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M3 9h20M3 17h20" stroke="#2b2420" stroke-width="1.4"/></svg></button>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M3 9h20M3 17h20" stroke="#2b2420" stroke-width="1.4"/></svg></button>
   <a class="logo" href="#top">Aurelle<small>Maison · Est. 20XX</small></a>
   <div class="tools"><a class="hide-m" href="#shop">Search</a><a class="hide-m" href="#news">Account</a><button class="bagbtn" id="openBag" aria-label="Open bag">Bag <i id="count">0</i></button></div>
 </div></header>
@@ -305,7 +306,7 @@ function render(){const sub=bag.reduce((s,x)=>s+x.p,0);$('count').textContent=ba
  $('items').innerHTML=bag.length?bag.map((x,i)=>'<div class="item"><div style="background-image:url('+U(x.a,200)+')"></div><span><b>'+x.n+'</b>$'+x.p+'</span><button data-i="'+i+'">Remove</button></div>').join(''):'<p class="empty">Your bag is empty.</p>';
  $('items').querySelectorAll('button').forEach(b=>b.onclick=()=>{bag.splice(+b.dataset.i,1);render()})}
 document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{bag.push(P.find(x=>x.id==b.dataset.id));render();openBag()});
-$('openBag').onclick=openBag;$('closeBag').onclick=closeBag;$('scrim').onclick=closeBag;addEventListener('keydown',e=>{if(e.key==='Escape')closeBag()});
+$('openBag').onclick=openBag;const mn=document.querySelector('.menu');$('burger').onclick=()=>{const o=mn.classList.toggle('open');$('burger').setAttribute('aria-expanded',o)};mn.querySelectorAll('a').forEach(a=>a.onclick=()=>mn.classList.remove('open'));$('closeBag').onclick=closeBag;$('scrim').onclick=closeBag;addEventListener('keydown',e=>{if(e.key==='Escape')closeBag()});
 render();
 // stack builder
 const S=P.filter(x=>x.id!==5);let pick=[];
