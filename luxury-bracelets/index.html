@@ -36,7 +36,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:1px solid var(-
 @keyframes tick{from{transform:translateX(30%)}to{transform:translateX(-100%)}}
 header{position:sticky;top:0;z-index:50;background:rgba(248,244,238,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:82px}
-.menu{display:flex;gap:30px;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.menu{display:flex;gap:26px;white-space:nowrap;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
 .menu a{position:relative}
 .menu a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--gold);transition:.35s}
 .menu a:hover::after{width:100%}
@@ -46,9 +46,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,238,.94);backdro
 .bagbtn{background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
 .bagbtn i{font-style:normal;background:var(--ink);color:var(--ivory);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:10.5px;letter-spacing:0;transition:transform .3s}
 .bagbtn i.pop{transform:scale(1.35)}
-@media(max-width:900px){.menu,.tools .hide-m{display:none}.nav{grid-template-columns:auto 1fr auto}.logo{font-size:1.4rem;letter-spacing:.24em}}
+@media(max-width:1180px){.menu,.tools .hide-m{display:none}.burger{display:block}}
+@media(max-width:900px){.nav{grid-template-columns:auto 1fr auto}.logo{font-size:1.4rem;letter-spacing:.24em}}
 .burger{display:none;background:none;border:0;cursor:pointer}
-@media(max-width:900px){.burger{display:block}}
+@media(max-width:1180px){.burger{display:block}.nav{grid-template-columns:auto 1fr auto}}
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100svh - 150px)}
 .hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(50px,8vw,120px) clamp(22px,6vw,100px)}
