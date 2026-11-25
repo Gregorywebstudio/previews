@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winter Mega Sale · Landing Page Concept</title>
+<meta name="description" content="WooCommerce seasonal sale landing page concept.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Winter Mega Sale · Landing Page Concept">
+<meta property="og:description" content="Up to 60% off electronics, clothing and accessories. Sale page concept.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff3d2e'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='900' font-size='18' fill='white' text-anchor='middle'%3E%25%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#0f0f12;--ink2:#1b1b21;--paper:#f6f4f0;--white:#fff;--red:#ff3d2e;--red2:#e0281a;--lime:#d8ff3d;--muted:#6c6c75;--line:rgba(15,15,18,.1);--disp:"Archivo",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left))}
+h1,h2,h3{font-family:var(--disp);line-height:.98;letter-spacing:-.02em}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.concept{background:#000;color:#bdbdc4;font-size:12px;text-align:center;padding:6px 12px}
+/* top */
+.top{background:var(--red);color:#fff;font-weight:600;font-size:13px;overflow:hidden;white-space:nowrap;padding:9px 0}
+.top span{display:inline-block;animation:tick 30s linear infinite}
+@keyframes tick{from{transform:translateX(20%)}to{transform:translateX(-100%)}}
+header{background:var(--ink);color:#fff}
+.hnav{display:flex;justify-content:space-between;align-items:center;height:66px}
+.logo{font-family:var(--disp);font-weight:900;font-size:1.5rem;letter-spacing:-.03em}
+.logo i{font-style:normal;color:var(--red)}
+.cartbtn{background:none;border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;padding:9px 16px;display:flex;gap:10px;align-items:center;font-weight:600;font-size:14px}
+.cartbtn b{background:var(--red);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;transition:transform .3s}
+.cartbtn b.pop{transform:scale(1.4)}
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2000&q=80") right center/cover;opacity:.55}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 30%,rgba(15,15,18,.4) 70%,rgba(15,15,18,.2))}
+.hero .wrap{position:relative;z-index:2;padding-block:clamp(56px,8vw,110px) clamp(60px,8vw,100px)}
+.tag{display:inline-flex;gap:8px;align-items:center;background:var(--lime);color:var(--ink);font-family:var(--disp);font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+.hero h1{font-size:clamp(3.4rem,9vw,8.4rem);font-weight:900;margin:20px 0 6px;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red);display:block}
+.hero p.lead{font-size:1.15rem;color:#d6d6dc;max-width:32rem;margin:18px 0 30px}
+.count{display:flex;gap:10px;margin-bottom:34px;flex-wrap:wrap}
+.count div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;min-width:84px;padding:12px 10px;text-align:center;backdrop-filter:blur(6px)}
+.count b{display:block;font-family:var(--disp);font-weight:900;font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.count small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a9a9b2}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;border:0;font-weight:700;font-size:15px;transition:.25s}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red2);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.sold{display:flex;align-items:center;gap:12px;margin-top:34px;font-size:14px;color:#d6d6dc}
+.sold b{font-family:var(--disp);font-size:1.6rem;color:#fff;font-variant-numeric:tabular-nums}
+.bar{width:220px;height:6px;border-radius:9px;background:rgba(255,255,255,.15);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),#ff8a3d);width:0;transition:width 1.2s}
+/* sticky nav */
+.anchors{position:sticky;top:0;z-index:40;background:rgba(246,244,240,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.anchors .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+.anchors a{flex:none;padding:9px 18px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid var(--line);background:#fff;transition:.2s}
+.anchors a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+section{padding-block:clamp(56px,7vw,90px)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.sh h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:900;text-transform:uppercase}
+.sh p{color:var(--muted);max-width:28rem}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:10px}
+/* top 5 */
+.top5{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:16px}
+.deal{position:relative;border-radius:22px;overflow:hidden;background:var(--ink2);color:#fff;min-height:270px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.deal .im{position:absolute;inset:0;background:center/cover;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.deal:hover .im{transform:scale(1.06)}
+.deal::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,12,.92),rgba(10,10,12,.1) 60%);z-index:-1}
+.deal.big{grid-row:span 2;min-height:560px}
+.deal .rank{position:absolute;top:16px;left:16px;font-family:var(--disp);font-weight:900;font-size:3.4rem;line-height:1;color:var(--lime)}
+.deal .off{position:absolute;top:18px;right:18px;background:var(--red);font-weight:800;padding:6px 12px;border-radius:999px;font-size:14px}
+.deal .in{padding:22px}
+.deal h3{font-size:1.6rem;font-weight:800;margin-bottom:6px}
+.deal.big h3{font-size:2.4rem}
+.deal .pr{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.price{font-family:var(--disp);font-weight:900;font-size:1.5rem}
+.deal.big .price{font-size:2.2rem}
+s{color:#9a9aa3;font-weight:500}
+.deal .add{margin-left:auto}
+@media(max-width:900px){.top5{grid-template-columns:1fr 1fr}.deal.big{grid-column:1/-1;grid-row:auto;min-height:420px}}
+@media(max-width:560px){.top5{grid-template-columns:1fr}}
+/* promo */
+.promo{background:var(--lime);border-radius:26px;padding:clamp(26px,4vw,48px);display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.promo h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;text-transform:uppercase}
+.code{display:flex;align-items:center;border:2px dashed var(--ink);border-radius:16px;background:#fff;overflow:hidden;margin-top:18px;max-width:420px}
+.code b{flex:1;font-family:var(--disp);font-weight:900;font-size:1.8rem;letter-spacing:.08em;padding:14px 20px}
+.code button{border:0;background:var(--ink);color:#fff;font-weight:700;padding:0 22px;align-self:stretch;min-width:110px}
+.terms summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+.terms summary::after{content:"+";font-size:1.4rem;line-height:1}
+.terms[open] summary::after{content:"−"}
+.terms ul{margin-top:12px;padding-left:18px;font-size:14px}
+.terms li{margin-bottom:6px}
+@media(max-width:800px){.promo{grid-template-columns:1fr}}
+/* filters + grid */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.catblock{margin-top:44px}
+.catblock h3{font-size:1.9rem;font-weight:900;text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.catblock h3 span{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(15,15,18,.1)}
+.card .im{aspect-ratio:1;background:#eee center/cover;position:relative}
+.card .off{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-weight:800;font-size:12.5px;padding:5px 10px;border-radius:999px}
+.card .low{position:absolute;bottom:12px;left:12px;background:rgba(15,15,18,.85);color:#fff;font-size:11.5px;padding:4px 10px;border-radius:999px}
+.card .bd{padding:16px;display:flex;flex-direction:column;flex:1}
+.card h4{font-size:15.5px;font-weight:600;margin-bottom:6px}
+.card .pr{display:flex;gap:10px;align-items:baseline;margin-bottom:14px}
+.card .price{font-size:1.3rem}
+.add{border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .25s;margin-top:auto}
+.add:hover{background:var(--red)}
+.add.loading{pointer-events:none;opacity:.8}
+.add.loading::before{content:"";width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+.add.done{background:#1f9d55}
+@keyframes spin{to{transform:rotate(360deg)}}
+.deal .add{padding:11px 18px;margin-top:0}
+.hide{display:none!important}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.grid{grid-template-columns:1fr 1fr;gap:12px}.card .bd{padding:12px}}
+/* toast + mini cart */
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--ink);color:#fff;padding:14px 18px;border-radius:16px;display:flex;gap:14px;align-items:center;z-index:90;box-shadow:0 18px 40px rgba(0,0,0,.3);transition:transform .45s cubic-bezier(.2,.8,.2,1);font-size:14px;max-width:92vw}
+.toast.on{transform:translate(-50%,0)}
+.toast img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+.toast a{color:var(--lime);font-weight:700;white-space:nowrap}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.3s;z-index:95}
+.scrim.on{opacity:1;pointer-events:auto}
+.mini{position:fixed;top:0;right:0;bottom:0;width:min(400px,92vw);background:#fff;z-index:100;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column}
+.mini.on{transform:none}
+.mh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.mh h3{font-size:1.5rem;font-weight:900}
+.mh button{background:none;border:0;font-size:26px}
+.mi{flex:1;overflow:auto;padding:8px 22px}
+.row{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row img{width:56px;height:56px;border-radius:10px;object-fit:cover}
+.row s{font-size:12px}
+.row button{background:none;border:0;color:var(--muted);font-size:12px;text-decoration:underline}
+.mf{padding:18px 22px;border-top:1px solid var(--line)}
+.sum{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.sum.tot{font-family:var(--disp);font-weight:900;font-size:1.4rem;margin:10px 0 14px}
+.mf .btn{width:100%;justify-content:center}
+.save{color:#1f9d55;font-weight:600}
+footer{background:var(--ink);color:#9a9aa3;padding-block:46px;font-size:14px;text-align:center}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="concept">Sale page concept · store name, products, prices and countdown are sample data</div>
+<div class="top"><span>⚡ WINTER MEGA SALE · Up to 60% off · Extra 10% with code <b>WINTER10</b> · Free shipping over $75 · Ends Sunday midnight ⚡&nbsp;&nbsp;&nbsp;&nbsp;⚡ WINTER MEGA SALE · Up to 60% off · Extra 10% with code <b>WINTER10</b> · Free shipping over $75</span></div>
+<header><div class="wrap hnav"><a class="logo" href="#top">volt<i>.</i>store</a><button class="cartbtn" id="openCart">Cart <b id="cnt">0</b></button></div></header>
+
+<main id="top">
+<section class="hero" style="padding:0"><div class="wrap">
+  <span class="tag">Live now · Seasonal sale</span>
+  <h1>Winter<em>Mega Sale</em></h1>
+  <p class="lead">Up to 60% off electronics, clothing and accessories. Prices this low only last until the timer hits zero.</p>
+  <div class="count" id="count" aria-label="Time left in the sale">
+    <div><b id="d">00</b><small>Days</small></div><div><b id="h">00</b><small>Hours</small></div><div><b id="m">00</b><small>Mins</small></div><div><b id="s">00</b><small>Secs</small></div>
+  </div>
+  <div class="ctas"><a class="btn btn-red" href="#deals">Shop top deals →</a><a class="btn btn-ghost" href="#promo">Get extra 10% off</a></div>
+  <div class="sold"><b id="soldN">0</b><span>items sold in the last 24 hours</span><div class="bar"><i id="soldBar"></i></div></div>
+</div></section>
+
+<nav class="anchors" aria-label="Sale sections"><div class="wrap">
+  <a href="#deals">🔥 Top 5 Deals</a><a href="#electronics">Electronics</a><a href="#clothing">Clothing</a><a href="#accessories">Accessories</a><a href="#promo">Promo Code</a>
+</div></nav>
+
+<section id="deals"><div class="wrap">
+  <div class="sh reveal"><div><span class="eyebrow">Biggest savings</span><h2>Top 5 Deals</h2></div><p>Hand-picked by our team. When they're gone, they're gone.</p></div>
+  <div class="top5" id="top5"></div>
+</div></section>
+
+<section id="promo" style="padding-top:0"><div class="wrap">
+  <div class="promo reveal">
+    <div><span class="eyebrow" style="color:var(--ink)">Stack your savings</span><h2>Extra 10% off everything</h2>
+      <div class="code"><b id="codeTxt">WINTER10</b><button id="copy">Copy</button></div></div>
+    <details class="terms" open><summary>Promotion terms &amp; conditions</summary><ul>
+      <li>Extra 10% off applies at checkout on top of sale prices.</li>
+      <li>Valid until Sunday 11:59 PM CST, while stocks last.</li>
+      <li>One use per customer. Not valid on gift cards.</li>
+      <li>Free standard shipping on orders over $75.</li>
+      <li>30-day returns on all sale items.</li></ul></details>
+  </div>
+</div></section>
+
+<section id="all" style="padding-top:0"><div class="wrap">
+  <div class="sh reveal"><div><span class="eyebrow">Shop the sale</span><h2>All sale items</h2></div>
+    <div class="filters" role="group" aria-label="Filter by category" id="filters">
+      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="electronics">Electronics</button><button aria-pressed="false" data-f="clothing">Clothing</button><button aria-pressed="false" data-f="accessories">Accessories</button><button aria-pressed="false" data-f="50">50%+ off</button></div></div>
+  <div id="cats"></div>
+</div></section>
+</main>
+
+<footer>© volt.store · Sale page concept by Gregory</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><img id="timg" alt=""><span id="tmsg"></span><a href="#" id="tview">View cart</a></div>
+<div class="scrim" id="scrim"></div>
+<aside class="mini" id="mini" aria-label="Cart">
+  <div class="mh"><h3>Your Cart</h3><button id="closeCart" aria-label="Close cart">×</button></div>
+  <div class="mi" id="items"></div>
+  <div class="mf"><div class="sum"><span>Original price</span><s id="orig">$0</s></div><div class="sum"><span>You save</span><span class="save" id="saved">$0</span></div><div class="sum tot"><span>Total</span><span id="total">$0</span></div><a class="btn btn-red" href="#top" id="checkout">Checkout</a></div>
+</aside>
+
+<script>
+const U=(id,w)=>'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w='+w+'&q=75';
+const P=[
+ {id:1,n:'Noise-Cancelling Headphones',c:'electronics',p:149,o:349,img:'photo-1618366712010-f4ae9c647dcb',top:1,stock:7},
+ {id:2,n:'Smart Watch Series S',c:'electronics',p:199,o:399,img:'photo-1546868871-7041f2a55e12',top:2,stock:12},
+ {id:3,n:'Portable Bluetooth Speaker',c:'electronics',p:59,o:129,img:'photo-1608043152269-423dbba4e7e1',top:3},
+ {id:4,n:'Leather Jacket',c:'clothing',p:129,o:289,img:'photo-1623854156816-4c4fc355ffc7',top:4,stock:5},
+ {id:5,n:'Runner Sneakers',c:'clothing',p:69,o:139,img:'photo-1600185365926-3a2ce3cdb9eb',top:5},
+ {id:6,n:'Wireless On-Ear Headphones',c:'electronics',p:79,o:149,img:'photo-1613040809024-b4ef7ba99bc3'},
+ {id:7,n:'Classic White Hoodie',c:'clothing',p:39,o:79,img:'photo-1620799140188-3b2a02fd9a77',stock:9},
+ {id:8,n:'Washed Denim Jacket',c:'clothing',p:54,o:110,img:'photo-1543076447-215ad9ba6923'},
+ {id:9,n:'Polarised Sunglasses',c:'accessories',p:35,o:89,img:'photo-1611222777277-61319d63ca94'},
+ {id:10,n:'Gold Bead Bracelet',c:'accessories',p:29,o:58,img:'photo-1573446238824-c28afa0cd312',stock:6},
+ {id:11,n:'Signet Ring Set',c:'accessories',p:24,o:60,img:'photo-1626122780071-c09d403b8e32'},
+ {id:12,n:'Smart Watch Sport Band',c:'electronics',p:19,o:39,img:'photo-1546868871-7041f2a55e12'}
+];
+const pct=x=>Math.round((1-x.p/x.o)*100);
+const btn=x=>'<button class="add" data-id="'+x.id+'">Add to cart</button>';
+// top 5
+document.getElementById('top5').innerHTML=P.filter(x=>x.top).sort((a,b)=>a.top-b.top).map(x=>'<article class="deal reveal'+(x.top===1?' big':'')+'"><div class="im" style="background-image:url('+U(x.img,x.top===1?1400:800)+')"></div><span class="rank">#'+x.top+'</span><span class="off">-'+pct(x)+'%</span><div class="in"><h3>'+x.n+'</h3><div class="pr"><span class="price">$'+x.p+'</span><s>$'+x.o+'</s>'+btn(x)+'</div></div></article>').join('');
+// category blocks
+const C=[['electronics','Electronics'],['clothing','Clothing'],['accessories','Accessories']];
+document.getElementById('cats').innerHTML=C.map(([k,l])=>{const items=P.filter(x=>x.c===k);return '<div class="catblock" id="'+k+'" data-cat="'+k+'"><h3>'+l+' <span>'+items.length+' deals</span></h3><div class="grid">'+items.map(x=>'<article class="card reveal" data-c="'+x.c+'" data-pct="'+pct(x)+'"><div class="im" style="background-image:url('+U(x.img,600)+')"><span class="off">-'+pct(x)+'%</span>'+(x.stock?'<span class="low">Only '+x.stock+' left</span>':'')+'</div><div class="bd"><h4>'+x.n+'</h4><div class="pr"><span class="price">$'+x.p+'</span><s>$'+x.o+'</s></div>'+btn(x)+'</div></article>').join('')+'</div></div>'}).join('');
+// filters
+document.querySelectorAll('#filters button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));const f=b.dataset.f;
+ document.querySelectorAll('.catblock').forEach(cb=>{let any=0;cb.querySelectorAll('.card').forEach(c=>{const ok=f==='all'||c.dataset.c===f||(f==='50'&&+c.dataset.pct>=50);c.classList.toggle('hide',!ok);if(ok)any=1});cb.classList.toggle('hide',!any)})});
+// countdown to next Sunday 23:59 local
+function end(){const d=new Date();d.setDate(d.getDate()+((7-d.getDay())%7||7));d.setHours(23,59,59,0);return d}
+const E=end();const z=n=>String(n).padStart(2,'0');
+function tick(){let t=Math.max(0,E-new Date())/1000;d.textContent=z(Math.floor(t/86400));h.textContent=z(Math.floor(t%86400/3600));m.textContent=z(Math.floor(t%3600/60));s.textContent=z(Math.floor(t%60))}
+const d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');tick();setInterval(tick,1000);
+// sold counter
+let sold=0;const target=2847;const sN=document.getElementById('soldN');
+(function up(){sold=Math.min(target,sold+Math.ceil((target-sold)/14));sN.textContent=sold.toLocaleString();if(sold<target)requestAnimationFrame(up)})();
+setTimeout(()=>document.getElementById('soldBar').style.width='72%',300);
+setInterval(()=>{sold+=Math.ceil(Math.random()*3);sN.textContent=sold.toLocaleString()},4000);
+// cart (simulates WooCommerce AJAX add-to-cart)
+let cart=[];const $=i=>document.getElementById(i);
+function render(){const t=cart.reduce((a,x)=>a+x.p,0),o=cart.reduce((a,x)=>a+x.o,0);$('cnt').textContent=cart.length;$('cnt').classList.add('pop');setTimeout(()=>$('cnt').classList.remove('pop'),300);
+ $('total').textContent='$'+t;$('orig').textContent='$'+o;$('saved').textContent='$'+(o-t);
+ $('items').innerHTML=cart.length?cart.map((x,i)=>'<div class="row"><img src="'+U(x.img,120)+'" alt=""><span><b>'+x.n+'</b><br>$'+x.p+' <s>$'+x.o+'</s></span><button data-i="'+i+'">Remove</button></div>').join(''):'<p style="color:var(--muted);padding:30px 0;text-align:center">Your cart is empty.</p>';
+ $('items').querySelectorAll('button').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.i,1);render()})}
+let tt;function toast(x){$('timg').src=U(x.img,100);$('tmsg').innerHTML='<b>'+x.n+'</b> added. You saved $'+(x.o-x.p)+'!';$('toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('toast').classList.remove('on'),3200)}
+document.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;const x=P.find(p=>p.id==b.dataset.id);b.classList.add('loading');b.textContent='';
+ setTimeout(()=>{cart.push(x);render();toast(x);b.classList.remove('loading');b.classList.add('done');b.textContent='✓ Added';setTimeout(()=>{b.classList.remove('done');b.textContent='Add to cart'},1600)},550)});
+const open=()=>{$('mini').classList.add('on');$('scrim').classList.add('on')},close=()=>{$('mini').classList.remove('on');$('scrim').classList.remove('on')};
+$('openCart').onclick=open;$('tview').onclick=e=>{e.preventDefault();open()};$('closeCart').onclick=close;$('scrim').onclick=close;$('checkout').onclick=e=>{e.preventDefault();$('checkout').textContent='Concept: checkout not connected'};
+addEventListener('keydown',e=>{if(e.key==='Escape')close()});render();
+// copy code
+$('copy').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText('WINTER10').catch(()=>{});$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy',1800)};
+// active anchor
+const links=[...document.querySelectorAll('.anchors a')];
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});
+['deals','promo','electronics','clothing','accessories'].forEach(i=>so.observe($(i)));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
